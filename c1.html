@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python</title>
+    <link rel="stylesheet" href="style-course.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        /* Стили для таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-left: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стили для ячеек заголовка */
+        th {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Стили для ячеек данных */
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        /* Стиль для ссылок в ячейках данных */
+        td a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hover-эффект при наведении на ссылки */
+        td a:hover {
+            color: #1e87d2;
+        }
+
+        .panel {
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #4caf50;
+            border-radius: 8px;
+        }
+
+        .label {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .panel:hover{
+            scale: 110%;
+            transition: all .3s;
+            cursor: pointer;
+        }
+
+        .back-button {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #007bff;
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        .panelplus{
+            color: #eee;
+            background: linear-gradient(119.94deg,#2196f3,#443fa2 86%);
+        }
+        .panelplus2{
+            color: #eee;
+            background: linear-gradient(121.87deg,#43a047 10.59%,#2196f3 96%);
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="backbtn" class="back-button" onclick="showpanels()"><< Назад</div>
+    <div class="course-container">
+        <div id="intro-panel" class="panel">
+            
+        </div>
+
+        <div id="project-panel" class="panel">
+            
+        </div>
+
+        <div id="dostup-lect" class="panel">
+            
+        </div>
+        <div class="t"></div>
+
+    </div>
+
+    <script>
+        let currentPanel = 'intro-panel';
+        const study_prog = document.getElementById("intro-panel")
+        study_prog.innerHTML=`
+        <h2>Обучение</h2>
+            <div id="study-prog" class="progress-bar">
+                <div class="progress" style="width: ${localStorage.getItem("proc_py")}%;"></div>
+            </div>
+            <div class="label">Пройдено: ${localStorage.getItem("proc_py")}%</div>
+        `
+        const study_prog2 = document.getElementById("project-panel")
+        study_prog2.innerHTML=`
+        <h2>Итоговый проект</h2>
+            <div class="progress-bar">
+                <div class="progress" style="width: ${localStorage.getItem("itog_py")}%;"></div>
+            </div>
+            <div class="label">Пройдено: ${localStorage.getItem("itog_py")}%</div>
+        `
+        const study_prog3 = document.getElementById("dostup-lect")
+        study_prog3.innerHTML=`
+        <h2>Доступный материал</h2>
+        `
+        function showpanels() {
+            document.getElementById('intro-panel').style.display = 'block';
+            document.getElementById('project-panel').style.display = 'block';
+            document.getElementById('dostup-lect').style.display = 'block';
+            const mainContent = document.querySelector('.t');
+
+            // Очищаем текущий контент
+            mainContent.innerHTML = '';
+            document.getElementById('backbtn').style.display = 'none';
+        }
+        // console.log(document.getElementsByClassName(".panel"))
+        // Добавляем темы динамически при клике на "Обучение"
+        document.getElementById('dostup-lect').onclick = () => {
+            document.querySelector('.back-button').style.display = 'block';  // Показать кнопку "Назад"
+            document.getElementById('intro-panel').style.display = 'none';
+            document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('dostup-lect').style.display = 'none';
+        
+            // Создание таблицы
+            let table = document.createElement('table');
+            table.setAttribute('border', '1');  // Добавить границу таблице
+        
+            // Заголовок таблицы
+            let headerRow = table.insertRow();
+            let headerCell1 = headerRow.insertCell(0);
+            let headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название лекции</b>';
+            headerCell2.innerHTML = '<b>Ссылка на лекцию</b>';
+            let row1 = table.insertRow();
+            let cell2 = row1.insertCell(0);
+            let cell3 = row1.insertCell(1);
+            cell2.innerHTML = 'Лекция GIT';
+            cell3.innerHTML = '<a href="lections/py/L_git.pdf" target="_blank">Ссылка GIT</a>';
+            // Данные таблицы
+            for (let i = 1; i <= 9; i++) {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = 'Лекция ' + i;
+                cell2.innerHTML = `<a href="lections/py/L_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+            }
+
+            // Создание таблицы
+            let table2 = document.createElement('table');
+            table2.setAttribute('border', '1');  // Добавить границу таблице
+        
+            // Заголовок таблицы
+            headerRow = table2.insertRow();
+            headerCell1 = headerRow.insertCell(0);
+            headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название Лабораторной</b>';
+            headerCell2.innerHTML = '<b>Ссылка на Лабораторную</b>';
+        
+            // Данные таблицы
+            for (let i = 1; i <= 24; i++) {
+                let row = table2.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = 'Лабораторная работа ' + i;
+                cell2.innerHTML = `<a href="lections/py/LB_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+            }
+
+            // Создание таблицы
+            let table3 = document.createElement('table');
+            table3.setAttribute('border', '1');  // Добавить границу таблице
+        
+            // Заголовок таблицы
+            headerRow = table3.insertRow();
+            headerCell1 = headerRow.insertCell(0);
+            headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название Проекта</b>';
+            headerCell2.innerHTML = '<b>Ссылка на условие</b>';
+        
+            // Данные таблицы
+            for (let i = 1; i <= 1; i++) {
+                let row = table3.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = 'Проект ' + i;
+                cell2.innerHTML = `<a href="lections/py/T_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+            }
+        
+            // Добавить таблицу в блок с классом "t"
+            document.querySelector('.t').appendChild(table);
+            document.querySelector('.t').appendChild(table2);
+            document.querySelector('.t').appendChild(table3);
+        };
+        
+        document.getElementById('intro-panel').onclick = ()=>{
+            //showPanel('intro-panel');  // Скрыть панель "Обучение"
+            //alert(document.getElementsByClassName(".panel"))
+            document.querySelector('.back-button').style.display = 'block';  // Показать кнопку "Назад"
+            document.getElementById('intro-panel').style.display = 'none';
+            document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('dostup-lect').style.display = 'none';
+            const topics = [
+                'Структура программы/Компилятор',
+                'Операторы ввода/вывода',
+                'Переменные, типы данных.',
+                'Операции над переменными',
+                'Лабораторная номер 1',
+                'Тест 1',
+                'IF-ELSE',
+                'Циклы (While, For)',
+                'Работа с файлами',
+                'Работа со строками',
+                'F-строки, PEP',
+                'Тест 2',
+                'Списки',
+                'Лабораторная номер 2',
+                'Срезы',
+                'Кортежи',
+                'Словари',
+                'Множества',
+                'Лабораторная номер 3',
+                'Тест 3',
+                'Алгоритмы сортировок/поиска',
+                'Оценка сложности программы (O-большое)',
+                'Функции, Декораторы, typehints',
+                'Глобальные переменные',
+                'Лабораторная номер 4',
+                '(*) Основы ИБ.',
+                'Лабораторная номер 5',
+                'Лабораторная номер 6',
+                'Зачет 1',
+                'ООП',
+                'ООП (стек, очередь, дек..)',
+                'Лабораторная номер 7',
+                'Исключения и ошибки',
+                'Лабораторная номер 8',
+                'АИСД. Деревья',
+                'Лабораторная номер 9 (на деревья)',
+                'АИСД. ХЕШ-таблицы',
+                'Лабораторная номер 10 (на хеш таблицу)',
+                'АИСД. Динамический массив',
+                'АИСД. Графы',
+                'Модули и библиотеки',
+                'Лабораторная номер 11 (OS/MATH/RANDOM)',
+                'Лабораторная номер 12 (DECODING)',
+                'Telebot (создание телеграмм ботов)',
+                'Лабораторная номер 13 (вирт.1)',
+                'Лабораторная номер 14 (вирт.2)',
+                'Основы SQL.',
+                'Логирование (logging)',
+                'Парсинг данных',
+                'Лабораторная номер 15 (parse)',
+                'Зачет 2',
+                'Интерпретатор ЯП',
+                'Автоматизация процессов',
+                'Лабораторная номер 16',
+                'Работа с Excel',
+                'Лабораторная номер 17',
+                '(*) Основы создания ИИ',
+                'Лабораторная номер 18 (ИИ)',
+                'Docker',
+                'Лабораторная номер 19 (Docker)',
+                'PyQT',
+                'Лабораторная номер 20 (pyqt.1)',
+                'Лабораторная номер 21 (pyqt.2)',
+                'Лабораторная номер 23 (simple game pickman)',
+                '(*) Flask/Django',
+                'Лабораторная номер 24 (flask)',
+                'Итоговая Контролируемая работа (Экзамен)'
+            ];
+            
+            const mainContent = document.querySelector('.t');
+            for (let i = 0; i < topics.length; i++) {
+                const topicPanel = document.createElement('div');
+                topicPanel.classList.add('panel', 'topic-panel'); // Добавляем класс topic-panel
+                topicPanel.id = `topic${i + 1}-panel`;
+            
+                const progressBar = document.createElement('div');
+                const label = document.createElement('div');
+                const label2 = document.createElement('div');
+            
+                progressBar.classList.add('progress-bar');
+                progressBar.innerHTML = `<div class="progress" style="width: ${py[i+1][0]}%;"></div>`;
+            
+                label.classList.add('label');
+                
+                label.textContent = `Пройдено: ${py[i + 1][0]}%`;
+            
+                // Проверяем наличие "Тест" или "Лабораторная" в названии темы
+                if (topics[i].includes("Тест") || topics[i].includes("Лабораторная")) {
+                    label2.classList.add('label2');
+                    label2.textContent = `Баллов: ${py[i + 1][1]}`;
+                    topicPanel.appendChild(label2);
+                    topicPanel.classList.add('panelplus');
+                }
+                else if (topics[i].includes("Зачет") || topics[i].includes("Итоговая")) {
+                    label2.classList.add('label2');
+                    label2.textContent = `Баллов: ${py[i + 1][1]}`;
+                    topicPanel.appendChild(label2);
+                    topicPanel.classList.add('panelplus2');
+                }
+            
+                topicPanel.appendChild(document.createElement('h2')).textContent = topics[i];
+                topicPanel.appendChild(progressBar);
+                topicPanel.appendChild(label);
+            
+                // Добавляем обработчик события для каждой темы
+                topicPanel.addEventListener('click', function () {
+                    updateProgress(`topic${i + 1}-panel`, 25 * (i + 1)); // Пример обновления прогресса
+                });
+            
+                mainContent.appendChild(topicPanel); // Используем .course-container вместо .t
+                //const progressElement = document.getElementById(panelId).querySelector('.progress');
+                //progressElement.style.width = py[i+1][0] + '%';
+            }
+            
+        };
+
+    </script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

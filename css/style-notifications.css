@@ -1,0 +1,22 @@
+/* Избегаем конфликтов стилей, добавив уникальный класс для уведомлений */
+.notifications {
+    padding: 20px;
+    width: 300px;
+    margin: 10px;
+
+}
+
+.whatsapp-section {
+    margin-bottom: 20px;
+}
+
+.whatsapp-section span {
+    font-weight: bold;
+}
+
+.whatsapp-section img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+

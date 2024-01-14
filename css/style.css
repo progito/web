@@ -1,0 +1,357 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+.schedule {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd; /* Цвет рамки */
+    border-radius: 10px;
+    overflow: hidden; /* Предотвращает выступание рамки за границы */
+}
+
+.week-selector {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.week-selector button {
+    background-color: #346cdb;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.lesson_this{
+    background: rgb(141, 217, 141);
+}
+table {
+    width: 100%;
+    border-collapse: collapse; /* Убирает пробелы между ячейками */
+    margin-top: 10px;
+}
+
+thead {
+    background-color: #346cdb;
+    color: #fff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd; /* Цвет рамки между ячейками */
+}
+
+th {
+    font-weight: bold;
+}
+
+
+
+.container {
+    display: flex;
+}
+
+.menu i {
+    margin-right: 10px; /* Расстояние между иконкой и текстом */
+}
+.menu-text {
+    display: inline-block;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #eee;
+    color: grey;
+    overflow: hidden;
+    position: fixed;
+    transition: width 0.5s;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #555;
+    
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url("img/avatar.png");
+    border: 2px solid grey;
+    background-size: cover; 
+    margin-right: 10px;
+}
+
+.user-name {
+    font-size: 16px;
+}
+
+.menu {
+    padding: 20px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #343434;
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.disable{
+    background: #7d7d7d;
+}
+
+.menu a:hover {
+    background-color: #d3d3d3;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px;
+}
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 60px; /* Подстройте значение в зависимости от вашего дизайна */
+    right: 20px; /* Подстройте значение в зависимости от вашего дизайна */
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.user-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-menu li {
+    margin-bottom: 10px;
+}
+
+.user-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    display: block;
+}
+
+.user-menu a:hover {
+    background-color: #555;
+}
+
+.notification-section,
+.study-section {
+    margin-top: 20px;
+}
+
+.toggle-btn {
+    background: rgb(65, 224, 102);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 20%;
+    top: 20vh; /* Используем 20% высоты видимой области */
+    margin-top: 50vh;
+    margin-bottom: 20px;
+}
+
+
+.toggle-btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.close-menu {
+    margin-left: 20%;
+    top: 25vh; /* Используем 25% высоты видимой области */
+}
+.close-menu:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+
+.course-panel#d1 {
+    width: 250px;
+    height: 150px;
+    max-width: 400px;
+    box-sizing: border-box;
+    padding: 10px;
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    padding: 10px 10px;
+    margin: 4px 4px;
+    color: #eee;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(1, 1, 1, 0.25);
+}
+.course-panel#d0 {
+    width: 250px;
+    height: 130px;
+    max-width: 400px;
+    background: linear-gradient(90deg, rgb(105, 102, 192) 0%, rgb(69, 69, 158) 0%, rgba(0,212,255,1) 100%);padding: 10px 10px;
+    padding: 10px 10px;
+    margin: 4px 4px;
+    color: #eee;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(1, 1, 1, 0.25);
+}
+.course-panel#d2 {
+    width: 250px;
+    height: 150px;
+    max-width: 400px;
+    box-sizing: border-box;
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    padding: 10px 10px;
+    margin: 4px 4px;
+    color: #eee;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(1, 1, 1, 0.25);
+}
+.course-panel#d2:hover{
+    scale: 110%;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+/* Стили для формы настроек */
+.settings {
+    max-width: 400px;
+
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Стили для меток (labels) */
+.settings label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Стили для текстовых полей */
+.settings input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Стили для кнопки */
+.settings button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e9e9e9;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.settings button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.course-panel#d1:hover{
+    scale: 110%;
+    transition: all .3s;
+    cursor: pointer;
+}
+.course-panel#d0:hover{
+    scale: 110%;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+
+
+.user-data span,
+.achievements span,
+.languages span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+}
+.date-time {
+    display: block;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(264.46deg,rgba(255,125,63,.33) 24.39%,rgba(255,76,132,.33) 54.4%);
+}
+.tech-support {
+    display: block;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(97.29deg,rgba(94,181,242,.33) 16.14%,rgba(154,213,255,.33) 81.6%);
+}
+.achievements span::before,
+.languages span::before {
+    content: '▶ '; /* Добавляем символ маркера перед текстом */
+    color: #4caf50; /* Цвет маркера */
+    margin-right: 5px;
+}
+
+.achievements span,
+.languages span {
+    padding-left: 20px; /* Отступ текста от маркера */
+}
+.panel {
+    background-color: #f0f0f0; /* Цвет фона */
+    border-radius: 10px; /* Радиус закругления углов */
+    padding: 20px; /* Внутренний отступ */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+
+
+@media (max-width: 600px) {
+    .course-panel {
+        width: 100%;
+    }
+}

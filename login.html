@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style-profile.css">
+    <link rel="stylesheet" href="./css/style-notifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+        <div class="user-info">
+
+        </div>
+        <div class="menu">
+            <ul>
+              <li><a href="#" data-section="profile"><i class="fas fa-user"></i><span class="menu-text"> Профиль</span></a></li>
+              <li><a href="#" data-section="notifications"><i class="fas fa-envelope"></i><span class="menu-text"> Мессенджер</span></a></li>
+              <li><a href="#" data-section="date-lessons"><i class="fas fa-calendar"></i><span class="menu-text"> Расписание</span></a></li>
+              <li><a href="#" data-section="education"><i class="fas fa-book"></i><span class="menu-text"> Учеба</span></a></li>
+              <li><a href="#" data-section="settings"><i class="fas fa-cog"></i><span class="menu-text"> Настройки</span></a></li>
+              <li><a href="index.html" style="color: #ee5353;"><i class="fas fa-sign-out-alt"></i><span class="menu-text"> Выйти</span></a></li>
+            </ul>
+        </div>
+        <button id="btn-whats-app" class="toggle-btn" onclick="location.href='https://wa.me/qr/4NRBWPWDCWULH1'">Whats-App</button>
+        <br/><a id="close-menu" class="close-menu" onclick="toggleSidebar()"><< cвернуть меню</a>
+    </div>
+
+    <div class="main-content">
+        <!-- Здесь разместите основное содержимое вашего сайта -->
+    </div>
+
+</div>
+<script src="./js/main.js"></script>
+<script src="./js/reloader.js"></script>
+</body>
+</html>
