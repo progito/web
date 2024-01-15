@@ -183,7 +183,8 @@
         "proc_js": "0",
         "itog_py": "0",
         "itog_c": "0",
-        "itog_js": "0"
+        "itog_js": "0",
+        "date_lesson": {}
     },
     {
         "user": "petr",
