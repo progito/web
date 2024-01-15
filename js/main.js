@@ -118,7 +118,14 @@ function updateWeekTable() {
     });
 
     table.appendChild(tbody);
+    const a = document.createElement('a');
+    const br = document.createElement('br');
+    a.href = "https://t.me/ProgitoCourseBot";
+    a.textContent = "Запись на занятие (телеграм-бот)";
+    a.target = '_blank';
     mainContent.appendChild(table);
+    mainContent.appendChild(br);
+    mainContent.appendChild(a);
 }
 
 async function formedSchedule(date_start, date_end){
@@ -159,7 +166,15 @@ async function formedSchedule(date_start, date_end){
     else if (currentUser) {
         const object = JSON.stringify(currentUser.date_lesson);
         const pr = JSON.parse(object);
-
+        console.log(pr)
+        for (let i = 0; i < 7; i++) {
+            schedule[i] = [];
+    
+            for (let j = 0; j < 8; j++) {
+                schedule[i][j] = "";
+            }
+        }
+    
         for (const date in pr) {
             if (pr.hasOwnProperty(date)) {
                 // Check if the date is within the specified range
