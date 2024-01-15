@@ -175,7 +175,7 @@ th {
     font-size: 14px;
     margin-left: 20%;
     top: 20vh; /* Используем 20% высоты видимой области */
-    margin-top: 50vh;
+    margin-top: 1vh;
     margin-bottom: 20px;
 }
 
