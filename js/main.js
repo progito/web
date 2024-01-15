@@ -229,7 +229,7 @@ function getDayIndexFromDate(date) {
     const day = parsedDate.getDay();
 
     // Adjust the day index based on your needs
-    return (day + 7) % 7 - 1;
+    return (day + 7) % 7;
 }
 
 
