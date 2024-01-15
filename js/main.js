@@ -97,7 +97,7 @@ function updateWeekTable() {
     table.appendChild(thead);
     formedSchedule(date_start, date_end)
     .then(schedule => {
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 13; i++) {
             const scheduleRow = document.createElement('tr');
             for (let j = 0; j < 7; j++) {
                 const td = document.createElement('td');
@@ -135,7 +135,7 @@ async function formedSchedule(date_start, date_end){
     for (let i = 0; i < 7; i++) {
         schedule[i] = [];
 
-        for (let j = 0; j < 8; j++) {
+        for (let j = 0; j < 13; j++) {
             schedule[i][j] = "";
         }
     }
@@ -148,6 +148,7 @@ async function formedSchedule(date_start, date_end){
             for (const date in userSchedule) {
                 if (userSchedule.hasOwnProperty(date)) {
                     // Check if the date is within the specified range
+                    console.log(userSchedule)
                     if (date >= date_start && date <= date_end) {
                         const dayIndex = getDayIndexFromDate(date);
                         const time = userSchedule[date][0];
