@@ -105,6 +105,7 @@ function updateWeekTable() {
                 if (cellValue !== undefined) {
                     td.textContent = cellValue;
                 }
+                console.log(schedule[j][i])
                 if (schedule[j][i] != ""){
                     td.className = "lesson_this";
                 }
