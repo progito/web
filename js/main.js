@@ -97,7 +97,7 @@ function updateWeekTable() {
     table.appendChild(thead);
     formedSchedule(date_start, date_end)
     .then(schedule => {
-        for (let i = 0; i < 13; i++) {
+        for (let i = -1; i < 13; i++) {
             const scheduleRow = document.createElement('tr');
             for (let j = 0; j < 7; j++) {
                 const td = document.createElement('td');
