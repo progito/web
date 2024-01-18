@@ -553,11 +553,7 @@
             "itog_c": "0",
             "itog_js": "0",
             "date_lesson": {
-                "2024-01-19": [
-                    "09:00",
-                    "Python",
-                    "2"
-                ]
+                
             }
         },
         {
@@ -1114,7 +1110,13 @@
             "itog_py": "0",
             "itog_c": "0",
             "itog_js": "0",
-            "date_lesson": {}
+            "date_lesson": {
+                "2024-01-19": [
+                    "09:00",
+                    "Python",
+                    "2"
+                ]
+            }
         },
         {
             "user": "Andrey <ADMIN>",
