@@ -236,10 +236,27 @@
                 cell2.innerHTML = `<a href="lections/py/T_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
             }
         
+            let table4 = document.createElement('table');
+            table4.setAttribute('border', '1');  
+        
+            // Заголовок таблицы
+            headerRow = table4.insertRow();
+            headerCell1 = headerRow.insertCell(0);
+            headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название</b>';
+            headerCell2.innerHTML = '<b>Ссылка на файл</b>';
+        
+            let row = table4.insertRow();
+            let cell11 = row.insertCell(0);
+            let cell21 = row.insertCell(1);
+            cell11.innerHTML = 'Вопросы к экзамену ';
+            cell21.innerHTML = `<a href="lections/py/EX.pdf" target="_blank">Ссылка</a><br>`;
+        
             // Добавить таблицу в блок с классом "t"
             document.querySelector('.t').appendChild(table);
             document.querySelector('.t').appendChild(table2);
             document.querySelector('.t').appendChild(table3);
+            document.querySelector('.t').appendChild(table4);
         };
         
         document.getElementById('intro-panel').onclick = ()=>{
