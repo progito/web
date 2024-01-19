@@ -15,13 +15,19 @@ const proc_js = localStorage.getItem("proc_js");
 const itog_py = localStorage.getItem("itog_py");
 const itog_c = localStorage.getItem("itog_c");
 const itog_js = localStorage.getItem("itog_js");
-
+const url = localStorage.getItem("avatar");
 
 const name_div = document.querySelector('.user-info');
 name_div.innerHTML = `
 <div class="user-avatar"></div>
 <span class="user-name">${username}</span>
 `
+
+const user_avatar = document.getElementsByClassName("user-avatar")[0];
+if (url != " " && url != undefined){
+    user_avatar.style.background = `url("${url}")`;
+}
+
 let currentWeekIndex = 0;
 
 function showPreviousWeeks() {
@@ -368,12 +374,6 @@ function showSettings() {
     // Добавляем форму настроек
     const settingsForm = document.createElement('form');
     settingsForm.innerHTML = `
-        <label for="username">Имя пользователя:</label>
-        <input type="text" id="username" name="username" placeholder="Введите новое имя пользователя">
-
-        <label for="city">Город:</label>
-        <input type="text" id="city" name="city" placeholder="Введите новый город">
-
         <label for="avatar">Аватарка (URL):</label>
         <input type="text" id="avatar" name="avatar" placeholder="Введите URL аватарки">
 
@@ -389,6 +389,11 @@ function showSettings() {
     if (additionalSettingsDiv) {
         additionalSettingsDiv[1].remove();
     }
+}
+
+function saveSettings(){
+    const avatarUrl = document.getElementById("avatar").value;
+    localStorage.setItem("avatar", avatarUrl);
 }
 
 // Добавляем функцию для отображения профильной информации
