@@ -449,7 +449,7 @@ function showNotifications() {
             
             
             // Display notification blocks only if proc_py is greater than 20
-            if (user.proc_py > -1) {
+            if (user.proc_py > 30) {
                 // Создаем элементы для раздела уведомлений
                 const notifications = document.createElement('div');
                 notifications.classList.add('notifications');
@@ -460,7 +460,7 @@ function showNotifications() {
                     'В этом видео повторим базовые понятия от компиляции программы до PEP8.',
                     'https://cdn.sites.univibes.ru/univibes.ru/2023/06/mini_programming-background-with-person-working-with-codes-on-computer.jpg',
                     'Смотреть',
-                    'video.mp4'
+                    'https://www.youtube.com/embed/mJia7Wu5QGM'
 
                 );
 
@@ -522,6 +522,7 @@ function createNotificationBlock(title, description, imageUrl, buttonText, link)
         const mainContent = document.querySelector('.main-content');
         mainContent.innerHTML = '';
         if (link != "#"){
+
             const videoContainer = createVideoContainer(link);
             mainContent.appendChild(videoContainer);
         } else {
@@ -646,25 +647,14 @@ function createVideoContainer(link) {
     const videoContainer = document.createElement('div');
     videoContainer.classList.add('video-container');
 
-    const video = document.createElement('video');
+    const video = document.createElement('iframe');
     video.id = 'myVideo';
-    video.controls = true;
-
-    const source = document.createElement('source');
-    source.src = link;
-    source.type = 'video/mp4';
-
-    const fallbackText = document.createTextNode('Your browser does not support the video tag.');
-
-    video.appendChild(source);
-    video.appendChild(fallbackText);
-
-    const videoOverlay = document.createElement('div');
-    videoOverlay.id = 'video-overlay';
-    videoOverlay.classList.add('overlay');
+    video.width = '560'; // Adjust the width as needed
+    video.height = '700px'; // Adjust the height as needed
+    video.src = link;
+    video.allowFullscreen = true; // Allow the video to be played in fullscreen mode
 
     videoContainer.appendChild(video);
-    videoContainer.appendChild(videoOverlay);
 
     return videoContainer;
 }
