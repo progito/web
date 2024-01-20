@@ -486,8 +486,9 @@ function showNotifications() {
                 const notificationBlock2 = createNotificationBlock(
                     'Как пройти собеседование?',
                     'Классные лайфхаки по проходу собеседований!',
-                    'https://via.placeholder.com/300',
-                    'Перейти'
+                    'https://medportal.ru/pictures/article/6278b394-1c9d-428d-bb47-9a643cca900e/medium.jpg',
+                    'Перейти',
+                    '#'
                 );
 
                
@@ -658,6 +659,21 @@ function createVideoContainer(link) {
 
     return videoContainer;
 }
+
+function super_(){
+    const mainContent = document.querySelector('.main-content');
+
+    // Очищаем текущий контент
+    mainContent.innerHTML = '';
+
+    const f = document.createElement('iframe');
+    f.width = '100%'; // Adjust the width as needed
+    f.height = '1200'; // Adjust the height as needed
+    f.src = 'marafon.html';
+
+    mainContent.appendChild(f);
+}
+
 // Добавляем функцию для отображения разделов
 function showSection(section) {
     const mainContent = document.querySelector('.main-content');
@@ -685,7 +701,9 @@ function showSection(section) {
         case 'date-lessons':
             updateWeekTable();
             break;
-        
+        case 'super':
+            super_();
+            break;
         default:
             break;
     }
