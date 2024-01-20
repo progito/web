@@ -441,19 +441,194 @@ function showNotifications() {
     // Очищаем текущий контент
     mainContent.innerHTML = '';
 
-    // Создаем элементы для раздела уведомлений
-    const notifications = document.createElement('div');
-    notifications.classList.add('notifications');
+    // Fetch user data from the JSON file
+    fetch('data.json')
+        .then(response => response.json())
+        .then(userData => {
+            const user = userData.users.find(u => u.user === localStorage.getItem("user"));
+            
+            
+            // Display notification blocks only if proc_py is greater than 20
+            if (user.proc_py > -1) {
+                // Создаем элементы для раздела уведомлений
+                const notifications = document.createElement('div');
+                notifications.classList.add('notifications');
 
-    const whatsappSection = document.createElement('div');
-    whatsappSection.classList.add('whatsapp-section');
-    whatsappSection.innerHTML = '<iframe style="border-radius: 10px;" src="chat.html" width="480%" height="900" frameborder="0" style="border: 0;"></iframe>';
+                // Создаем блок уведомления 1
+                const notificationBlock1 = createNotificationBlock(
+                    'Повторение Python #1',
+                    'В этом видео повторим базовые понятия от компиляции программы до PEP8.',
+                    'https://cdn.sites.univibes.ru/univibes.ru/2023/06/mini_programming-background-with-person-working-with-codes-on-computer.jpg',
+                    'Смотреть',
+                    'video.mp4'
 
-    // Добавляем элементы к разделу уведомлений
-    notifications.appendChild(whatsappSection);
+                );
 
-    // Добавляем раздел уведомлений в основное содержимое
-    mainContent.appendChild(notifications);
+                // Создаем блок уведомления 2
+                const notificationBlock2 = createNotificationBlock(
+                    'Как пройти собеседование?',
+                    'Классные лайфхаки по проходу собеседований!',
+                    'https://medportal.ru/pictures/article/6278b394-1c9d-428d-bb47-9a643cca900e/medium.jpg',
+                    'Перейти',
+                    '#'
+                );
+
+                // Добавляем блоки уведомлений к разделу уведомлений
+                notifications.appendChild(notificationBlock1);
+                notifications.appendChild(notificationBlock2);
+
+                // Добавляем раздел уведомлений в основное содержимое
+                mainContent.appendChild(notifications);
+            } else {
+                const notifications = document.createElement('div');
+                notifications.classList.add('notifications');
+                // Создаем блок уведомления 2
+                const notificationBlock2 = createNotificationBlock(
+                    'Как пройти собеседование?',
+                    'Классные лайфхаки по проходу собеседований!',
+                    'https://via.placeholder.com/300',
+                    'Перейти'
+                );
+
+               
+                notifications.appendChild(notificationBlock2);
+
+                mainContent.appendChild(notifications);
+            }
+        })
+        .catch(error => console.error('Error fetching user data:', error));
+}
+
+
+function createNotificationBlock(title, description, imageUrl, buttonText, link) {
+    const notificationBlock = document.createElement('div');
+    notificationBlock.classList.add('notification-block');
+
+    const img = document.createElement('img');
+    img.classList.add('notification-img');
+    img.src = imageUrl;
+    img.alt = title;
+
+    const titleElement = document.createElement('h3');
+    titleElement.textContent = title;
+
+    const descriptionElement = document.createElement('p');
+    descriptionElement.textContent = description;
+
+    const button = document.createElement('button');
+    button.classList.add('notification-button');
+    button.textContent = buttonText;
+    button.onclick=()=>{
+        const mainContent = document.querySelector('.main-content');
+        mainContent.innerHTML = '';
+        if (link != "#"){
+            const videoContainer = createVideoContainer(link);
+            mainContent.appendChild(videoContainer);
+        } else {
+            const data = {
+                "T": "Как успешно пройти собеседование на IT специалиста",
+                "H": "Подготовка к собеседованию",
+                "P": "Собеседование на IT специалиста — важный этап в карьере, где вам предстоит продемонстрировать свои навыки и знания. Подготовьтесь тщательно, изучив требования компании, в которой вы собираетесь проходить собеседование. Познакомьтесь с их проектами, используемыми технологиями и основными задачами.",
+            
+                "H2": "Обзор технических вопросов",
+                "P2": "Ожидайте вопросы, связанные с вашими техническими навыками. Подготовьтесь рассказать о проектах, в которых вы участвовали, используемых вами технологиях, архитектурных решениях. Практикуйтесь в решении задач по кодированию и освежите знания в области алгоритмов и структур данных.",
+            
+                "H3": "Стратегии ответов на технические вопросы",
+                "P3": "Будьте готовы к детальным вопросам по вашему опыту работы. Структурируйте свои ответы, демонстрируя, как ваши навыки соответствуют требованиям позиции. Если у вас есть проекты, которые можно показать, подготовьте их демонстрацию. Расскажите о трудностях, с которыми вы сталкивались, и о том, как их преодолели.",
+            
+                "H4": "Мягкие навыки и коммуникация",
+                "P4": "Собеседование — это не только проверка технических знаний, но и оценка ваших мягких навыков. Работодатели ценят коммуникабельность, способность к командной работе, инициативность. Подготовьтесь к вопросам о ситуациях, когда вам приходилось решать проблемы в коллективе, управлять проектами или вносить свой вклад в командный успех.",
+            
+                "H5": "Завершение собеседования",
+                "P5": "Завершите собеседование с вопросами о компании, ваших будущих задачах и перспективах развития. Выразите интерес к дальнейшему общению и выясните следующие шаги в процессе отбора. После собеседования не забудьте отправить благодарственное письмо, выражающее ваш интерес к позиции и компании."
+            };
+            const artCont = formedArticle(data);
+            mainContent.appendChild(artCont);
+        }
+        
+
+    }
+
+    notificationBlock.appendChild(img);
+    notificationBlock.appendChild(titleElement);
+    notificationBlock.appendChild(descriptionElement);
+    notificationBlock.appendChild(button);
+
+    return notificationBlock;
+}
+function formedArticle(data) {
+    const articleContainer = document.createElement('div');
+    articleContainer.classList.add('article-container');
+
+    // Check if the "T" key (title) exists in the data object
+    if (data["T"]) {
+        const articleTitle = document.createElement('h2');
+        articleTitle.textContent = data["T"];
+        articleContainer.appendChild(articleTitle);
+    }
+
+    // Check if the "H" key (subtitle) exists in the data object
+    if (data["H"]) {
+        const articleSubtitle = document.createElement('h3');
+        articleSubtitle.textContent = data["H"];
+        articleContainer.appendChild(articleSubtitle);
+    }
+
+    // Check if the "P" key (paragraph) exists in the data object
+    if (data["P"]) {
+        const articleParagraph = document.createElement('p');
+        articleParagraph.textContent = data["P"];
+        articleContainer.appendChild(articleParagraph);
+    }
+
+    // Check if the "H2" key (another subtitle) exists in the data object
+    if (data["H2"]) {
+        const anotherSubtitle = document.createElement('h3');
+        anotherSubtitle.textContent = data["H2"];
+        articleContainer.appendChild(anotherSubtitle);
+    }
+    if (data["P2"]) {
+        const articleParagraph = document.createElement('p');
+        articleParagraph.textContent = data["P2"];
+        articleContainer.appendChild(articleParagraph);
+    }
+
+    // Check if the "H2" key (another subtitle) exists in the data object
+    if (data["H3"]) {
+        const anotherSubtitle = document.createElement('h3');
+        anotherSubtitle.textContent = data["H3"];
+        articleContainer.appendChild(anotherSubtitle);
+    }
+    if (data["P3"]) {
+        const articleParagraph = document.createElement('p');
+        articleParagraph.textContent = data["P3"];
+        articleContainer.appendChild(articleParagraph);
+    }
+
+    // Check if the "H2" key (another subtitle) exists in the data object
+    if (data["H4"]) {
+        const anotherSubtitle = document.createElement('h3');
+        anotherSubtitle.textContent = data["H4"];
+        articleContainer.appendChild(anotherSubtitle);
+    }
+    if (data["P4"]) {
+        const articleParagraph = document.createElement('p');
+        articleParagraph.textContent = data["P4"];
+        articleContainer.appendChild(articleParagraph);
+    }
+
+    // Check if the "H2" key (another subtitle) exists in the data object
+    if (data["H5"]) {
+        const anotherSubtitle = document.createElement('h3');
+        anotherSubtitle.textContent = data["H5"];
+        articleContainer.appendChild(anotherSubtitle);
+    }
+    if (data["P5"]) {
+        const articleParagraph = document.createElement('p');
+        articleParagraph.textContent = data["P5"];
+        articleContainer.appendChild(articleParagraph);
+    }
+    return articleContainer;
 }
 showProfile()
 async function check(event) {
@@ -467,8 +642,32 @@ async function check(event) {
     }
 }
 
-// Начнем с отображения первой недели
+function createVideoContainer(link) {
+    const videoContainer = document.createElement('div');
+    videoContainer.classList.add('video-container');
 
+    const video = document.createElement('video');
+    video.id = 'myVideo';
+    video.controls = true;
+
+    const source = document.createElement('source');
+    source.src = link;
+    source.type = 'video/mp4';
+
+    const fallbackText = document.createTextNode('Your browser does not support the video tag.');
+
+    video.appendChild(source);
+    video.appendChild(fallbackText);
+
+    const videoOverlay = document.createElement('div');
+    videoOverlay.id = 'video-overlay';
+    videoOverlay.classList.add('overlay');
+
+    videoContainer.appendChild(video);
+    videoContainer.appendChild(videoOverlay);
+
+    return videoContainer;
+}
 // Добавляем функцию для отображения разделов
 function showSection(section) {
     const mainContent = document.querySelector('.main-content');
