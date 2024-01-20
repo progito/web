@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Марафон</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .pricing {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .price-card {
+            flex: 1;
+            padding: 20px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin: 10px 10px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .price-card:hover {
+            transform: scale(1.05);
+        }
+
+        .price-card ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .price-card li {
+            margin-bottom: 10px;
+        }
+
+        
+
+        .price-card button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Марафон</h1>
+    </header>
+
+    <section class="animate__animated animate__fadeIn">
+        <h2>Что такое марафон?</h2>
+        <p>
+            Марафон - это уникальная возможность для вас улучшить свои навыки программирования и подготовиться к собеседованиям!
+            Присоединяйтесь к моему красочному марафону, в рамках которого вы решите от 45 до 120 (и выше) разнообразных задач,
+            погрузившись в захватывающий мир кода и обогатив свой опыт программирования.
+        </p>
+        <p>
+            Мои экспертные задачи покроют различные области, помогая вам не только улучшить технические навыки, но и подготовиться
+            к типичным вопросам, которые могут встретиться на собеседованиях в сфере программирования.
+        </p>
+    </section>
+    
+    <section class="animate__animated animate__fadeIn">
+        <h2>Почему важно пройти?</h2>
+        <p>
+            Участие в моем марафоне - это ключ к вашему успешному прохождению собеседований в сфере программирования.
+            Большинство собеседований (около 95%) сегодня сосредоточены на алгоритмах, и решение множества разнообразных задач
+            поднимет ваши навыки программирования на новый уровень и увеличит шансы на успешное собеседование с первого раза.
+        </p>
+        <p>
+            Мои уникальные услуги предоставят вам возможность глубокого погружения в мир алгоритмов и структур данных.
+            Вы не только подготовитесь к типичным вопросам, но и научитесь эффективно решать различные задачи,
+            что сделает ваш процесс собеседования более уверенным и успешным.
+        </p>
+    </section>
+    
+
+    <section>
+        <h2>Цены</h2>
+        <div class="pricing">
+            <div class="price-card">
+                <h3>Базовый Марафон</h3>
+                <p>
+                    <ul>
+                        <li class="active"><span class="checkmark"></span>✅ Решим <b>45</b> разнообразных задач по программированию.</li>
+                        <li class="active"><span class="checkmark"></span>✅ Индивидуальные обратная связь.</li>
+                        <li class="active"><span class="checkmark"></span>✅ Закрепим теорию на практике.</li>
+                        <li class="inactive"><span class="crossmark"></span>❌ *Задачи из Apple, Google..</li>
+                    </ul>
+                </p>
+                <p>Цена - <strong>8 900₽</strong> <span style="text-decoration: line-through; color: #9f9f9f;">10 500₽</span></p>
+                <button onclick="location.href='https://api.whatsapp.com/qr/4NRBWPWDCWULH1?autoload=1&app_absent=0'">Подробнее</button>
+            </div>
+            <div class="price-card" style="background-color: rgba(107, 126, 231, 0.551);">
+                <h3>Премиум Марафон</h3>
+                <p>
+                    <ul>
+                        <li class="active"><span class="checkmark"></span>✅ Решим <b>90</b> разнообразных задач по программированию.</li>
+                        <li class="active"><span class="checkmark"></span>✅ Индивидуальные обратная связь.</li>
+                        <li class="active"><span class="checkmark"></span>✅ Закрепим теорию на практике.</li>
+                        <li class="active"><span class="checkmark"></span>✅ *Задачи из Apple, Google..</li>
+                    </ul>
+                </p>
+                <p>Цена - <strong>15 500₽</strong> <span style="text-decoration: line-through; color: #9f9f9f;">18 900₽</span></p>
+                <button onclick="location.href='https://api.whatsapp.com/qr/4NRBWPWDCWULH1?autoload=1&app_absent=0'">Подробнее</button>
+            </div>
+            <div class="price-card" >
+                <h3>Марафон Senior+</h3>
+                <p>
+                    <ul>
+                        <li class="active"><span class="checkmark"></span>✅ Решим <b>125+</b> разнообразных задач по программированию.</li>
+                        <li class="active"><span class="checkmark"></span>✅ Индивидуальные обратная связь.</li>
+                        <li class="active"><span class="checkmark"></span>✅ Закрепим теорию на практике.</li>
+                        <li class="active"><span class="checkmark"></span>✅ *Задачи из Apple, Google..</li>
+                    </ul>
+                </p>
+                <p>Цена - <strong>19 990₽</strong> <span style="text-decoration: line-through; color: #9f9f9f;">23 700₽</span></p>
+                <button onclick="location.href='https://api.whatsapp.com/qr/4NRBWPWDCWULH1?autoload=1&app_absent=0'">Подробнее</button>
+            </div>
+        </div>
+    </section>
+    <section></section>
+    <footer>
+        <p>&copy; 2024, МАРАФОН ПО ПРОГРАММИРОВАНИЮ</p>
+    </footer>
+</body>
+</html>
