@@ -407,9 +407,7 @@ th {
     transition: transform 0.3s ease-in-out;
 }
 
-#myVideo:hover {
-    transform: scale(1.02);
-}
+
 
 .overlay {
     position: absolute;
