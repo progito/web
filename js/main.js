@@ -323,12 +323,14 @@ function updateDateTime() {
         dateTimePanel.innerHTML = `<span>Здравствуйте, ${username}</span><br/><span>${getCurrentDateTime()}</span>`;
     }
 }
+toggleSidebar()
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
     const closeMenuButton = document.getElementById('close-menu');
     const menuItems = document.querySelectorAll('.menu a');
     const userName = document.getElementsByClassName("user-name")[0];
     const whatsAppBtn = document.getElementById("btn-whats-app");
+    
     if (isMenuClosed) {
         sidebar.style.width = '250px';
         closeMenuButton.innerText = '<< cвернуть меню';
@@ -667,8 +669,12 @@ function super_(){
     mainContent.innerHTML = '';
 
     const f = document.createElement('iframe');
-    f.width = '100%'; // Adjust the width as needed
-    f.height = '1200'; // Adjust the height as needed
+    if (isMenuClosed){
+        f.width = '350';
+        f.height = '900';
+    }
+    else{f.width = '100%'; f.height = '1200';} // Adjust the width as needed
+    // Adjust the height as needed
     f.src = 'marafon.html';
 
     mainContent.appendChild(f);
