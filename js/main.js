@@ -323,7 +323,9 @@ function updateDateTime() {
         dateTimePanel.innerHTML = `<span>Здравствуйте, ${username}</span><br/><span>${getCurrentDateTime()}</span>`;
     }
 }
-toggleSidebar()
+if (isMobileDevice()){
+    toggleSidebar()
+}
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
     const closeMenuButton = document.getElementById('close-menu');
@@ -669,7 +671,7 @@ function super_(){
     mainContent.innerHTML = '';
 
     const f = document.createElement('iframe');
-    if (isMenuClosed){
+    if (isMobileDevice()){
         f.width = '350';
         f.height = '900';
     }
