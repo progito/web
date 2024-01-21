@@ -667,7 +667,7 @@ function super_(){
     mainContent.innerHTML = '';
 
     const f = document.createElement('iframe');
-    f.width = '100%'; // Adjust the width as needed
+    f.width = '1800'; // Adjust the width as needed
     f.height = '1200'; // Adjust the height as needed
     f.src = 'marafon.html';
 
