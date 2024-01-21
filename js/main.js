@@ -665,7 +665,13 @@ function super_(){
 
     // Очищаем текущий контент
     mainContent.innerHTML = '';
-    location.href="marafon.html"
+
+    const f = document.createElement('iframe');
+    f.width = '100%'; // Adjust the width as needed
+    f.height = '1200'; // Adjust the height as needed
+    f.src = 'marafon.html';
+
+    mainContent.appendChild(f);
 }
 
 // Добавляем функцию для отображения разделов
