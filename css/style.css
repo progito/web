@@ -447,6 +447,11 @@ th {
     display: none;
 }
 
+iframe{
+    border: none;
+    border-radius: 15px;
+}
+
 @media (max-width: 600px) {
     .course-panel {
         width: 100%;
