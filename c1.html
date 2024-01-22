@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,6 +129,9 @@
         <div id="dostup-lect" class="panel">
             
         </div>
+        <div id="dop" class="panel">
+            
+        </div>
         <div class="t"></div>
 
     </div>
@@ -154,10 +158,15 @@
         study_prog3.innerHTML=`
         <h2>Доступный материал</h2>
         `
+        const study_prog4 = document.getElementById("dop")
+        study_prog4.innerHTML=`
+        <h2>с нуля до Middle</h2>
+        `
         function showpanels() {
             document.getElementById('intro-panel').style.display = 'block';
             document.getElementById('project-panel').style.display = 'block';
             document.getElementById('dostup-lect').style.display = 'block';
+            document.getElementById('dop').style.display = 'block';
             const mainContent = document.querySelector('.t');
 
             // Очищаем текущий контент
@@ -166,12 +175,20 @@
         }
         // console.log(document.getElementsByClassName(".panel"))
         // Добавляем темы динамически при клике на "Обучение"
+        document.getElementById('dop').onclick = () => {
+            document.querySelector('.back-button').style.display = 'block';  // Показать кнопку "Назад"
+            document.getElementById('intro-panel').style.display = 'none';
+            document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('dostup-lect').style.display = 'none';
+            document.getElementById('dop').style.display = 'none';
+            location.href="middle.html"
+        }
         document.getElementById('dostup-lect').onclick = () => {
             document.querySelector('.back-button').style.display = 'block';  // Показать кнопку "Назад"
             document.getElementById('intro-panel').style.display = 'none';
             document.getElementById('project-panel').style.display = 'none';
             document.getElementById('dostup-lect').style.display = 'none';
-        
+            document.getElementById('dop').style.display = 'none';
             // Создание таблицы
             let table = document.createElement('table');
             table.setAttribute('border', '1');  // Добавить границу таблице
@@ -188,7 +205,7 @@
             cell2.innerHTML = 'Лекция GIT';
             cell3.innerHTML = '<a href="lections/py/L_git.pdf" target="_blank">Ссылка GIT</a>';
             // Данные таблицы
-            for (let i = 1; i <= 12; i++) {
+            for (let i = 1; i <= 9; i++) {
                 let row = table.insertRow();
                 let cell1 = row.insertCell(0);
                 let cell2 = row.insertCell(1);
@@ -235,7 +252,7 @@
                 cell1.innerHTML = 'Проект ' + i;
                 cell2.innerHTML = `<a href="lections/py/T_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
             }
-        
+
             let table4 = document.createElement('table');
             table4.setAttribute('border', '1');  
         
