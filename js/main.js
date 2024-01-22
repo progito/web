@@ -480,7 +480,16 @@ function showNotifications() {
                 // Добавляем блоки уведомлений к разделу уведомлений
                 notifications.appendChild(notificationBlock1);
                 notifications.appendChild(notificationBlock2);
-
+                if (user.proc_py > 30) {
+                    const notificationBlock3 = createNotificationBlock(
+                        'Повторение Python #2 (коллекции)',
+                        'Повторим коллекции в Python (cписки, кортежи..)',
+                        'https://248006.selcdn.ru/main/iblock/9ce/9ce0a2979cd753d450272cf40f76ad3d/f60d2152225079701f9cec28e0564241.png',
+                        'Смотреть',
+                        'https://www.youtube.com/embed/-xHGeeYoyQI'
+                    );
+                    notifications.appendChild(notificationBlock3);
+                }
                 // Добавляем раздел уведомлений в основное содержимое
                 mainContent.appendChild(notifications);
             } else {
