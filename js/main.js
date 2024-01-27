@@ -453,7 +453,7 @@ function showNotifications() {
             
             
             // Display notification blocks only if proc_py is greater than 20
-            if (user.proc_py > 30) {
+            if (user.proc_py >= 25) {
                 // Создаем элементы для раздела уведомлений
                 const notifications = document.createElement('div');
                 notifications.classList.add('notifications');
@@ -480,7 +480,7 @@ function showNotifications() {
                 // Добавляем блоки уведомлений к разделу уведомлений
                 notifications.appendChild(notificationBlock1);
                 notifications.appendChild(notificationBlock2);
-                if (user.proc_py > 30) {
+                if (user.proc_py >= 30) {
                     const notificationBlock3 = createNotificationBlock(
                         'Повторение Python #2 (коллекции)',
                         'Повторим коллекции в Python (cписки, кортежи..)',
