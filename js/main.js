@@ -729,7 +729,7 @@ function showSection(section) {
     mainContent.appendChild(sectionElement);
 }
 
-let courses_ = ['C/C++', 'Python', 'HTML/CSS/JS']
+let courses_ = ['C/C++', 'Python', 'HTML/CSS/JS', 'GIT/GITHUB']
 
 function showCourses() {
     const mainContent = document.querySelector('.main-content');
@@ -750,7 +750,12 @@ function showCourses() {
         courseTitle.textContent = `Курс ${courses_[i]}`;
 
         const courseContent = document.createElement('p');
-        courseContent.textContent = `Junior/Middle Developer`;
+        if (courses_[i] == 'GIT/GITHUB'){
+            courseContent.textContent = `Developer`;
+        }
+        else{
+            courseContent.textContent = `Junior/Middle Developer`;
+        }
         coursePanel.id = `d${i}`;
         coursePanel.onclick = () => {
             mainContent.innerHTML = '';
