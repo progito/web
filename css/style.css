@@ -246,7 +246,25 @@ th {
     transition: all .3s;
     cursor: pointer;
 }
+.course-panel#d3 {
+    width: 250px;
+    height: 150px;
+    max-width: 400px;
+    box-sizing: border-box;
 
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    padding: 10px 10px;
+    margin: 4px 4px;
+    color: #eee;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(1, 1, 1, 0.25);
+}
+.course-panel#d3:hover{
+    scale: 110%;
+    transition: all .3s;
+    cursor: pointer;
+}
 /* Стили для формы настроек */
 .settings {
     max-width: 400px;
