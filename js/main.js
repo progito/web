@@ -742,7 +742,7 @@ function showCourses() {
     coursesSection.classList.add('courses');
 
     // Добавляем три панели курса CSS
-    for (let i = 0; i <= 2; i++) {
+    for (let i = 0; i <= 4; i++) {
         const coursePanel = document.createElement('div');
         coursePanel.classList.add('course-panel');
 
