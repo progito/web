@@ -322,7 +322,28 @@ th {
     cursor: pointer;
 }
 
+.course-panel#d4 {
+    width: 250px;
+    height: 150px;
+    max-width: 400px;
+    box-sizing: border-box;
 
+    background-image: url('https://s3.amazonaws.com/thumbnails.thecrimson.com/photos/2015/09/02/223945_1307930.jpg.1500x1001_q95_crop-smart_upscale.jpg');
+    padding: 10px 10px;
+    background-size: cover; /* Подгоняет изображение к размеру div */
+    background-position: center; /* Располагает изображение по центру */
+    background-repeat: no-repeat; 
+    margin: 4px 4px;
+    color: #eee;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(1, 1, 1, 0.25);
+}
+.course-panel#d4:hover{
+    scale: 110%;
+    transition: all .3s;
+    cursor: pointer;
+}
 
 .user-data span,
 .achievements span,
