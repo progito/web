@@ -729,7 +729,7 @@ function showSection(section) {
     mainContent.appendChild(sectionElement);
 }
 
-let courses_ = ['C/C++', 'Python', 'HTML/CSS/JS', 'GIT/GITHUB']
+let courses_ = ['C/C++', 'Python', 'HTML/CSS/JS', 'GIT/GITHUB', 'Harvard University (course)']
 
 function showCourses() {
     const mainContent = document.querySelector('.main-content');
@@ -752,6 +752,9 @@ function showCourses() {
         const courseContent = document.createElement('p');
         if (courses_[i] == 'GIT/GITHUB'){
             courseContent.textContent = `Developer`;
+        }
+        else if (courses_[i] == 'Harvard University (course)'){
+            courseContent.textContent = `Computer Science`;
         }
         else{
             courseContent.textContent = `Junior/Middle Developer`;
