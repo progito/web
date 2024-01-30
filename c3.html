@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>GIT/GITHUB</title>
+    <link rel="stylesheet" href="css/style_.css">
+    <style>
+      .custom-section {
+        font-family: 'Poppins', sans-serif;
+
+        padding: 0 16px;
+        font-weight: 400;
+    }
+    
+    .table-container {
+         max-width: 1400px;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 0 auto; /* Center the table */
+    }
+    
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .table-header {
+        background-color: #F4F4F3;
+    }
+    
+    .table-header th {
+        border: 1px solid #eee;
+        padding: 16px 20px;
+    }
+    
+    .table-body {
+        background-color: #fff;
+    }
+    
+    .table-cell {
+        border: 1px solid #eee;
+        padding: 20px;
+        vertical-align: top;
+        font-family: 'Inter';
+        font-size: 18px;
+        font-weight: medium;
+        line-height: 1.2;
+        color: #0F1214;
+    }
+    
+    .middle, .junior {
+        max-width: 648px;
+    }
+    tr, th{
+      font-size: 16px;
+    }
+    .check-mark,
+    .check-mark-gray {
+        position: relative;
+        margin: 0;
+        margin-bottom: 10px;
+        padding-left: 22px;
+        font-family: 'Golos';
+        font-size: 18px;
+        line-height: 25.2px;
+    }
+    
+    .check-mark:before,
+    .check-mark-gray:before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 0;
+        height: 3px;
+        width: 5px;
+        background-size: contain;
+    }
+    .check-mark:before {
+      content: url('img/icon-check-green.svg');
+      margin-right: 5px; /* Регулируйте отступ по желанию */
+      vertical-align: middle; /* Выравнивание по вертикали */
+    }
+    
+    .check-mark-gray:before {
+      content: url('img/icon-check-gray.svg');
+      margin-right: 5px; /* Регулируйте отступ по желанию */
+      vertical-align: middle; /* Выравнивание по вертикали */
+    }
+        .junior2 {
+      max-width: 648px;
+  }
+    .junior{
+      color: #acacac;
+    }
+    /* Дополнительные стили могут быть добавлены по необходимости */
+    .cs-iconbox:hover{
+      transform: scale(1.10);
+      transition: transform 0.3s ease-in-out;
+    }
+    </style>
+</head>
+<body>
+    
+    <header class="cs-site_header cs-style1 cs-sticky-header cs-primary_color cs-white_bg cs-sticky-active">
+    <div class="cs-main_header">
+    <div class="container">
+    <div class="cs-main_header_in">
+    <div class="cs-main_header_left">
+    
+    </div>
+    <div class="cs-main_header_center">
+    <div class="cs-nav">
+    <ul class="cs-nav_list">
+    <li><a href="#home" class="cs-smoth_scroll">Главная</a></li>
+    <li><a href="#d" class="cs-smoth_scroll">Почему важно знать GIT/GITHUB?</a></li>
+    
+    <li>
+    <a href="#pricing" class="cs-smoth_scroll">Цены</a>
+    </li>
+    
+    </ul>
+    <span class="cs-munu_toggle"><span></span></span></div>
+    </div>
+    <div class="cs-main_header_right">
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </header>
+    <div id="home">
+    <div class="cs-height_80 cs-height_lg_80"></div>
+    <section style="background: linear-gradient(90deg, rgba(254,0,0,0.2) 0%, rgba(69,161,236,0.25) 100%);" class="cs-hero cs-style1 cs-bg" data-src="assets/img/hero_bg.svg" >
+    <div class="container">
+    <div class="cs-hero_img">
+    <div class="cs-hero_img_bg cs-bg" ></div>
+    <img style="border-radius: 15px; margin-left: 100px" src="https://media.licdn.com/dms/image/D5612AQFlxMRpK-On8g/article-cover_image-shrink_720_1280/0/1670602482212?e=2147483647&v=beta&t=1HWOX81_1_mfqzP2kdHty9dnCVgb-dmVsMuYhBKCnRQ" alt="Hero Image" class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.4s" data-pagespeed-url-hash="540680739" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInRight;">
+    </div>
+    <div class="cs-hero_text">
+    <div class="cs-hero_secondary_title">
+    Быстрый старт.
+    </div>
+    <h1 class="cs-hero_title">ОБУЧЕНИЕ<br>GIT/GITHUB</h1>
+    <div class="cs-hero_subtitle">
+      Получите знания в системе контроля версиями за 1 месяц
+    </div>
+    <a href="#about" class="cs-btn"><span>Начать</span></a>
+    </div>
+    <div class="cs-hero_shapes">
+    <div class="cs-shape cs-shape_position1">
+    <img src="img/shape_1.svg" alt="Shape" data-pagespeed-url-hash="1783969209" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+    </div>
+    <div class="cs-shape cs-shape_position2">
+    <img src="img/shape_2.svg" alt="Shape" data-pagespeed-url-hash="2078469130" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+    </div>
+    <div class="cs-shape cs-shape_position3">
+    <img src="img/shape_3.svg" alt="Shape" data-pagespeed-url-hash="2372969051" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+    </div>
+    <div class="cs-shape cs-shape_position4">
+    <img src="img/shape_4.svg" alt="Shape" data-pagespeed-url-hash="2667468972" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+    </div>
+    <div class="cs-shape cs-shape_position5">
+    <img src="img/shape_5.svg" alt="Shape" data-pagespeed-url-hash="2961968893" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+    </div>
+    <div class="cs-shape cs-shape_position6">
+    <img src="img/shape_6.svg" alt="Shape" data-pagespeed-url-hash="3256468814" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+    </div>
+    </div>
+    </div>
+    </section>
+    </div>
+    <section style="background-image: url(img/feature_bg.svg);" class="cs-bg">
+    <div class="cs-height_95 cs-height_lg_70"></div>
+    <div class="container">
+    <div class="cs-seciton_heading cs-style1 text-center">
+    <div class="cs-section_subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUp;">
+      ОБУЧЕНИЕ GIT/GITHUB
+    </div>
+    <div class="cs-height_10 cs-height_lg_10"></div>
+    <h3 class="cs-section_title">Что вас ждет?</h3>
+    </div>
+    <div class="cs-height_50 cs-height_lg_40"></div>
+    <div class="row">
+    <div class="col-md-6 col-xl-3">
+    <div class="cs-height_25 cs-height_lg_0"></div>
+    <div class="cs-iconbox cs-style1">
+    <div class="cs-iconbox_icon cs-center">
+        <i style="color: white;" class="fas fa-code"></i>
+    </div>
+    <div class="cs-iconbox_in">
+    <div class="cs-iconbox_number cs-primary_font">01</div>
+    <h3 class="cs-iconbox_title">GIT/GITHUB</h3>
+    <div class="cs-iconbox_subtitle">
+      Изучите управление версионностью программы, GIT/GITHUB.
+    </div>
+    </div>
+    </div>
+    <div class="cs-height_25 cs-height_lg_25"></div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+    <div class="cs-iconbox cs-style1">
+    <div class="cs-iconbox_icon cs-center">
+        <i style="color: white;" class="fas fa-cloud-sun"></i>
+    </div>
+    <div class="cs-iconbox_in">
+    <div class="cs-iconbox_number cs-primary_font">02</div>
+    <h3 class="cs-iconbox_title">GIT Flow и другие важные разделы</h3>
+    <div class="cs-iconbox_subtitle">
+        Разберетесь с важными разделами касаемо GIT/GITHUB, такие как GIT Flow и другие.
+    </div>
+    </div>
+    </div>
+    <div class="cs-height_25 cs-height_lg_25"></div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+    <div class="cs-height_25 cs-height_lg_0"></div>
+    <div class="cs-iconbox cs-style1">
+    <div class="cs-iconbox_icon cs-center">
+        <i style="color: white;" class="fas fa-book"></i>
+    </div>
+    <div class="cs-iconbox_in">
+    <div class="cs-iconbox_number cs-primary_font">03</div>
+    <h3 class="cs-iconbox_title">Практика</h3>
+    <div class="cs-iconbox_subtitle">
+        Закрепите теорию на практике решив несколько популярных задач.
+    </div>
+    </div>
+    </div>
+    <div class="cs-height_25 cs-height_lg_25"></div>
+    </div>
+    
+    <div class="cs-height_25 cs-height_lg_25"></div>
+
+    <div class="cs-height_75 cs-height_lg_45"></div>
+    </div>
+    </section>
+    <section id="about" class="cs-gradient_bg_1">
+
+    </section>
+    <section id="d" class="custom-section" style="background-image: url(img/feature_bg.svg);">
+      <h2 class="section-title" style="text-align: center">Почему так важно знать GIT/GITHUB?</h2>
+      <div class="table-container">
+        <table class="custom-table">
+            <thead class="table-header">
+                <tr>
+                    <th></th>
+                    <th class="table-heading middle">С знанием GIT/GITHUB</th>
+                    <th class="table-heading junior2">Без знания GIT/GITHUB</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <tr>
+                    <td class="table-cell description">Описание</td>
+                    <td class="table-cell middle">
+                        <p class="check-mark">Разработчик с опытом, владеющий GIT/GITHUB.</p>
+                    </td>
+                    <td class="table-cell junior">
+                        <p class="check-mark-gray">Новичок без знания GIT/GITHUB.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-cell description">Преимущества</td>
+                    <td class="table-cell middle">
+                        <p class="check-mark">Широкий спектр технологий делает работу эффективной и интересной.</p>
+                        <p class="check-mark">Возможность эффективно работать с командой, используя инструменты контроля версий.</p>
+                        <p class="check-mark">Легкость в поиске работы.</p>
+                    </td>
+                    <td class="table-cell junior">
+                        <p class="check-mark-gray">Ограниченные возможности и трудности в интеграции в команду без знания GIT/GITHUB.</p>
+                        <p class="check-mark-gray">Сложности в контроле версий и совместной работе над проектами.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-cell description">Минусы</td>
+                    <td class="table-cell middle">
+                        <p class="check-mark">Более высокие технические требования.</p>
+                    </td>
+                    <td class="table-cell junior">
+                        <p class="check-mark-gray">Ограниченные возможности для роста и развития в профессии.</p>
+                        <p class="check-mark-gray">Ограниченный доступ к определенным проектам и командам.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-cell description">Шанс приема на работу (0-плохо, 100-идеал)</td>
+                    <td class="table-cell middle">
+                        <p>+ 70%</p>
+                    </td>
+                    <td class="table-cell junior">
+                        <p>+ 25%</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  </section>
+  
+  
+    <div class="container-fluid">
+    <div class="cs-funfact_1_wrap cs-type1">
+    <div class="cs-funfact cs-style1">
+    <div class="cs-funfact_icon cs-center">
+        <i style="color: #5c83ec;" class="fas fa-file"></i>
+    </div>
+    <div class="cs-funfact_right">
+    <div class="cs-funfact_number cs-primary_font">
+    <span data-count-to="320" class="odometer odometer-auto-theme">
+      <div class="odometer-inside">
+        <span class="odometer-digit">
+          <span class="odometer-digit-spacer">8</span>
+          <span class="odometer-digit-inner">
+            <span class="odometer-ribbon"><span class="odometer-ribbon-inner">
+              <span class="odometer-value">6</span>
+            </span></span></span></span>
+            <span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+
+    </div>
+    <h2 class="cs-funfact_title">Количество практик</h2>
+    </div>
+    </div>
+    <div class="cs-funfact cs-style1">
+    <div class="cs-funfact_icon cs-center">
+        <i style="color: #5c83ec;" class="fas fa-flag-usa"></i>
+    </div>
+    <div class="cs-funfact_right">
+    <div class="cs-funfact_number cs-primary_font">
+        x<span data-count-to="92" class="odometer odometer-auto-theme">
+          <div class="odometer-inside"><span class="odometer-digit">
+            <span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner">
+              <span class="odometer-ribbon"><span class="odometer-ribbon-inner">
+                <span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span></div></span>
+    </div>
+    <h2 class="cs-funfact_title">Прокачка уровня</h2>
+    </div>
+    </div>
+    <div class="cs-funfact cs-style1">
+    <div class="cs-funfact_icon cs-center">
+        <i style="color: #5c83ec;" class="fas fa-check"></i>
+    </div>
+    <div class="cs-funfact_right">
+    <div class="cs-funfact_number cs-primary_font">
+    <span data-count-to="5" class="odometer odometer-auto-theme"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">100</span></span></span></span></span></div></span>%
+    </div>
+    <h2 class="cs-funfact_title">Эффективность</h2>
+    </div>
+    </div>
+    <div class="cs-funfact cs-style1">
+    <div class="cs-funfact_icon cs-center">
+        <i style="color: #5c83ec;" class="fas fa-sitemap"></i>
+    </div>
+    <div class="cs-funfact_right">
+    <div class="cs-funfact_number cs-primary_font">
+    <span data-count-to="20" class="odometer odometer-auto-theme"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">100</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>%
+    </div>
+    <h2 class="cs-funfact_title">Структурированность</h2>
+    </div>
+    </div>
+    </div>
+    </div>
+    <section id="d" style="    background-image: url(img/feature_bg.svg);" class="cs-bg" data-src="assets/img/feature_bg.svg" style="background-image: url(&quot;assets/img/feature_bg.svg&quot;);">
+    <div class="cs-height_135 cs-height_lg_0"></div>
+    <div id="feature">
+    <div class="cs-height_95 cs-height_lg_70"></div>
+    <div class="container">
+    <div class="cs-seciton_heading cs-style1 text-center">
+
+        
+    <section style="    background-image: url(img/feature_bg.svg);" class="cs-bg" data-src="assets/img/feature_bg.svg" id="pricing" style="background-image: url(&quot;assets/img/feature_bg.svg&quot;);">
+    <div class="cs-height_95 cs-height_lg_70"></div>
+    <div class="container">
+    <div class="cs-seciton_heading cs-style1 text-center">
+    <div class="cs-section_subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInUp;">
+    ОБУЧЕНИЕ GIT/GITHUB
+    </div>
+    <div class="cs-height_10 cs-height_lg_10"></div>
+    <h3 class="cs-section_title">Выбери лучшее для себя!</h3>
+    </div>
+    <div class="cs-height_50 cs-height_lg_40"></div>
+    <div class="row">
+    <div class="col-lg-4">
+    <div class="cs-pricing_table cs-style1">
+    <div class="cs-pricing_head">
+    <div class="cs-pricing_heading">
+
+    <h2 class="cs-pricing_title cs-m0">GIT/GITHUB</h2>
+    </div>
+    <div class="cs-price cs-primary_font">
+    <b class="cs-accent_color">3 990₽ </b>
+    <span>/месяц</span>
+    <div class="cs-pricing_lable">обучение длиться 1 месяц</div>
+    
+    
+    </div>
+    <div class="cs-pricing_lable"></div>
+    </div>
+    <div class="cs-pricing_body">
+    <ul class="cs-mp0 cs-pricing_feature">
+    <li>
+    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8.18215 0C3.771 0 0.18219 3.58872 0.18219 7.99996C0.18219 12.4112 3.771 16 8.18215 16C12.5933 16 16.1821 12.4112 16.1821 7.99996C16.1821 3.58872 12.5934 0 8.18215 0ZM12.7759 6.6487L7.7499 11.6747C7.53619 11.8884 7.25212 12.006 6.94993 12.006C6.64774 12.006 6.36366 11.8884 6.14996 11.6747L3.58843 9.11314C3.37473 8.89944 3.25702 8.61536 3.25702 8.31317C3.25702 8.01089 3.37473 7.72682 3.58843 7.51311C3.80205 7.29941 4.08613 7.18171 4.3884 7.18171C4.69059 7.18171 4.97475 7.29941 5.18837 7.5132L6.94984 9.27459L11.1758 5.04867C11.3895 4.83497 11.6735 4.71735 11.9757 4.71735C12.2779 4.71735 12.562 4.83497 12.7757 5.04867C13.217 5.48994 13.217 6.2076 12.7759 6.6487Z" fill="#47C4C0"></path>
+    </svg>
+    <span>Обучение (изучение) GIT/GITHUB</span>
+    </li>
+    <li>
+    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8.18215 0C3.771 0 0.18219 3.58872 0.18219 7.99996C0.18219 12.4112 3.771 16 8.18215 16C12.5933 16 16.1821 12.4112 16.1821 7.99996C16.1821 3.58872 12.5934 0 8.18215 0ZM12.7759 6.6487L7.7499 11.6747C7.53619 11.8884 7.25212 12.006 6.94993 12.006C6.64774 12.006 6.36366 11.8884 6.14996 11.6747L3.58843 9.11314C3.37473 8.89944 3.25702 8.61536 3.25702 8.31317C3.25702 8.01089 3.37473 7.72682 3.58843 7.51311C3.80205 7.29941 4.08613 7.18171 4.3884 7.18171C4.69059 7.18171 4.97475 7.29941 5.18837 7.5132L6.94984 9.27459L11.1758 5.04867C11.3895 4.83497 11.6735 4.71735 11.9757 4.71735C12.2779 4.71735 12.562 4.83497 12.7757 5.04867C13.217 5.48994 13.217 6.2076 12.7759 6.6487Z" fill="#47C4C0"></path>
+    </svg>
+    <span>Применение теории на практике</span>
+    </li>
+    <li class="cs-inactive">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.99583 0C3.57967 0 0 3.58154 0 8C0 12.4185 3.57967 16 7.99583 16C12.412 16 15.9917 12.4185 15.9917 8C15.9917 3.58154 12.412 0 7.99583 0ZM6.58529 5.71897C6.52898 5.65851 6.46108 5.61002 6.38563 5.57639C6.31018 5.54275 6.22873 5.52466 6.14615 5.52321C6.06356 5.52175 5.98153 5.53695 5.90495 5.5679C5.82836 5.59885 5.75879 5.64492 5.70038 5.70335C5.64198 5.76179 5.59593 5.8314 5.565 5.90802C5.53407 5.98465 5.51887 6.06672 5.52033 6.14935C5.52179 6.23198 5.53986 6.31347 5.57348 6.38895C5.6071 6.46444 5.65557 6.53238 5.716 6.58872L7.12654 8L5.716 9.41128C5.65557 9.46762 5.6071 9.53556 5.57348 9.61105C5.53986 9.68653 5.52179 9.76802 5.52033 9.85065C5.51887 9.93328 5.53407 10.0154 5.565 10.092C5.59593 10.1686 5.64198 10.2382 5.70038 10.2966C5.75879 10.3551 5.82836 10.4012 5.90495 10.4321C5.98153 10.4631 6.06356 10.4783 6.14615 10.4768C6.22873 10.4753 6.31018 10.4572 6.38563 10.4236C6.46108 10.39 6.52898 10.3415 6.58529 10.281L7.99583 8.86974L9.40638 10.281C9.46269 10.3415 9.53059 10.39 9.60604 10.4236C9.68149 10.4572 9.76293 10.4753 9.84552 10.4768C9.92811 10.4783 10.0101 10.4631 10.0867 10.4321C10.1633 10.4012 10.2329 10.3551 10.2913 10.2966C10.3497 10.2382 10.3957 10.1686 10.4267 10.092C10.4576 10.0154 10.4728 9.93328 10.4713 9.85065C10.4699 9.76802 10.4518 9.68653 10.4182 9.61105C10.3846 9.53556 10.3361 9.46762 10.2757 9.41128L8.86513 8L10.2757 6.58872C10.3361 6.53238 10.3846 6.46444 10.4182 6.38895C10.4518 6.31347 10.4699 6.23198 10.4713 6.14935C10.4728 6.06672 10.4576 5.98465 10.4267 5.90802C10.3957 5.8314 10.3497 5.76179 10.2913 5.70335C10.2329 5.64492 10.1633 5.59885 10.0867 5.5679C10.0101 5.53695 9.92811 5.52175 9.84552 5.52321C9.76293 5.52466 9.68149 5.54275 9.60604 5.57639C9.53059 5.61002 9.46269 5.65851 9.40638 5.71897L7.99583 7.13026L6.58529 5.71897Z" fill="#47C4C0"></path>
+        </svg>
+        <span>доп. разделы GIT Flow, и другие</span>
+    </li>
+    <li>
+      <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.18215 0C3.771 0 0.18219 3.58872 0.18219 7.99996C0.18219 12.4112 3.771 16 8.18215 16C12.5933 16 16.1821 12.4112 16.1821 7.99996C16.1821 3.58872 12.5934 0 8.18215 0ZM12.7759 6.6487L7.7499 11.6747C7.53619 11.8884 7.25212 12.006 6.94993 12.006C6.64774 12.006 6.36366 11.8884 6.14996 11.6747L3.58843 9.11314C3.37473 8.89944 3.25702 8.61536 3.25702 8.31317C3.25702 8.01089 3.37473 7.72682 3.58843 7.51311C3.80205 7.29941 4.08613 7.18171 4.3884 7.18171C4.69059 7.18171 4.97475 7.29941 5.18837 7.5132L6.94984 9.27459L11.1758 5.04867C11.3895 4.83497 11.6735 4.71735 11.9757 4.71735C12.2779 4.71735 12.562 4.83497 12.7757 5.04867C13.217 5.48994 13.217 6.2076 12.7759 6.6487Z" fill="#47C4C0"></path>
+        </svg>
+    <span>Индивидуальная обратная связь</span>
+    </li>
+    </ul>
+    <div class="cs-pricing_btn">
+    <a href="https://api.whatsapp.com/qr/4NRBWPWDCWULH1?autoload=1&app_absent=0" target="_blank" class="cs-btn cs-size_md"><span>Записаться</span></a>
+    </div>
+    </div>
+    
+    </div>
+    
+    <div class="cs-height_25 cs-height_lg_25"></div>
+    </div>
+    <div class="col-lg-4">
+        <div class="cs-pricing_table cs-style1">
+        <div class="cs-pricing_head">
+        <div class="cs-pricing_heading">
+    
+        <h2 class="cs-pricing_title cs-m0">Премиум GIT/GITHUB</h2>
+        </div>
+        <div class="cs-price cs-primary_font">
+        <b class="cs-accent_color">4 990₽ </b>
+        <span>/месяц</span>
+        <div class="cs-pricing_lable">обучение длиться 1 месяц</div>
+        
+        
+        </div>
+        <div class="cs-pricing_lable"></div>
+        </div>
+        <div class="cs-pricing_body">
+        <ul class="cs-mp0 cs-pricing_feature">
+        <li>
+        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.18215 0C3.771 0 0.18219 3.58872 0.18219 7.99996C0.18219 12.4112 3.771 16 8.18215 16C12.5933 16 16.1821 12.4112 16.1821 7.99996C16.1821 3.58872 12.5934 0 8.18215 0ZM12.7759 6.6487L7.7499 11.6747C7.53619 11.8884 7.25212 12.006 6.94993 12.006C6.64774 12.006 6.36366 11.8884 6.14996 11.6747L3.58843 9.11314C3.37473 8.89944 3.25702 8.61536 3.25702 8.31317C3.25702 8.01089 3.37473 7.72682 3.58843 7.51311C3.80205 7.29941 4.08613 7.18171 4.3884 7.18171C4.69059 7.18171 4.97475 7.29941 5.18837 7.5132L6.94984 9.27459L11.1758 5.04867C11.3895 4.83497 11.6735 4.71735 11.9757 4.71735C12.2779 4.71735 12.562 4.83497 12.7757 5.04867C13.217 5.48994 13.217 6.2076 12.7759 6.6487Z" fill="#47C4C0"></path>
+        </svg>
+        <span>Обучение (изучение) GIT/GITHUB</span>
+        </li>
+        <li>
+        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.18215 0C3.771 0 0.18219 3.58872 0.18219 7.99996C0.18219 12.4112 3.771 16 8.18215 16C12.5933 16 16.1821 12.4112 16.1821 7.99996C16.1821 3.58872 12.5934 0 8.18215 0ZM12.7759 6.6487L7.7499 11.6747C7.53619 11.8884 7.25212 12.006 6.94993 12.006C6.64774 12.006 6.36366 11.8884 6.14996 11.6747L3.58843 9.11314C3.37473 8.89944 3.25702 8.61536 3.25702 8.31317C3.25702 8.01089 3.37473 7.72682 3.58843 7.51311C3.80205 7.29941 4.08613 7.18171 4.3884 7.18171C4.69059 7.18171 4.97475 7.29941 5.18837 7.5132L6.94984 9.27459L11.1758 5.04867C11.3895 4.83497 11.6735 4.71735 11.9757 4.71735C12.2779 4.71735 12.562 4.83497 12.7757 5.04867C13.217 5.48994 13.217 6.2076 12.7759 6.6487Z" fill="#47C4C0"></path>
+        </svg>
+        <span>Применение теории на практике (больше практических заданий)</span>
+        </li>
+        <li>
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.18215 0C3.771 0 0.18219 3.58872 0.18219 7.99996C0.18219 12.4112 3.771 16 8.18215 16C12.5933 16 16.1821 12.4112 16.1821 7.99996C16.1821 3.58872 12.5934 0 8.18215 0ZM12.7759 6.6487L7.7499 11.6747C7.53619 11.8884 7.25212 12.006 6.94993 12.006C6.64774 12.006 6.36366 11.8884 6.14996 11.6747L3.58843 9.11314C3.37473 8.89944 3.25702 8.61536 3.25702 8.31317C3.25702 8.01089 3.37473 7.72682 3.58843 7.51311C3.80205 7.29941 4.08613 7.18171 4.3884 7.18171C4.69059 7.18171 4.97475 7.29941 5.18837 7.5132L6.94984 9.27459L11.1758 5.04867C11.3895 4.83497 11.6735 4.71735 11.9757 4.71735C12.2779 4.71735 12.562 4.83497 12.7757 5.04867C13.217 5.48994 13.217 6.2076 12.7759 6.6487Z" fill="#47C4C0"></path>
+                </svg>
+            <span>доп. разделы GIT Flow, и другие</span>
+        </li>
+        <li>
+          <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.18215 0C3.771 0 0.18219 3.58872 0.18219 7.99996C0.18219 12.4112 3.771 16 8.18215 16C12.5933 16 16.1821 12.4112 16.1821 7.99996C16.1821 3.58872 12.5934 0 8.18215 0ZM12.7759 6.6487L7.7499 11.6747C7.53619 11.8884 7.25212 12.006 6.94993 12.006C6.64774 12.006 6.36366 11.8884 6.14996 11.6747L3.58843 9.11314C3.37473 8.89944 3.25702 8.61536 3.25702 8.31317C3.25702 8.01089 3.37473 7.72682 3.58843 7.51311C3.80205 7.29941 4.08613 7.18171 4.3884 7.18171C4.69059 7.18171 4.97475 7.29941 5.18837 7.5132L6.94984 9.27459L11.1758 5.04867C11.3895 4.83497 11.6735 4.71735 11.9757 4.71735C12.2779 4.71735 12.562 4.83497 12.7757 5.04867C13.217 5.48994 13.217 6.2076 12.7759 6.6487Z" fill="#47C4C0"></path>
+            </svg>
+        <span>Индивидуальная обратная связь</span>
+        </li>
+        </ul>
+        <div class="cs-pricing_btn">
+        <a href="https://api.whatsapp.com/qr/4NRBWPWDCWULH1?autoload=1&app_absent=0" target="_blank" class="cs-btn cs-size_md"><span>Записаться</span></a>
+        </div>
+        </div>
+        
+        </div>
+        
+        <div class="cs-height_25 cs-height_lg_25"></div>
+        </div>
+        
+      </div>
+
+    </section>
+    
+    <br/><br/>
+    
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.slick.min.js"></script>
+    <script src="js/jquery.counter.min.js"></script>
+    </body>
+
+</html>
