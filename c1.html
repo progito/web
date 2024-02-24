@@ -226,11 +226,25 @@
         
             // Данные таблицы
             for (let i = 1; i <= 24; i++) {
-                let row = table2.insertRow();
-                let cell1 = row.insertCell(0);
-                let cell2 = row.insertCell(1);
-                cell1.innerHTML = 'Лабораторная работа ' + i;
-                cell2.innerHTML = `<a href="lections/py/LB_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                if (i != 15){
+                    let row = table2.insertRow();
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    cell1.innerHTML = 'Лабораторная работа ' + i;
+                    cell2.innerHTML = `<a href="lections/py/LB_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                }
+                else{
+                    let row = table2.insertRow();
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    cell1.innerHTML = 'Лабораторная работа ' + i;
+                    cell2.innerHTML = `<a href="lections/py/LB_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                    row = table2.insertRow();
+                    cell1 = row.insertCell(0);
+                    cell2 = row.insertCell(1);
+                    cell1.innerHTML = 'Лабораторная работа (Image.)';
+                    cell2.innerHTML = `<a href="lections/py/LBD.pdf" target="_blank">Ссылка Image.</a>`;
+                }
             }
 
             // Создание таблицы
