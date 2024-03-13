@@ -105,6 +105,21 @@
       transition: transform 0.3s ease-in-out;
     }
     </style>
+    <style>
+        #overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            text-align: center;
+            visibility: hidden;
+            z-index: 9999;
+        }
+    </style>
 </head>
 <body>
     
@@ -644,12 +659,16 @@
       <div class="cs-height_25 cs-height_lg_25"></div>
       </div>
     </section>
-    
+    <div id="overlay">Временно недоступно!!!</div>
     <br/><br/>
     
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery.slick.min.js"></script>
     <script src="js/jquery.counter.min.js"></script>
+    <script>
+        document.body.style.visibility = "hidden";
+        document.getElementById("overlay").style.visibility = "visible";
+    </script>
     </body>
 
 </html>
