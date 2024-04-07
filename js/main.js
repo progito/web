@@ -729,7 +729,7 @@ function showSection(section) {
     mainContent.appendChild(sectionElement);
 }
 
-let courses_ = ['C/C++', 'Python', 'HTML/CSS/JS', 'GIT/GITHUB', 'Harvard University (course)']
+let courses_ = ['C/C++', 'Python', 'Frontend', 'GIT/GITHUB', 'Harvard University (course)']
 
 function showCourses() {
     const mainContent = document.querySelector('.main-content');
