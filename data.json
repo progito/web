@@ -370,16 +370,16 @@
             }
         },
         {
-            "user": "gleb2",
+            "user": "egor",
             "password": "shguy7y2878",
             "country": "Russia",
             "langs": "Python",
             "py": {
                 "1": [
-                    "0"
+                    "100"
                 ],
                 "2": [
-                    "0"
+                    "25"
                 ],
                 "3": [
                     "0"
@@ -719,7 +719,7 @@
                     "12"
                 ]
             },
-            "proc_py": "0",
+            "proc_py": "1",
             "proc_c": "0",
             "proc_js": "0",
             "itog_py": "0",
