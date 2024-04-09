@@ -498,6 +498,16 @@ function showNotifications() {
                             'https://www.youtube.com/embed/5gH1dimQumI'
                         );
                         notifications.appendChild(notificationBlock4);
+                        if (user.proc_py >= 34) {
+                            const notificationBlock5 = createNotificationBlock(
+                                'Повторение Python #4 (ООП)',
+                                'Повторим ООП в Python (классы, объекты и др)',
+                                'https://dev-gang.ru/static/storage/112260987635916824610320717826339060167.jpeg',
+                                'Смотреть',
+                                '#'
+                            );
+                            notifications.appendChild(notificationBlock5);
+                        }
                     }
                     
                     
