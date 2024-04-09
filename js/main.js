@@ -489,6 +489,18 @@ function showNotifications() {
                         'https://www.youtube.com/embed/-xHGeeYoyQI'
                     );
                     notifications.appendChild(notificationBlock3);
+                    if (user.proc_py >= 32) {
+                        const notificationBlock4 = createNotificationBlock(
+                            'Повторение Python #3 (функции)',
+                            'Повторим функции в Python (виды, параметры, lambda, декораторы...)',
+                            'https://static.tildacdn.com/tild6237-3263-4233-b164-316631353331/Smartiqa_Workbook_Py.png',
+                            'Смотреть',
+                            'https://youtu.be/5gH1dimQumI'
+                        );
+                        notifications.appendChild(notificationBlock4);
+                    }
+                    
+                    
                 }
                 // Добавляем раздел уведомлений в основное содержимое
                 mainContent.appendChild(notifications);
