@@ -495,7 +495,7 @@ function showNotifications() {
                             'Повторим функции в Python (виды, параметры, lambda, декораторы...)',
                             'https://static.tildacdn.com/tild6237-3263-4233-b164-316631353331/Smartiqa_Workbook_Py.png',
                             'Смотреть',
-                            'https://youtu.be/5gH1dimQumI'
+                            'https://www.youtube.com/embed/5gH1dimQumI'
                         );
                         notifications.appendChild(notificationBlock4);
                     }
