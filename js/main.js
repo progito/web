@@ -504,7 +504,7 @@ function showNotifications() {
                                 'Повторим ООП в Python (классы, объекты и др)',
                                 'https://dev-gang.ru/static/storage/112260987635916824610320717826339060167.jpeg',
                                 'Смотреть',
-                                '#'
+                                'https://www.youtube.com/embed/FEEBPoZYQuo'
                             );
                             notifications.appendChild(notificationBlock5);
                         }
