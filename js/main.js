@@ -498,7 +498,7 @@ function showNotifications() {
                             'https://www.youtube.com/embed/5gH1dimQumI'
                         );
                         notifications.appendChild(notificationBlock4);
-                        if (user.proc_py >= 34) {
+                        if (user.proc_py >= 35) {
                             const notificationBlock5 = createNotificationBlock(
                                 'Повторение Python #4 (ООП)',
                                 'Повторим ООП в Python (классы, объекты и др)',
@@ -507,6 +507,16 @@ function showNotifications() {
                                 'https://www.youtube.com/embed/FEEBPoZYQuo'
                             );
                             notifications.appendChild(notificationBlock5);
+                            if (user.proc_py >= 35) {
+                                const notificationBlock6 = createNotificationBlock(
+                                    'Python #5 (Особенность FOR)',
+                                    'Разберем прикольную особенность популярного цикла for...',
+                                    'https://coderpad.io/wp-content/uploads/2021/05/img_6094fcc2be38c.png',
+                                    'Смотреть',
+                                    'https://www.youtube.com/embed/a4IzB5McbuY'
+                                );
+                                notifications.appendChild(notificationBlock6);
+                            }
                         }
                     }
                     
