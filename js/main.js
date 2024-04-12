@@ -724,7 +724,21 @@ function super_(){
 }
 
 function windowExtension() {
-    window.open('app.html');
+    const mainContent = document.querySelector('.main-content');
+
+    // Очищаем текущий контент
+    mainContent.innerHTML = '';
+
+    const f = document.createElement('iframe');
+    if (isMobileDevice()){
+        f.width = '350';
+        f.height = '900';
+    }
+    else{f.width = '100%'; f.height = '1200';} // Adjust the width as needed
+    // Adjust the height as needed
+    f.src = 'app.html';
+
+    mainContent.appendChild(f);
 }
 
 
