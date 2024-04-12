@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="./css/style-profile.css">
     <link rel="stylesheet" href="./css/style-notifications.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        var videoContainer = document.querySelector('.video-container');
+        function checkScreenWidth() {
+            var screenWidth = window.innerWidth;
+            if (screenWidth <= 500) {
+                videoContainer.style.width = '100%';
+            } else {
+                videoContainer.style.width = 'auto'; 
+            }
+        }
+        window.addEventListener('load', checkScreenWidth);
+        window.addEventListener('resize', checkScreenWidth);
+    </script>
 </head>
 <body>
   <div class="container">
