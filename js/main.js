@@ -723,6 +723,11 @@ function super_(){
     mainContent.appendChild(f);
 }
 
+function windowExtension() {
+    window.open('app.html');
+}
+
+
 // Добавляем функцию для отображения разделов
 function showSection(section) {
     const mainContent = document.querySelector('.main-content');
@@ -749,6 +754,9 @@ function showSection(section) {
             break;
         case 'date-lessons':
             updateWeekTable();
+            break;
+        case 'extension':
+            windowExtension();
             break;
         case 'super':
             super_();
