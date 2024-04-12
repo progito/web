@@ -498,7 +498,7 @@ function showNotifications() {
                             'https://www.youtube.com/embed/5gH1dimQumI'
                         );
                         notifications.appendChild(notificationBlock4);
-                        if (user.proc_py >= 35) {
+                        if (user.proc_py >= 37) {
                             const notificationBlock5 = createNotificationBlock(
                                 'Повторение Python #4 (ООП)',
                                 'Повторим ООП в Python (классы, объекты и др)',
@@ -507,7 +507,7 @@ function showNotifications() {
                                 'https://www.youtube.com/embed/FEEBPoZYQuo'
                             );
                             notifications.appendChild(notificationBlock5);
-                            if (user.proc_py >= 35) {
+                            if (user.proc_py >= 38) {
                                 const notificationBlock6 = createNotificationBlock(
                                     'Python #5 (Особенность FOR)',
                                     'Разберем прикольную особенность популярного цикла for...',
