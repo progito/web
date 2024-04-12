@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Установка моего расширения</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .steps {
+      margin-top: 30px;
+    }
+
+    .step {
+      margin-bottom: 20px;
+    }
+
+    .step img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .versions {
+      margin-top: 50px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .versions th, .versions td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .versions th {
+      background-color: #f2f2f2;
+    }
+    .step img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%; /* Добавим эту строку */
+        height: auto; /* Это обеспечит сохранение пропорций изображения */
+        }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Как установить мое расширение?</h1>
+    <a href="#godownload">скачать расширение</a>
+    <div class="steps">
+      <div class="step">
+        <!-- <img src="./img/step1.png" alt="Step 1"> -->
+        <p><mark>Шаг 1:</mark> Скачайте расширение и разархивируйте архив с файлами. (просто перетащите папку с файлами с любое место на вашем компьютере)</p>
+      </div>
+      <div class="step">
+        <!-- <img src="./img/step1.png" alt="Step 1"> -->
+        <p><mark>Шаг 2:</mark> Откройте Google Chrome.</p>
+      </div>
+      <div class="step">
+        <img src="./img/step2.png" alt="Step 2">
+        <p><mark>Шаг 3:</mark> (в столбце справа сверху) В разделе настроек выберите 'Расширения'.</p>
+      </div>
+      <div class="step">
+        <img src="./img/step3.png" alt="Step 3">
+        <p><mark>Шаг 4:</mark> Включите режим разработчика.</p>
+      </div>
+      <div class="step">
+        <img src="./img/step4.png" alt="Step 4">
+        <p><mark>Шаг 5:</mark> Нажмите на кнопку 'Загрузить распакованное расширение' и выберите папку с файлами расширения.</p>
+      </div>
+    </div>
+
+    <h2>Версии расширения</h2>
+    <table class="versions">
+      <tr>
+        <th>Версия</th>
+        <th>Дата выпуска</th>
+        <th>Изменения</th>
+      </tr>
+      <tr>
+        <td>v1.2</td>
+        <td>12.04.2024</td>
+        <td>Исправлен баг с панелью показа личного кабинета.</td>
+      </tr>
+      <tr>
+        <td>v1.1</td>
+        <td>10.04.2024</td>
+        <td>Исправлены ошибки совместимости</td>
+      </tr>
+      <tr>
+        <td>v1.0</td>
+        <td>05.04.2024</td>
+        <td>Первый релиз</td>
+      </tr>
+    </table>
+    
+    <p id="godownload">Вы можете скачать последнюю версию расширения <a href="link_to_your_extension">здесь</a>.</p>
+  </div>
+</body>
+</html>
