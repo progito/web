@@ -112,7 +112,15 @@
             color: #eee;
             background: linear-gradient(121.87deg,#43a047 10.59%,#2196f3 96%);
         }
-        
+        .panelplus3{
+            color: #eee;
+            background: linear-gradient(121.87deg,#dac04b 10.59%,#ade742 96%);
+        }
+        .sub-topic-panel {
+            margin-top: 10px; /* Добавляем отступ между подтемами */
+            margin-left: 20px; /* Добавляем отступ слева для отображения иерархии */
+        }
+
     </style>
 </head>
 <body>
@@ -304,43 +312,43 @@
             document.getElementById('dostup-lect').style.display = 'none';
             const topics = [
                 'Структура программы/Компилятор',
-                'Операторы ввода/вывода',
-                'Переменные, типы данных.',
-                'Операции над переменными',
+                ['Операторы ввода/вывода', 'Задачи для самопроверки'],
+                ['Переменные, типы данных.', 'Задачи для самопроверки'],
+                ['Операции над переменными', 'Задачи для самопроверки'],
                 'Лабораторная номер 1',
                 'Тест 1',
-                'IF-ELSE',
-                'Циклы (While, For)',
+                ['IF-ELSE', 'Задачи для самопроверки'],
+                ['Циклы (While, For)', 'Задачи для самопроверки'],
                 'Работа с файлами',
                 'Работа со строками',
                 'F-строки, PEP',
                 'Тест 2',
-                'Списки',
+                ['Списки', 'Задачи для самопроверки'],
                 'Лабораторная номер 2',
-                'Срезы',
-                'Кортежи',
-                'Словари',
-                'Множества',
+                ['Срезы', 'Задачи для самопроверки'],
+                ['Кортежи', 'Задачи для самопроверки'],
+                ['Словари', 'Задачи для самопроверки'],
+                ['Множества', 'Задачи для самопроверки'],
                 'Лабораторная номер 3',
                 'Тест 3',
                 'Алгоритмы сортировок/поиска',
                 'Оценка сложности программы (O-большое)',
-                'Функции, Декораторы, typehints',
-                'Глобальные переменные',
+                ['Функции, Декораторы, typehints', 'Задачи для самопроверки'],
+                ['Глобальные переменные', 'Задачи для самопроверки'],
                 'Лабораторная номер 4',
                 '(*) Основы ИБ.',
                 'Лабораторная номер 5',
                 'Лабораторная номер 6',
                 'Зачет 1',
-                'ООП',
+                ['ООП', 'Задачи для самопроверки'],
                 'Тест 4 (ООП)',
                 'ООП (стек, очередь, дек..)',
                 'Лабораторная номер 7',
-                'Исключения и ошибки',
+                ['Исключения и ошибки', 'Задачи для самопроверки'],
                 'Лабораторная номер 8',
-                'АИСД. Деревья',
+                ['АИСД. Деревья', 'Задачи для самопроверки'],
                 'Лабораторная номер 9 (на деревья)',
-                'АИСД. ХЕШ-таблицы',
+                ['АИСД. ХЕШ-таблицы', 'Задачи для самопроверки'],
                 'Лабораторная номер 10 (на хеш таблицу)',
                 'АИСД. Динамический массив',
                 'АИСД. Графы',
@@ -384,49 +392,374 @@
                 'Итоговая Контролируемая работа (Экзамен)'
             ];
             
+            let tasks = [
+                [
+                    [
+                        "Запросить у пользователя число типа float и вывести на экран его тип данных.",
+                        "a = float(input('Введите число: '))\nprint(type(a))"
+                    ],
+                    [
+                        "Запросить у пользователя имя и вывести его на экран в формате: Привет, <имя>!",
+                        "name = input('Введите имя: ')\nprint('Привет,', name)"
+                    ]
+                    
+                ],
+                [
+                    [
+                        "Создать переменную типа boolean и вывести ее значение.",
+                        "is_true = True\nprint('Значение переменной типа boolean:', is_true)"
+                    ],
+                    [
+                        "Создать переменную типа float (с любым значением) и вывести ее значение. А также выведите тип данных этой переменной.",
+                        "float_var = 3.14\nprint('Значение переменной типа float:', float_var)\nprint('Тип: ', type(float_var))"
+                    ]
+                ],
+                [
+                    [
+                        "Создать две переменные целого типа данных (с любыми значениями) и вывести сумму/разность/произведение/частное этих переменных.",
+                        "a = 5\nb = 6\nprint('Sum =', a + b), '\nDifference =', a - b, '\nProduct =', a * b, '\nQuotient =', a / b)"
+                    ],
+                    [
+                        "Создать две переменные строкового типа данных (с любыми значениями) и выполнить их конкатенацию (сложить две строки просто).",
+                        "str1 = 'Привет'\nstr2 = 'Мир'\nconcatenated_string = str1 + str2\nprint('Конкатенация строк:', concatenated_string)"
+                    ]
+                ],
+                [
+                    [
+                        "Проверить, является ли число четным или нечетным, и вывести соответствующее сообщение.",
+                        "num = 10\nif num % 2 == 0: print('Число', num, 'четное')\nelse: print('Число', num, 'нечетное')"
+                    ],
+                    [
+                        "Проверить, является ли число положительным, отрицательным или нулем, и вывести соответствующее сообщение.",
+                        "num = -5\nif num > 0: print('Число', num, 'положительное')\nelif num < 0: print('Число', num, 'отрицательное')\nelse: print('Число', num, 'ноль')"
+                    ],
+                    [
+                        "Проверить, является ли год високосным, и вывести соответствующее сообщение.",
+                        "year = 2024\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0): print('Год', year, 'високосный')\nelse: print('Год', year, 'не високосный')"
+                    ],
+                    [
+                        "Проверить, принадлежит ли точка с координатами (x, y) к первой четверти, второй, третьей или четвертой, и вывести соответствующее сообщение.",
+                        "x, y = 5, 3\nif x > 0 and y > 0: print('Точка (', x, ',', y, ') принадлежит первой четверти')\nelif x < 0 and y > 0: print('Точка (', x, ',', y, ') принадлежит второй четверти')\nelif x < 0 and y < 0: print('Точка (', x, ',', y, ') принадлежит третьей четверти')\nelse: print('Точка (', x, ',', y, ') принадлежит четвертой четверти')"
+                    ],
+                    [
+                        "Проверить, находится ли число в диапазоне от 10 до 20 включительно, и вывести соответствующее сообщение.",
+                        "num = 15\nif 10 <= num <= 20: print('Число', num, 'находится в диапазоне от 10 до 20')\nelse: print('Число', num, 'не находится в указанном диапазоне')"
+                    ],
+                    [
+                        "Проверить, является ли число кратным 3 и 5 одновременно, и вывести соответствующее сообщение.",
+                        "num = 15\nif num % 3 == 0 and num % 5 == 0: print('Число', num, 'кратно 3 и 5 одновременно')\nelse: print('Число', num, 'не кратно 3 и 5 одновременно')"
+                    ],
+                    [
+                        "Проверить, является ли число положительным и нечетным, и вывести соответствующее сообщение.",
+                        "num = 9\nif num > 0 and num % 2 != 0: print('Число', num, 'положительное и нечетное')\nelse: print('Число', num, 'не соответствует указанным условиям')"
+                    ]
+                ],
+                [
+                    [
+                        "Напечатать числа от 1 до 5, используя цикл while.",
+                        "num = 1\nwhile num <= 5:\n print(num)\n num += 1"
+                    ],
+                    [
+                        "Напечатать числа от 1 до 5, используя цикл for.",
+                        "for num in range(1, 6):\n print(num)"
+                    ],
+                    [
+                        "Напечатать числа от 5 до 1 в обратном порядке, используя цикл while.",
+                        "num = 5\nwhile num >= 1:\n print(num)\n num -= 1"
+                    ],
+                    [
+                        "Напечатать каждую вторую букву слова 'Привет' с помощью цикла for.",
+                        "word = 'Привет'\nfor i in range(0, len(word), 2):\n print(word[i])"
+                    ],
+                    [
+                        "Подсчитать сумму чисел от 1 до 5, используя цикл for.",
+                        "total = 0\nfor num in range(1, 6):\n total += num\nprint('Сумма:', total)"
+                    ]
+                ],
+                [
+                    [
+                        "Создать список чисел и вывести его длину.",
+                        "my_list = [1, 2, 3, 4, 5]\nprint('Длина списка чисел:', len(my_list))"
+                    ],
+                    [
+                        "Создать два списка чисел и объединить их в один список.",
+                        "list1 = [1, 2, 3]\nlist2 = [4, 5, 6]\ncombined_list = list1 + list2\nprint('Объединенный список:', combined_list)"
+                    ],
+                    [
+                        "Создать список строк и вывести его элементы поочередно.",
+                        "my_strings = ['apple', 'banana', 'orange']\nfor string in my_strings:\n    print(string)"
+                    ],
+                    [
+                        "Создать список чисел и вывести сумму всех его элементов.",
+                        "numbers = [10, 20, 30, 40, 50]\nprint('Сумма чисел в списке:', sum(numbers))"
+                    ],
+                    [
+                        "Создать список и проверить, есть ли в нем определенный элемент.",
+                        "my_list = [1, 2, 3, 4, 5]\nelement = 3\nif element in my_list:\n    print('Элемент', element, 'присутствует в списке')\nelse:\n    print('Элемент', element, 'отсутствует в списке')"
+                    ]
+                ],
+                [
+                    [
+                        "Создать строку и выполнить срез: вывести первые три символа.",
+                        "my_string = 'Это строка для срезов'\nprint('Первые три символа:', my_string[:3])"
+                    ],
+                    [
+                        "Создать список и выполнить срез: вывести элементы с индексами от 2 до 5 (включительно).",
+                        "my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint('Элементы с индексами от 2 до 5:', my_list[2:6])"
+                    ],
+                ],
+                [
+                    [
+                        "Создать переменную типа кортеж (с любыми значениями) и вывести ее.",
+                        "my_tuple = (1, 2, 3, 4, 5)\nprint('Кортеж:', my_tuple)"
+                    ],
+                    [
+                        "Изменить значение одного из элементов кортежа и вывести его.",
+                        "my_tuple = (1, 2, 3, 4, 5)\nmy_tuple = my_tuple[:2] + (10,) + my_tuple[3:]\nprint('Измененный кортеж:', my_tuple)"
+                    ],
+                    [
+                        "Выполнить конкатенацию двух кортежей и вывести результат.",
+                        "tuple1 = (1, 2, 3)\ntuple2 = (4, 5, 6)\nconcatenated_tuple = tuple1 + tuple2\nprint('Конкатенация кортежей:', concatenated_tuple)"
+                    ]
+                ], 
+                [
+                    [
+                        "Создать словарь с парами ключ-значение, где ключи - названия фруктов, а значения - их цены, и вывести этот словарь.",
+                        "fruits_prices = {'яблоко': 50, 'апельсин': 30, 'банан': 40}\nprint('Словарь с ценами на фрукты:', fruits_prices)"
+                    ],
+                    [
+                        "Добавить новую пару ключ-значение в существующий словарь и вывести обновленный словарь.",
+                        "fruits_prices['груша'] = 60\nprint('Обновленный словарь с ценами на фрукты:', fruits_prices)"
+                    ],
+                    [
+                        "Изменить значение определенного ключа в словаре и вывести обновленный словарь.",
+                        "fruits_prices['яблоко'] = 55\nprint('Обновленный словарь с ценами на фрукты:', fruits_prices)"
+                    ],
+                    [
+                        "Удалить определенную пару ключ-значение из словаря и вывести обновленный словарь.",
+                        "del fruits_prices['апельсин']\nprint('Обновленный словарь с ценами на фрукты:', fruits_prices)"
+                    ]
+                ],
+                [
+                    [
+                        "Создать два множества с различными элементами и вывести их объединение.",
+                        "set1 = {1, 2, 3, 4}\nset2 = {3, 4, 5, 6}\nunion_set = set1.union(set2)\nprint('Объединение множеств:', union_set)"
+                    ],
+                    [
+                        "Создать два множества с различными элементами и вывести их пересечение.",
+                        "set1 = {1, 2, 3, 4}\nset2 = {3, 4, 5, 6}\nintersection_set = set1.intersection(set2)\nprint('Пересечение множеств:', intersection_set)"
+                    ]
+                ],
+                [
+                    [
+                        "Написать функцию для вычисления суммы двух чисел и вызвать ее с произвольными аргументами.",
+                        "def sum_numbers(a, b):\n return a + b\nprint('Сумма чисел:', sum_numbers(3, 4))"
+                    ],
+                    [
+                        "Написать функцию для нахождения максимального из двух чисел и вызвать ее с произвольными аргументами.",
+                        "def max_number(a, b):\n return max(a, b)\nprint('Максимальное число:', max_number(10, 20))"
+                    ],
+                    [
+                        "Написать функцию для проверки четности числа и вызвать ее с произвольным аргументом.",
+                        "def is_even(num):\n return num % 2 == 0\nprint('Четное число?', is_even(7))"
+                    ],
+                    [
+                        "Написать функцию для проверки простоты числа и вызвать ее с произвольным аргументом.",
+                        "def is_prime(num):\n if num < 2:\n return False\n for i in range(2, int(num**0.5) + 1):\n if num % i == 0:\n return False\n return True\nprint('Простое число?', is_prime(11))"
+                    ],
+                    [
+                        "Написать функцию для нахождения факториала числа и вызвать ее с произвольным аргументом.",
+                        "def factorial(n):\n if n == 0:\n return 1\n else:\n return n * factorial(n-1)\nprint('Факториал числа 5:', factorial(5))"
+                    ],
+                    [
+                        "Написать функцию для перевода температуры из градусов Цельсия в градусы Фаренгейта и вызвать ее с произвольным аргументом.",
+                        "def celsius_to_fahrenheit(celsius):\n return (celsius * 9/5) + 32\nprint('Температура в Фаренгейтах:', celsius_to_fahrenheit(25))"
+                    ]
+                ],
+                [
+                    [
+                        "Создать глобальную переменную и присвоить ей значение, а затем в функции изменить ее значение и вывести результат до и после изменения.",
+                        "#префикс global необязательно использовать\nglobal_var = 10\ndef change_global():\n global global_var\n print('Глобальная переменная до изменения:', global_var)\n global_var = 20\n print('Глобальная переменная после изменения:', global_var)\nchange_global()"
+                    ],
+                    [
+                        "Использовать глобальную переменную внутри функции.",
+                        "#префикс global необязательно использовать\nglobal_var = 15\ndef use_global():\n print('Значение глобальной переменной внутри функции:', global_var)\nuse_global()"
+                    ]
+                ],
+                [
+                    [
+                        "Создать класс 'Круг' с атрибутом 'радиус' и методом для вычисления площади круга.",
+                        "class Circle:\n def init(self, radius):\n self.radius = radius\n def area(self):\n return 3.14 * self.radius ** 2\n\nmy_circle = Circle(5)\nprint('Площадь круга с радиусом 5:', my_circle.area())"
+                    ],
+                    [
+                        "Создать класс 'Прямоугольник' с атрибутами 'ширина' и 'высота' и методом для вычисления площади прямоугольника.",
+                        "class Rectangle:\n def init(self, width, height):\n self.width = width\n self.height = height\n def area(self):\n return self.width * self.height\n\nmy_rectangle = Rectangle(4, 6)\nprint('Площадь прямоугольника 4x6:', my_rectangle.area())"
+                    ],
+                    [
+                        "Создать класс 'Сотрудник' с атрибутами 'имя', 'возраст' и методом для вывода информации о сотруднике.",
+                        "class Employee:\n def init(self, name, age):\n self.name = name\n self.age = age\n def info(self):\n return f'Сотрудник: {self.name}, Возраст: {self.age}'\n\nemployee1 = Employee('Иван', 30)\nprint(employee1.info())"
+                    ],
+                    [
+                        "Создать класс 'Автомобиль' с атрибутами 'марка', 'модель' и методом для вывода полной информации об автомобиле.",
+                        "class Car:\n def init(self, brand, model):\n self.brand = brand\n self.model = model\n def full_info(self):\n return f'Марка: {self.brand}, Модель: {self.model}'\n\ncar1 = Car('Toyota', 'Corolla')\nprint(car1.full_info())"
+                    ],
+                    [
+                        "Создать класс 'Фигура' с методом для вычисления площади и периметра (заглушка). Создать классы 'Квадрат' и 'Прямоугольник', которые наследуются от класса 'Фигура' и переопределяют методы для соответствующих вычислений.",
+                        "class Shape:\n def area(self):\n pass\n def perimeter(self):\n pass\n\nclass Square(Shape):\n def init(self, side_length):\n self.side_length = side_length\n def area(self):\n return self.side_length ** 2\n def perimeter(self):\n return 4 * self.side_length\n\nclass Rectangle(Shape):\n def init(self, width, height):\n self.width = width\n self.height = height\n def area(self):\n return self.width * self.height\n def perimeter(self):\n return 2 * (self.width + self.height)\n\nmy_square = Square(5)\nprint('Площадь квадрата со стороной 5:', my_square.area())\nprint('Периметр квадрата со стороной 5:', my_square.perimeter())\n\nmy_rectangle = Rectangle(4, 6)\nprint('Площадь прямоугольника 4x6:', my_rectangle.area())\nprint('Периметр прямоугольника 4x6:', my_rectangle.perimeter())"
+                    ],
+                    [
+                        "Создать класс 'Человек' с атрибутами 'имя' и 'возраст', атрибут 'возраст' должен быть инкапсулирован. Создать методы для получения и установки значения возраста.",
+                        "class Person:\n def init(self, name, age):\n self.name = name\n self.__age = age\n def get_age(self):\n return self.__age\n def set_age(self, new_age):\n if new_age >= 0:\n self.__age = new_age\n\nperson1 = Person('Анна', 25)\nprint('Возраст:', person1.get_age())\nperson1.set_age(30)\nprint('Новый возраст:', person1.get_age())"
+                    ]
+                ],
+                [
+                    [
+                        "Попытаться разделить число на ноль и обработать возникающее исключение.",
+                        "try:\n result = 10 / 0\nexcept ZeroDivisionError as e:\n print('Ошибка:', e)"
+                    ],
+                    [
+                        "Преобразовать строку в целое число и обработать возможное исключение.",
+                        "try:\n num = int('abc')\nexcept ValueError as e:\n print('Ошибка:', e)"
+                    ],
+                    [
+                        "Обратиться к несуществующему элементу списка и обработать исключение IndexError.",
+                        "my_list = [1, 2, 3]\ntry:\n print(my_list[5])\nexcept IndexError as e:\n print('Ошибка:', e)"
+                    ],
+                    [
+                        "Попытаться открыть файл, который не существует, и обработать исключение FileNotFoundError.",
+                        "try:\n with open('nonexistent_file.txt', 'r') as file:\n content = file.read()\nexcept FileNotFoundError as e:\n print('Ошибка:', e)"
+                    ],
+                    [
+                        "Попытаться выполнить деление с использованием неверного типа данных и обработать исключение TypeError.",
+                        "try:\n result = '10' / 2\nexcept TypeError as e:\n print('Ошибка:', e)"
+                    ],
+                    [
+                        "Создать собственный класс исключений и обработать его.",
+                        "class MyCustomException(Exception):\n pass\n\ntry:\n raise MyCustomException('Сработало мое исключение')\nexcept MyCustomException as e:\n print('Мое исключение:', e)"
+                    ]
+                ],
+                [
+                    [
+                        "Создать класс для узла бинарного дерева поиска и реализовать метод для добавления нового узла.",
+                        "class Node:\n def init(self, key):\n self.left = None\n self.right = None\n self.val = key\n\ndef insert(root, key):\n if root is None:\n return Node(key)\n else:\n if key < root.val:\n root.left = insert(root.left, key)\n else:\n root.right = insert(root.right, key)\n return root"
+                    ],
+                    [
+                        "Создать класс для обычного бинарного дерева и реализовать метод для добавления нового узла.",
+                        "class Node:\n def init(self, key):\n self.left = None\n self.right = None\n self.val = key\n\ndef insert(root, key):\n if root is None:\n return Node(key)\n else:\n if root.left is None:\n root.left = Node(key)\n elif root.right is None:\n root.right = Node(key)\n else:\n if root.left.left is None or root.left.right is None:\n return insert(root.left, key)\n else:\n return insert(root.right, key)\n return root"
+                    ]
+                ],
+                [
+                    [
+                        "Создать собственный класс для хеш-таблицы (hash table) с методами добавления элемента, получения элемента по ключу и удаления элемента по ключу.",
+                        "class HashTable:\n def init(self):\n self.size = 10\n self.hash_table = [[] for _ in range(self.size)]\n\n def _hash_function(self, key):\n return key % self.size\n\n def add_element(self, key, value):\n hash_key = self._hash_function(key)\n self.hash_table[hash_key].append((key, value))\n\n def get_element(self, key):\n hash_key = self._hash_function(key)\n for pair in self.hash_table[hash_key]:\n if pair[0] == key:\n return pair[1]\n return None\n\n def remove_element(self, key):\n hash_key = self._hash_function(key)\n for i, pair in enumerate(self.hash_table[hash_key]):\n if pair[0] == key:\n del self.hash_table[hash_key][i]\n return\n\n# Пример использования:\nmy_hash_table = HashTable()\nmy_hash_table.add_element(10, 'a')\nmy_hash_table.add_element(20, 'b')\nprint(my_hash_table.get_element(10))\nmy_hash_table.remove_element(10)\nprint(my_hash_table.get_element(10))"
+                    ],
+                    [
+                        "Создать собственный класс для хеш-таблицы (hash table) с использованием словаря (dict) Python в качестве основы.",
+                        "class HashTable:\n def init(self):\n self.hash_table = {}\n\n def add_element(self, key, value):\n self.hash_table[key] = value\n\n def get_element(self, key):\n return self.hash_table.get(key)\n\n def remove_element(self, key):\n if key in self.hash_table:\n del self.hash_table[key]\n\n# Пример использования:\nmy_hash_table = HashTable()\nmy_hash_table.add_element(10, 'a')\nmy_hash_table.add_element(20, 'b')\nprint(my_hash_table.get_element(10))\nmy_hash_table.remove_element(10)\nprint(my_hash_table.get_element(10))"
+                    ]
+                ]
+            ]
+            let indexElement = 0;
             const mainContent = document.querySelector('.t');
             for (let i = 0; i < topics.length; i++) {
                 const topicPanel = document.createElement('div');
                 topicPanel.classList.add('panel', 'topic-panel'); // Добавляем класс topic-panel
                 topicPanel.id = `topic${i + 1}-panel`;
-            
+
                 const progressBar = document.createElement('div');
                 const label = document.createElement('div');
                 const label2 = document.createElement('div');
-            
-                progressBar.classList.add('progress-bar');
-                progressBar.innerHTML = `<div class="progress" style="width: ${py[i+1][0]}%;"></div>`;
-            
-                label.classList.add('label');
+
+               
+                if (topics[i].includes('Задачи для') == false){
+                    progressBar.classList.add('progress-bar');
+                    progressBar.innerHTML = `<div class="progress" style="width: ${py[i + 1][0]}%;"></div>`;
+                    label.classList.add('label');
+                    label.textContent = `Пройдено: ${py[i + 1][0]}%`;
+                }
                 
-                label.textContent = `Пройдено: ${py[i + 1][0]}%`;
-            
+
                 // Проверяем наличие "Тест" или "Лабораторная" в названии темы
-                if (topics[i].includes("Тест") || topics[i].includes("Лабораторная")) {
-                    label2.classList.add('label2');
-                    label2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
-                    topicPanel.appendChild(label2);
-                    topicPanel.classList.add('panelplus');
+                if (Array.isArray(topics[i])) {
+                    const subTopics = topics[i]; // Если это массив, возьмем его элементы
+                    subTopics.forEach((subTopic, index) => {
+                        const subTopicPanel = document.createElement('div');
+                        subTopicPanel.classList.add('panel', 'topic-panel', 'sub-topic-panel'); // Добавляем класс sub-topic-panel
+                        subTopicPanel.id = `topic${i + 1}-${index + 1}-panel`;
+
+                        const subProgressBar = document.createElement('div');
+                        const subLabel = document.createElement('div');
+                        const subLabel2 = document.createElement('div');
+
+                        
+                        if (!subTopic.includes('Задачи для')){
+                            subProgressBar.classList.add('progress-bar');
+                            subProgressBar.innerHTML = `<div class="progress" style="width: ${py[i + 1][0]}%;"></div>`;
+                            subLabel.classList.add('label');
+                            subLabel.textContent = `Пройдено: ${py[i + 1][0]}%`;
+                        }
+                        
+
+                        // Проверяем наличие "Тест" или "Лабораторная" в названии подтемы
+                        if (subTopic.includes("Тест") || subTopic.includes("Лабораторная")) {
+                            subLabel2.classList.add('label2');
+                            subLabel2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
+                            subTopicPanel.appendChild(subLabel2);
+                            subTopicPanel.classList.add('panelplus');
+                        } else if (subTopic.includes("Зачет") || subTopic.includes("Итоговая")) {
+                            subLabel2.classList.add('label2');
+                            subLabel2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
+                            subTopicPanel.appendChild(subLabel2);
+                            subTopicPanel.classList.add('panelplus2');
+                        } else if (subTopic.includes("Задачи для")) {
+                            subLabel2.classList.add('label2');
+                            subTopicPanel.appendChild(subLabel2);
+                            subTopicPanel.classList.add('panelplus3');
+
+                            subTopicPanel.addEventListener('click', function(currentIndex) {
+                                return function() {
+                                    var url = 'editor.html' + '?tasks=' + encodeURIComponent(JSON.stringify(tasks[currentIndex]));
+                                    // console.log(currentIndex);
+                                    window.location.href = url;
+                                };
+                            }(indexElement));
+
+                            indexElement++;
+                        }
+
+                        subTopicPanel.appendChild(document.createElement('h2')).textContent = subTopic;
+                        subTopicPanel.appendChild(subProgressBar);
+                        subTopicPanel.appendChild(subLabel);
+
+                        subTopicPanel.addEventListener('click', function () {
+                            updateProgress(`topic${i + 1}-${index + 1}-panel`, 25 * (i + 1)); // Пример обновления прогресса
+                        });
+
+                        topicPanel.appendChild(subTopicPanel);
+                    });
+                } else {
+                    if (topics[i].includes("Тест") || topics[i].includes("Лабораторная")) {
+                        label2.classList.add('label2');
+                        label2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
+                        topicPanel.appendChild(label2);
+                        topicPanel.classList.add('panelplus');
+                    } else if (topics[i].includes("Зачет") || topics[i].includes("Итоговая")) {
+                        label2.classList.add('label2');
+                        label2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
+                        topicPanel.appendChild(label2);
+                        topicPanel.classList.add('panelplus2');
+                    }
+
+                    topicPanel.appendChild(document.createElement('h2')).textContent = topics[i];
+                    topicPanel.appendChild(progressBar);
+                    topicPanel.appendChild(label);
                 }
-                else if (topics[i].includes("Зачет") || topics[i].includes("Итоговая")) {
-                    label2.classList.add('label2');
-                    label2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
-                    topicPanel.appendChild(label2);
-                    topicPanel.classList.add('panelplus2');
-                }
-            
-                topicPanel.appendChild(document.createElement('h2')).textContent = topics[i];
-                topicPanel.appendChild(progressBar);
-                topicPanel.appendChild(label);
-            
-                // Добавляем обработчик события для каждой темы
+
                 topicPanel.addEventListener('click', function () {
                     updateProgress(`topic${i + 1}-panel`, 25 * (i + 1)); // Пример обновления прогресса
                 });
-            
-                mainContent.appendChild(topicPanel); // Используем .course-container вместо .t
-                //const progressElement = document.getElementById(panelId).querySelector('.progress');
-                //progressElement.style.width = py[i+1][0] + '%';
+
+                mainContent.appendChild(topicPanel);
             }
             
         };
