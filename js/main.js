@@ -516,6 +516,16 @@ function showNotifications() {
                                     'https://www.youtube.com/embed/a4IzB5McbuY'
                                 );
                                 notifications.appendChild(notificationBlock6);
+                                if (user.proc_py >= 39) {
+                                const notificationBlock6 = createNotificationBlock(
+                                    'Python #6 (Исключения и обработка ошибок)',
+                                    'Повторим Исключения и обработку ошибок (RAISE, TRY, EXCEPT..) в Python',
+                                    'https://pythonchik.ru/pic/lb1/cover_4a783694-d0ad-45e1-af70-2aaac93c8a1f_big2x.jpeg',
+                                    'Смотреть',
+                                    'https://www.youtube.com/embed/U1456ECaTNQ'
+                                );
+                                notifications.appendChild(notificationBlock6);
+                            }
                             }
                         }
                     }
