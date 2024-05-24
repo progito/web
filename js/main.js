@@ -453,7 +453,7 @@ function showNotifications() {
             
             
             // Display notification blocks only if proc_py is greater than 20
-            if (user.proc_py >= 15) {
+            if (user.proc_py >= 13) {
                 // Создаем элементы для раздела уведомлений
                 const notifications = document.createElement('div');
                 notifications.classList.add('notifications');
