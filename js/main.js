@@ -453,7 +453,7 @@ function showNotifications() {
             
             
             // Display notification blocks only if proc_py is greater than 20
-            if (user.proc_py >= 25) {
+            if (user.proc_py >= 15) {
                 // Создаем элементы для раздела уведомлений
                 const notifications = document.createElement('div');
                 notifications.classList.add('notifications');
@@ -480,7 +480,7 @@ function showNotifications() {
                 // Добавляем блоки уведомлений к разделу уведомлений
                 notifications.appendChild(notificationBlock1);
                 notifications.appendChild(notificationBlock2);
-                if (user.proc_py >= 30) {
+                if (user.proc_py >= 25) {
                     const notificationBlock3 = createNotificationBlock(
                         'Повторение Python #2 (коллекции)',
                         'Повторим коллекции в Python (cписки, кортежи..)',
@@ -489,7 +489,7 @@ function showNotifications() {
                         'https://www.youtube.com/embed/-xHGeeYoyQI'
                     );
                     notifications.appendChild(notificationBlock3);
-                    if (user.proc_py >= 32) {
+                    if (user.proc_py >= 30) {
                         const notificationBlock4 = createNotificationBlock(
                             'Повторение Python #3 (функции)',
                             'Повторим функции в Python (виды, параметры, lambda, декораторы...)',
@@ -498,7 +498,7 @@ function showNotifications() {
                             'https://www.youtube.com/embed/5gH1dimQumI'
                         );
                         notifications.appendChild(notificationBlock4);
-                        if (user.proc_py >= 37) {
+                        if (user.proc_py >= 30) {
                             const notificationBlock5 = createNotificationBlock(
                                 'Повторение Python #4 (ООП)',
                                 'Повторим ООП в Python (классы, объекты и др)',
@@ -507,7 +507,7 @@ function showNotifications() {
                                 'https://www.youtube.com/embed/FEEBPoZYQuo'
                             );
                             notifications.appendChild(notificationBlock5);
-                            if (user.proc_py >= 38) {
+                            if (user.proc_py >= 30) {
                                 const notificationBlock6 = createNotificationBlock(
                                     'Python #5 (Особенность FOR)',
                                     'Разберем прикольную особенность популярного цикла for...',
