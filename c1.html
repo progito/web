@@ -706,7 +706,7 @@
                             subLabel2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
                             subTopicPanel.appendChild(subLabel2);
                             subTopicPanel.classList.add('panelplus');
-                        } else if (subTopic.includes("Зачет") || subTopic.includes("Итоговая")|| subTopic.includes("Отчетная")) {
+                        } else if (subTopic.includes("Зачет") || subTopic.includes("Итоговая") || subTopic.includes("Отчет")) {
                             subLabel2.classList.add('label2');
                             subLabel2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
                             subTopicPanel.appendChild(subLabel2);
@@ -743,7 +743,7 @@
                         label2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
                         topicPanel.appendChild(label2);
                         topicPanel.classList.add('panelplus');
-                    } else if (topics[i].includes("Зачет") || topics[i].includes("Итоговая")) {
+                    } else if (topics[i].includes("Зачет") || topics[i].includes("Итоговая") || subTopic.includes("Отчет")) {
                         label2.classList.add('label2');
                         label2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
                         topicPanel.appendChild(label2);
