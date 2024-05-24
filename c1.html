@@ -743,7 +743,7 @@
                         label2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
                         topicPanel.appendChild(label2);
                         topicPanel.classList.add('panelplus');
-                    } else if (topics[i].includes("Зачет") || topics[i].includes("Итоговая") || subTopic.includes("Отчет")) {
+                    } else if (topics[i].includes("Зачет") || topics[i].includes("Итоговая") || topics[i].includes("Отчет")) {
                         label2.classList.add('label2');
                         label2.textContent = `Баллов: ${py[i + 1][1]}/${py[i + 1][2]}`;
                         topicPanel.appendChild(label2);
