@@ -282,25 +282,28 @@
 
             let table4 = document.createElement('table');
             table4.setAttribute('border', '1');  
-        
+            
             // Заголовок таблицы
-            headerRow = table4.insertRow();
-            headerCell1 = headerRow.insertCell(0);
-            headerCell2 = headerRow.insertCell(1);
+            let headerRow = table4.insertRow();
+            let headerCell1 = headerRow.insertCell(0);
+            let headerCell2 = headerRow.insertCell(1);
             headerCell1.innerHTML = '<b>Название</b>';
             headerCell2.innerHTML = '<b>Ссылка на файл</b>';
-        
-            let row = table4.insertRow();
-            let cell11 = row.insertCell(0);
-            let cell21 = row.insertCell(1);
+            
+            // Первая строка данных
+            let row1 = table4.insertRow();
+            let cell11 = row1.insertCell(0);
+            let cell21 = row1.insertCell(1);
             cell11.innerHTML = 'Вопросы к экзамену ';
             cell21.innerHTML = `<a href="lections/py/EX.pdf" target="_blank">Ссылка</a><br>`;
+            
+            // Вторая строка данных
             let row2 = table4.insertRow();
-            let cell112 = row.insertCell(0);
-            let cell212 = row.insertCell(1);
-            cell112.innerHTML = 'Требование Оформления Отчетной Работы. ';
-            cell212.innerHTML = `<a href="lections/py/TW_.pdf" target="_blank">Ссылка</a><br>`;
-        
+            let cell12 = row2.insertCell(0);
+            let cell22 = row2.insertCell(1);
+            cell12.innerHTML = 'Требование Оформления Отчетной Работы. ';
+            cell22.innerHTML = `<a href="lections/py/TW_.pdf" target="_blank">Ссылка</a><br>`;
+
             // Добавить таблицу в блок с классом "t"
             document.querySelector('.t').appendChild(table);
             document.querySelector('.t').appendChild(table2);
