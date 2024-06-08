@@ -120,7 +120,125 @@
             margin-top: 10px; /* Добавляем отступ между подтемами */
             margin-left: 20px; /* Добавляем отступ слева для отображения иерархии */
         }
+/* dark mode */
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: #1a1a1a; /* Цвет фона */
+            color: #eee; /* Цвет текста */
+        }
 
+        /* Стили для таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-left: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #333; /* Цвет фона таблицы */
+        }
+
+        /* Стили для ячеек заголовка */
+        th {
+            border: 1px solid #555; /* Цвет рамки заголовка */
+            padding: 12px;
+            text-align: left;
+            background-color: #346cdb; /* Цвет фона заголовка */
+            color: #fff; /* Цвет текста заголовка */
+        }
+
+        /* Стили для ячеек данных */
+        td {
+            border: 1px solid #555; /* Цвет рамки данных */
+            padding: 12px;
+        }
+
+        /* Стиль для ссылок в ячейках данных */
+        td a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hover-эффект при наведении на ссылки */
+        td a:hover {
+            color: #1e87d2;
+        }
+
+        .panel {
+            width: 300px;
+            background-color: #222; /* Цвет фона панели */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            color: #eee; /* Цвет текста в панели */
+        }
+
+        .panel:hover{
+            transform: scale(1.05); /* Увеличение размера при наведении */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 15px;
+            background-color: #333; /* Цвет фона прогресс-бара */
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #4caf50; /* Цвет прогресса */
+            border-radius: 8px;
+        }
+
+        .label {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #777; /* Цвет текста метки */
+        }
+
+        .back-button {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #007bff; /* Цвет текста кнопки назад */
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .panelplus{
+            background: linear-gradient(119.94deg,#2196f3,#443fa2 86%);
+        }
+
+        .panelplus2{
+            background: linear-gradient(121.87deg,#43a047 10.59%,#2196f3 96%);
+        }
+
+        .panelplus3{
+            background: linear-gradient(121.87deg,#dac04b 10.59%,#ade742 96%);
+        }
+
+        .sub-topic-panel {
+            margin-top: 10px; /* Добавляем отступ между подтемами */
+            margin-left: 20px; /* Добавляем отступ слева для отображения иерархии */
+        }
     </style>
 </head>
 <body>
