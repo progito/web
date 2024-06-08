@@ -76,3 +76,92 @@ a {
 a:hover{
     text-decoration: underline;
 }
+
+/* dark mode */
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #333; /* Цвет фона */
+    color: #eee; /* Цвет текста */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Стили для кнопок */
+.reg-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border-radius: 5px;
+}
+.reg-btn:hover {
+    opacity: 0.8;
+}
+
+/* Стили для форм */
+.login-form,
+.registration-form {
+    border: 1px solid #555; /* Цвет рамки */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень */
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    background-color: #222; /* Цвет фона формы */
+}
+
+h2 {
+    text-align: center;
+    color: #eee; /* Цвет текста заголовка */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #ccc; /* Цвет текста метки */
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #555; /* Цвет рамки поля ввода */
+    background-color: #444; /* Цвет фона поля ввода */
+    color: #eee; /* Цвет текста поля ввода */
+}
+
+button {
+    background-color: #555; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #000; /* Цвет фона кнопки при наведении */
+}
+
+a {
+    text-align: center;
+    margin: 15px 15px;
+    text-decoration: none;
+    color: #89d6ae; /* Цвет текста ссылки */
+}
+
+a:hover {
+    text-decoration: underline;
+}

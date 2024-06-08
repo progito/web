@@ -499,3 +499,160 @@ iframe{
         width: 100%;
     }
 }
+
+/* dark mode */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a; /* Цвет фона */
+    color: #eee; /* Цвет текста */
+}
+
+.schedule {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #333; /* Цвет рамки */
+    border-radius: 10px;
+    overflow: hidden; /* Предотвращает выступание рамки за границы */
+    background-color: #333; /* Цвет фона блока */
+}
+
+.week-selector button {
+    background-color: #346cdb;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.week-selector button:hover {
+    background-color: #2a55a5; /* Цвет при наведении */
+}
+
+.lesson_this {
+    background: rgb(141, 217, 141);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Убирает пробелы между ячейками */
+    margin-top: 10px;
+}
+
+thead {
+    background-color: #333; /* Цвет фона шапки таблицы */
+    color: #fff; /* Цвет текста в шапке таблицы */
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #555; /* Цвет рамки между ячейками */
+}
+
+th {
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+}
+
+.menu i {
+    margin-right: 10px; /* Расстояние между иконкой и текстом */
+}
+
+.menu-text {
+    display: inline-block;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #222; /* Цвет боковой панели */
+    color: #eee; /* Цвет текста */
+    overflow: hidden;
+    position: fixed;
+    transition: width 0.5s;
+}
+
+.menu a {
+    color: #eee; /* Цвет текста ссылок меню */
+}
+
+.menu a:hover {
+    background-color: #555; /* Цвет фона при наведении на ссылку */
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px;
+    /* background-color: #333; Цвет фона основного содержимого */
+    color: #eee; /* Цвет текста основного содержимого */
+}
+
+.toggle-btn {
+    background: #2ecc71; /* Цвет кнопки переключения */
+    color: #fff;
+}
+
+.toggle-btn:hover {
+    background-color: #27ae60; /* Цвет при наведении на кнопку */
+}
+
+.close-menu {
+    color: #eee;
+}
+
+.course-panel {
+    border: 1px solid #555; /* Цвет рамки панелей курсов */
+    background-color: #222; /* Цвет фона панелей курсов */
+    color: #eee; /* Цвет текста в панелях курсов */
+}
+
+.course-panel:hover {
+    transform: scale(1.05); /* Увеличение размера при наведении */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.date-time {
+    display: block;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(264.46deg, rgb(238 151 110) 24.39%, rgb(242 71 125) 54.4%);
+}
+.tech-support {
+    display: block;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(97.29deg, rgb(94 181 242) 16.14%, rgb(154 213 255 / 67%) 81.6%);
+}
+
+
+div.panel { 
+    background-color: rgb(78 90 108 / 20%);
+    
+}
+div.panel span {
+    color: white;
+}
+
+.notification-block {
+    background-color: #383d428a;
+}

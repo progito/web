@@ -3875,3 +3875,225 @@ li.menu-item-has-children
     width: 80px;
   }
 }
+
+/* dark mode */
+/*--------------------------------------------------------------
+## Basic Color
+----------------------------------------------------------------*/
+/*--------------------------------------------------------------
+>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1. Typography
+2. Preloader
+3. Spacing
+4. General
+5. Slider
+6. Header
+7. Footer
+8. Hero
+9. Iconbox
+10. Post
+11. Pricing Table
+12. Testimonial
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1. Typography
+----------------------------------------------------------------*/
+
+body,
+html {
+    color: #ccc; /* Основной цвет текста */
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    clear: both;
+    color: #1C2528; /* Цвет заголовков */
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    line-height: 1.2em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cs-primary_font {
+    letter-spacing: 0.02em;
+}
+
+.cs-primary_font,
+.cs-btn {
+    font-family: 'Poppins', sans-serif;
+}
+
+.cs-secondary_font {
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: 56px;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    margin: 0 0 25px 0;
+    padding-left: 20px;
+    list-style: square outside none;
+}
+
+ol {
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+dfn,
+cite,
+em,
+i {
+    font-style: italic;
+}
+
+blockquote {
+    margin: 0 15px;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+address {
+    margin: 0 0 15px;
+}
+
+img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+a,
+.cs-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button {
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+a:hover,
+.cs-link:hover {
+    text-decoration: none;
+    color: #6990FF; /* Цвет ссылки при наведении */
+}
+
+table {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+table th {
+    font-weight: 600;
+    color: #6B6B6B; /* Цвет заголовков таблицы */
+}
+
+table td,
+table th {
+    border-top: 1px solid #E5E5E5; /* Цвет границ таблицы */
+    padding: 11px 10px;
+}
+
+dl {
+    margin-bottom: 25px;
+}
+
+dl dt {
+    font-weight: 600;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+pre {
+    color: #6B6B6B; /* Цвет текста кода */
+    border: 1px solid #E5E5E5; /* Цвет границ кода */
+    font-size: 18px;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+kbd {
+    font-size: 100%;
+    background-color: #6B6B6B; /* Цвет фона клавиши */
+    border-radius: 5px;
+}
+
+:root {
+    scroll-behavior: initial;
+}
+
+@media screen and (max-width: 991px) {
+    body,
+    html {
+        font-size: 16px;
+        line-height: 1.6em;
+    }
+    h2 {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+}
+
+/*--------------------------------------------------------------
+3. Spacing
+----------------------------------------------------------------*/
+@media screen and (min-width: 1200px) {
+    .cs-height_0 {
+        height: 0px;
+    }
+    /* Другие классы для высоты */
+}
+
+@media screen and (max-width: 1199px) {
+    .cs-height_lg_0 {
+        height: 0px;
+    }
+    /* Другие классы для высоты */
+}
