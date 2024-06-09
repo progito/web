@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конфигуратор курса</title>
+    <link rel="stylesheet" href="./css/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="./path/to/your/Roboto-Regular-normal.js"></script>
+</head>
+<body>
+    <div class="configurator-main">
+        <div class="configurator-category">
+            <h2 class="configurator-categorygroup">Базовый пакет опций</h2>
+            <p style="color:gray; font-size: 12px;">оплата 1 раз в месяц.</p>
+            <div class="configurator-optiongroup">
+                <div class="configurator-categoryoption form-selector disabled" data-price="0" onclick="selectOption(this, 'additional')">
+                    <label class="form-selector-label">Личный кабинет (к курсу)</label>
+                    <span class="option-price">бесплатно</span>
+                </div>
+            </div>
+        </div>
+        <div class="configurator-category">
+            <h2 class="configurator-categorygroup">Выберите нужный курс</h2>
+            <p>оплата 1 раз в месяц.</p>
+            <div class="configurator-optiongroup">
+                <h3 class="configurator-optiongroup-header">Курс</h3>
+                <div class="form-selector-group" id="course-options">
+                    <div class="configurator-categoryoption form-selector" data-price-per-hour="625" onclick="selectOption(this, 'course')">
+                        <label class="form-selector-label">Python</label>
+                        <span class="option-price">625 ₽/ч</span>
+                    </div>
+                    <div class="configurator-categoryoption form-selector" data-price-per-hour="700" onclick="selectOption(this, 'course')">
+                        <label class="form-selector-label">C++</label>
+                        <span class="option-price">700 ₽/ч</span>
+                    </div>
+                    <div class="configurator-categoryoption form-selector" data-price-per-hour="800" onclick="selectOption(this, 'course')">
+                        <label class="form-selector-label">Frontend</label>
+                        <span class="option-price">800 ₽/ч</span>
+                    </div>
+                    <div class="configurator-categoryoption form-selector" data-price-per-hour="1200" onclick="selectOption(this, 'course')">
+                        <label class="form-selector-label">Harvard</label>
+                        <span class="option-price">1200 ₽/ч</span>
+                    </div>
+                </div>
+            </div>
+            <div class="configurator-optiongroup">
+                <h3 class="configurator-optiongroup-header">Выберите количество часов в неделю</h3>
+                <p style="color:gray; font-size: 12px;">для Harvard курса ставьте от 4 до 6 часов.</p>
+                <input type="number" id="hours-per-week" min="1" max="10" value="1" oninput="updateTotalPrice()">
+            </div>
+            <div class="configurator-optiongroup">
+                <h3 class="configurator-optiongroup-header">Дополнительные опции</h3>
+                <div class="form-selector-group" id="additional-options">
+                    <div class="configurator-categoryoption form-selector" data-price="3200" onclick="selectOption(this, 'additional')">
+                        <label class="form-selector-label">Обучение чистому коду за 1 месяц</label>
+                        <span class="option-price">3200 ₽</span>
+                    </div>
+                    <div class="configurator-categoryoption form-selector" data-price="4000" onclick="selectOption(this, 'additional')">
+                        <label class="form-selector-label">GIT/GITHUB за 1 месяц</label>
+                        <span class="option-price">4000 ₽</span>
+                    </div>
+
+                    <div class="configurator-categoryoption form-selector" data-price="9150" onclick="selectOption(this, 'additional')">
+                        <label class="form-selector-label">Марафон программиста (решим более 100 крутых задач)</label>
+                        <span class="option-price">9150 ₽</span>
+                    </div>
+                    <div id="basic" class="configurator-categoryoption form-selector selected" data-price="430" onclick="selectOption(this, 'additional')">
+                        <label class="form-selector-label">Включение Тестов, ДЗ, лабораторных работ, зачетов/экзаменов и другое</label>
+                        <span class="option-price">430 ₽</span>
+                    </div>
+                </div>
+            </div>
+            <div class="total-price">
+                Общая стоимость: <span id="total-price">0</span> ₽/месяц
+            </div>
+            <button type="button" class="configurator-submit" onclick="submitConfiguration()">Отправить преподавателю</button>
+        </div>
+    </div>
+    <script>
+        let selectedCourse = null;
+        let additionalOptions = [];
+        let hoursPerWeek = 1;
+
+        function selectOption(element, group) {
+            if (element.classList.contains('disabled')) {
+                return; // Игнорировать клики по неактивным элементам
+            }
+            if (group === 'course') {
+                if (selectedCourse) {
+                    selectedCourse.classList.remove('selected');
+                }
+                selectedCourse = element;
+                selectedCourse.classList.add('selected');
+            } else if (group === 'additional') {
+                const index = additionalOptions.indexOf(element);
+                if (index > -1) {
+                    additionalOptions.splice(index, 1);
+                    element.classList.remove('selected');
+                } else {
+                    additionalOptions.push(element);
+                    element.classList.add('selected');
+                }
+            }
+            updateTotalPrice();
+        }
+        
+        function updateTotalPrice() {
+            let totalPrice = 0;
+            hoursPerWeek = parseInt(document.getElementById('hours-per-week').value, 10);
+            if (hoursPerWeek > 10) {
+                document.getElementById('hours-per-week').value = 10;
+                hoursPerWeek = 10;
+            }
+            if (hoursPerWeek < 0) {
+                document.getElementById('hours-per-week').value = 1;
+                hoursPerWeek = 1;
+            }
+            if (selectedCourse) {
+                const pricePerHour = parseInt(selectedCourse.getAttribute('data-price-per-hour'), 10);
+                totalPrice += pricePerHour * hoursPerWeek * 4; // 4 weeks in a month
+            }
+
+            additionalOptions.forEach(option => {
+                totalPrice += parseInt(option.getAttribute('data-price'), 10);
+            });
+
+            document.getElementById('total-price').innerText = totalPrice;
+        }
+
+        async function submitConfiguration() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+
+            pdf.addFont('Roboto-Regular-normal.ttf', 'Roboto', 'normal');
+            pdf.setFont('Roboto');
+
+            const selectedCourseName = selectedCourse ? selectedCourse.textContent.trim() : 'None';
+            const additionalOptionsNames = additionalOptions.map(option => option.textContent.trim());
+            const totalPrice = document.getElementById('total-price').innerText;
+
+            const content = `
+Выбранный курс: ${selectedCourseName}
+Количество часов в неделю: ${hoursPerWeek}
+Дополнительные опции: ${additionalOptionsNames.join(', ')}
+Общая Стоимость за 1 месяц: ${totalPrice} ₽
+            `;
+
+            pdf.text(content.trim(), 10, 10);
+            const pdfOutput = pdf.output('blob');
+
+            // Создание ссылки на файл
+            const url = URL.createObjectURL(pdfOutput);
+            window.open(`https://api.whatsapp.com/qr/4NRBWPWDCWULH1?autoload=1&app_absent=0&text=Посмотрите%20PDF%20документ%20здесь:%20${encodeURIComponent(url)}`);
+        }
+
+        selectOption(document.getElementById("basic"), 'additional');
+    </script>
+</body>
+</html>

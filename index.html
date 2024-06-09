@@ -3,26 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
-    <link rel="stylesheet" href="./css/style-login.css">
+    <title>My Tesla-like Website</title>
+    <link rel="stylesheet" href="./css/style1.css">
 </head>
 <body>
-    <div class="container">
-        <div class="login-form">
-            <h2>Вход</h2>
-            <form onsubmit="check(event)">
-                <label for="username">Имя (Username):</label>
-                <input type="text" id="username" name="username" required placeholder="Введите username">
-
-                <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password" required placeholder="Введите пароль">
-                
-                <button type="submit">Войти</button>
-                <a href="reg.html"><em>Регистрация..</em></a>
-            </form>
+    <header class="site-header">
+        <nav class="site-nav" style="margin: 0 auto;" >
+            <ul class="nav-items" >
+                <li><button type="button" class="nav-item" data-target="vehicles">Выбрать курс</button></li>
+                <li><button type="button" class="nav-item" data-target="energy">Помощь и поддержка</button></li>
+                <li><button type="button" class="nav-item" data-target="charging">Консультация</button></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="mega-menu" id="mega-menu">
+        <div class="mega-menu-content" data-panel="vehicles">
+            <div class="images">
+                <div class="image-wrapper">
+                    <img onclick="location.href='constructor.html'" src="https://elpythonista.com/wp-content/uploads/2020/10/Que_Es_Python-2-1024x576.jpg" alt="Изображение 1">
+                    <p class="image-title">Python3</p>
+                </div>
+                <div class="image-wrapper">
+                    <img onclick="location.href='constructor.html'" src="https://eccommonstorage.blob.core.windows.net/codered/uploads/06ff5852-8877-4504-a8b2-a61f884ad8cd.webp" alt="Изображение 2">
+                    <p class="image-title">C++</p>
+                </div>
+                <div class="image-wrapper">
+                    <img onclick="location.href='constructor.html'" src="https://myresume.ru/wp-content/uploads/2022/09/Chto-vybrat-frontend-ili-backend_-min.png" alt="Изображение 2">
+                    <p class="image-title">Frontend</p>
+                </div>
+                <div class="image-wrapper">
+                    <img onclick="location.href='constructor.html'" src="https://facialix.com/wp-content/uploads/2023/05/curso-gratis-de-harvard-facialix.jpg" alt="Изображение 2">
+                    <p class="image-title">Harvard-Course</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="mega-menu-content" data-panel="energy">
+            <div class="images">
+                <div class="image-wrapper">
+                    <img onclick="location.href='constructor2.html'" src="https://assets-global.website-files.com/60cf187a369bcb1839cfa014/6398383a3c019aee83f1a898_How-to-Choose-the-Best-Retail-Task-Management-Software_.webp" alt="Изображение 1">
+                    <p class="image-title">Решить задачу/ДЗ</p>
+                </div>
+                <div class="image-wrapper">
+                    <img onclick="location.href='constructor2.html'" src="https://sever-press.ru/images/insecure/rs:fill-down:1920:1080/aHR0cHM6Ly84NTQyMjAuc2VsY2RuLnJ1L3lhbWFsbmV3cy8yNjExMjAyMV_QvNCw0YLQtdC80LDRgtC40LrQsC53ZWJw.webp" alt="Изображение 1">
+                    <p class="image-title">Решить лабораторную</p>
+                </div>
+                <div class="image-wrapper">
+                    <img onclick="location.href='constructor2.html'" src="https://avatars.dzeninfra.ru/get-zen_doc/26916/pub_5bfdad9975a38d1592446a18_5bfebe401bae810ad58058ea/scale_1200" alt="Изображение 1">
+                    <p class="image-title">Решить тест/кр</p>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="./js/auth.js"></script>
+    <div class="container-btn">
+        <button class='button-dark' onclick="location.href='sign.html'">Войти в личный кабинет</button>
+    </div>
+    <script src="./js/script.js"></script>
 </body>
 </html>
-
