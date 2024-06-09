@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Конфигуратор курса</title>
+    <title>Конфигуратор</title>
     <link rel="stylesheet" href="./css/style2.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="./path/to/your/Roboto-Regular-normal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
     <div class="configurator-main">
@@ -22,7 +22,6 @@
         </div>
         <div class="configurator-category">
             <h2 class="configurator-categorygroup">Выберите нужный курс</h2>
-            <p>оплата 1 раз в месяц.</p>
             <div class="configurator-optiongroup">
                 <h3 class="configurator-optiongroup-header">Курс</h3>
                 <div class="form-selector-group" id="course-options">
@@ -74,14 +73,15 @@
             <div class="total-price">
                 Общая стоимость: <span id="total-price">0</span> ₽/месяц
             </div>
-            <button type="button" class="configurator-submit" onclick="submitConfiguration()">Отправить преподавателю</button>
+            <button type="button" class="configurator-submit" onclick="submitConfiguration()">Скачать документ</button>
+            <p style="color:gray; font-size: 9px;"><i>*после скачивания pdf файла, отправьте его преподавателю.</i></p>
         </div>
     </div>
     <script>
         let selectedCourse = null;
         let additionalOptions = [];
         let hoursPerWeek = 1;
-
+        let textTasks = "";
         function selectOption(element, group) {
             if (element.classList.contains('disabled')) {
                 return; // Игнорировать клики по неактивным элементам
@@ -132,26 +132,28 @@
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF();
 
-            pdf.addFont('Roboto-Regular-normal.ttf', 'Roboto', 'normal');
+            // Добавьте шрифт, если он еще не добавлен
+            pdf.addFont('Roboto-Regular.ttf', 'Roboto', 'normal');
             pdf.setFont('Roboto');
 
             const selectedCourseName = selectedCourse ? selectedCourse.textContent.trim() : 'None';
             const additionalOptionsNames = additionalOptions.map(option => option.textContent.trim());
             const totalPrice = document.getElementById('total-price').innerText;
 
-            const content = `
-Выбранный курс: ${selectedCourseName}
-Количество часов в неделю: ${hoursPerWeek}
-Дополнительные опции: ${additionalOptionsNames.join(', ')}
-Общая Стоимость за 1 месяц: ${totalPrice} ₽
-            `;
+            const content = [
+                ['Выбранный курс:', selectedCourseName],
+                ['Количество часов в неделю:', hoursPerWeek],
+                ['Дополнительные опции:', additionalOptionsNames.join(', ')],
+                ['Общая Стоимость за 1 месяц:', `${totalPrice} ₽`]
+            ];
 
-            pdf.text(content.trim(), 10, 10);
-            const pdfOutput = pdf.output('blob');
+            pdf.autoTable({
+                head: [['Параметр', 'Значение']],
+                body: content,
+                styles: { font: 'Roboto' }
+            });
 
-            // Создание ссылки на файл
-            const url = URL.createObjectURL(pdfOutput);
-            window.open(`https://api.whatsapp.com/qr/4NRBWPWDCWULH1?autoload=1&app_absent=0&text=Посмотрите%20PDF%20документ%20здесь:%20${encodeURIComponent(url)}`);
+            pdf.save('configuration.pdf'); // Сохранение PDF
         }
 
         selectOption(document.getElementById("basic"), 'additional');

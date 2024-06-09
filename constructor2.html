@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Конфигуратор курса</title>
+    <title>Конфигуратор</title>
     <link rel="stylesheet" href="./css/style2.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
     <div class="configurator-main">
@@ -67,7 +68,8 @@
             <div class="total-price">
                 Общая стоимость: <span id="total-price">0</span> ₽/услугу
             </div>
-            <button type="button" class="configurator-submit" onclick="submitConfiguration()">Отправить на утверждение</button>
+            <button type="button" class="configurator-submit" onclick="submitConfiguration()">Скачать документ</button>
+            <p style="color:gray; font-size: 9px;"><i>*после скачивания pdf файла, отправьте его преподавателю.</i></p>
         </div>
     </div>
     <script>
@@ -75,6 +77,7 @@
         let additionalOptions = [];
         let hoursPerWeek = 1;
         let k = 0;
+        let textTasks = "";
         function selectOption(element, group) {
             if (element.classList.contains('disabled')) {
                 return; // Игнорировать клики по неактивным элементам
@@ -98,57 +101,58 @@
             updateTotalPrice();
         }
         function handleFileUpload(input) {
-    const file = input.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.readAsText(file);
-        reader.onload = function () {
-            const text = reader.result;
-            const textLength = text.length;
-            let priceMultiplier = 1;
-            if (textLength >= 0 && textLength <= 30) {
-                priceMultiplier = 1.1;
-            } else if (textLength > 30 && textLength <= 60) {
-                priceMultiplier = 1.25;
-            } else if (textLength > 60 && textLength <= 80) {
-                priceMultiplier = 1.4;
-            } else if (textLength > 80 && textLength <= 120) {
-                priceMultiplier = 1.5;
-            } else if (textLength > 120 && textLength <= 170) {
-                priceMultiplier = 2;
-            } else if (textLength > 170 && textLength <= 250) {
-                priceMultiplier = 2.5;
-            } else if (textLength > 250 && textLength <= 300) {
-                priceMultiplier = 3;
-            } else if (textLength > 300 && textLength <= 400) {
-                priceMultiplier = 3.5;
-            }else if (textLength > 400 && textLength <= 600) {
-                priceMultiplier = 4;
-            }else if (textLength > 600 && textLength <= 1000) {
-                priceMultiplier = 4.5;
-            }
-            else if (textLength > 1000 && textLength <= 1400) {
-                priceMultiplier = 5.25;
-            }else if (textLength > 1400 && textLength <= 2000) {
-                priceMultiplier = 6;
-            }else if (textLength > 2000 && textLength <= 3000) {
-                priceMultiplier = 8;
-            }else if (textLength > 3000) {
-                priceMultiplier = 15;
-            }
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.readAsText(file);
+                reader.onload = function () {
+                    const text = reader.result;
+                    textTasks = text;
+                    const textLength = text.length;
+                    let priceMultiplier = 1;
+                    if (textLength >= 0 && textLength <= 30) {
+                        priceMultiplier = 1.1;
+                    } else if (textLength > 30 && textLength <= 60) {
+                        priceMultiplier = 1.25;
+                    } else if (textLength > 60 && textLength <= 80) {
+                        priceMultiplier = 1.4;
+                    } else if (textLength > 80 && textLength <= 120) {
+                        priceMultiplier = 1.5;
+                    } else if (textLength > 120 && textLength <= 170) {
+                        priceMultiplier = 2;
+                    } else if (textLength > 170 && textLength <= 250) {
+                        priceMultiplier = 2.5;
+                    } else if (textLength > 250 && textLength <= 300) {
+                        priceMultiplier = 3;
+                    } else if (textLength > 300 && textLength <= 400) {
+                        priceMultiplier = 3.5;
+                    }else if (textLength > 400 && textLength <= 600) {
+                        priceMultiplier = 4;
+                    }else if (textLength > 600 && textLength <= 1000) {
+                        priceMultiplier = 4.5;
+                    }
+                    else if (textLength > 1000 && textLength <= 1400) {
+                        priceMultiplier = 5.25;
+                    }else if (textLength > 1400 && textLength <= 2000) {
+                        priceMultiplier = 6;
+                    }else if (textLength > 2000 && textLength <= 3000) {
+                        priceMultiplier = 8;
+                    }else if (textLength > 3000) {
+                        priceMultiplier = 15;
+                    }
 
-            //let temp = Number(document.getElementById('total-price').textContent);
-            k = 200*priceMultiplier;
-            document.getElementById('config').innerText = k + "₽";
-            // Теперь вы можете использовать priceMultiplier для изменения цены
-            // Например, обновить общую стоимость, вызвав функцию updateTotalPrice()
-            updateTotalPrice(); // Вызываем эту функцию, чтобы обновить общую стоимость после загрузки файла
-        };
-        reader.onerror = function () {
-            console.error('Error reading the file');
-        };
-    }
-}
+                    //let temp = Number(document.getElementById('total-price').textContent);
+                    k = 200*priceMultiplier;
+                    document.getElementById('config').innerText = k + "₽";
+                    // Теперь вы можете использовать priceMultiplier для изменения цены
+                    // Например, обновить общую стоимость, вызвав функцию updateTotalPrice()
+                    updateTotalPrice(); // Вызываем эту функцию, чтобы обновить общую стоимость после загрузки файла
+                };
+                reader.onerror = function () {
+                    console.error('Error reading the file');
+                };
+            }
+        }
 
         function updateTotalPrice() {
             let totalPrice = 0;
@@ -177,19 +181,29 @@
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF();
 
+            // Добавьте шрифт, если он еще не добавлен
+            pdf.addFont('Roboto-Regular.ttf', 'Roboto', 'normal');
+            pdf.setFont('Roboto');
+
             const selectedCourseName = selectedCourse ? selectedCourse.textContent.trim() : 'None';
             const additionalOptionsNames = additionalOptions.map(option => option.textContent.trim());
             const totalPrice = document.getElementById('total-price').innerText;
 
-            const content = `
-Выбранный курс: ${selectedCourseName}
-Количество часов в неделю: ${hoursPerWeek}
-Дополнительные опции: ${additionalOptionsNames.join(', ')}
-Общая Стоимость за 1 месяц: ${totalPrice} ₽
-            `;
+            const content = [
+                ['Что решить?:', selectedCourseName],
+                ['Условие задачи (задач):', textTasks],
+                ['Количество заданий/задач:', hoursPerWeek],
+                ['Дополнительные опции:', additionalOptionsNames.join(', ')],
+                ['Общая Стоимость:', `${totalPrice} ₽`]
+            ];
 
-            pdf.text(content.trim(), 10, 10);
-            pdf.save('course_configuration.pdf');
+            pdf.autoTable({
+                head: [['Параметр', 'Значение']],
+                body: content,
+                styles: { font: 'Roboto' }
+            });
+
+            pdf.save('configuration.pdf'); // Сохранение PDF
         }
         selectOption(document.getElementById("basic"), 'additional')
     </script>
