@@ -112,3 +112,137 @@ input[type="number"] {
 input[type="number"]:focus {
     border-color: dodgerblue;
 }
+
+/* dark mode */
+/* style2.css (Dark Mode) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.configurator-main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.configurator-categorygroup {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #bb86fc;
+}
+
+.configurator-optiongroup {
+    margin-bottom: 20px;
+}
+
+/* Стили для input[type="file"] */
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 2px solid #333;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #444;
+}
+
+.configurator-optiongroup-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-selector-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.configurator-categoryoption {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #333;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+    background-color: #222;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+button {
+    border-radius: 5px;
+}
+
+.configurator-categoryoption.disabled {
+    border: 1px solid #555;
+    background-color: #2c2c2c;
+    cursor: not-allowed;
+    color: #555;
+}
+
+.configurator-categoryoption.selected {
+    border: 2px solid #bb86fc;
+}
+
+.form-selector-label {
+    cursor: pointer;
+}
+
+.option-price {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.configurator-submit {
+    background-color: #bb86fc;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.configurator-submit:hover {
+    background-color: #985eff;
+}
+
+.total-price {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* Стили для input */
+input[type="number"] {
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #333;
+    background-color: #222;
+    color: #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Стили для фокуса */
+input[type="number"]:focus {
+    border-color: #bb86fc;
+    background-color: #333;
+}
