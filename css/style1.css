@@ -1,0 +1,258 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('./img/body1.jpg');
+    background-size: cover; /* Растягивает изображение на весь экран */
+    background-repeat: no-repeat;
+}
+
+.site-header {
+    background-color: transparent;
+    position: relative;
+    z-index: 999; /* Значение z-index, которое вы хотите установить */
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+}
+
+.site-logo a {
+    font-size: 24px;
+    text-decoration: none;
+    color: #000;
+    
+}
+
+.site-nav {
+    display: flex;
+}
+
+.nav-items {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.nav-item {
+    margin-left: 20px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+}
+
+.mega-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.mega-menu-content {
+    padding: 20px;
+}
+
+.mega-menu-content:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+.mega-menu-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-wrapper {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.image-title {
+    font-weight: bold;
+}
+
+.links {
+    margin-left: 20px; /* Расстояние между блоками изображений и списка ссылок */
+}
+
+.section-title {
+    font-weight: bold;
+    color: #666; /* Цвет заголовка раздела */
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links ul li {
+    margin-bottom: 5px;
+}
+
+.links ul li a {
+    text-decoration: none;
+    color: #999; /* Цвет ссылок */
+}
+.mega-menu-content {
+    display: flex;
+}
+
+.images {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.image-wrapper {
+    max-width: 200px;
+    margin-right: 10px;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    border-radius: 10px;
+    padding: 5px 5px;
+    
+    transition: all 0.3s ease-in-out;
+}
+.image-wrapper img:hover {
+    transform: scale(80%);
+    cursor: pointer;
+}
+.image-title {
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.links {
+    max-width: 200px;
+}
+
+.section-title {
+    font-weight: bold;
+}
+
+.links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links ul li {
+    margin-bottom: 5px;
+}
+.mega-menu-content {
+    display: flex;
+}
+.site-header {
+    background-color: transparent; /* Прозрачный фон */
+    position: relative;
+}
+
+.nav-items {
+    list-style: none;
+    padding: 0;
+    text-align: center; /* Центрирование кнопок */
+}
+
+.nav-item {
+    background-color: transparent; /* Прозрачный фон */
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff; /* Цвет текста */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Плавное изменение фона при наведении */
+    border-radius: 5px; /* Закругленные углы */
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.114); /* Появление фона при наведении */
+}
+
+.site-header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Цвет фона */
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
+}
+
+.site-header:hover:before {
+    opacity: 0.2; /* Появление фона при наведении на шапку */
+}
+
+
+ a {
+    color: gray; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+    display: inline-block; /* Делаем ссылку блочным элементом */
+    text-align: center; /* Центрируем текст */
+    font-size: 12px;
+}
+
+ a:hover {
+    color: rgb(100, 100, 100); /* Цвет ссылки при наведении */
+    text-decoration: underline;
+}
+div.center-block {
+    margin: 0 auto;
+}
+@media only screen and (max-width: 800px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: rgb(20, 19, 31);
+    }
+}
+
+.button-dark {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-dark:hover {
+    background-color: #eee;
+    color: black;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Задает высоту контейнера, чтобы кнопка была по центру вертикально */
+}
+

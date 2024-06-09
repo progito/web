@@ -1,0 +1,114 @@
+/* style2.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.configurator-main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.configurator-categorygroup {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.configurator-optiongroup {
+    margin-bottom: 20px;
+}
+/* Стили для input[type="file"] */
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 2px solid #ccc;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #e9e9e9;
+}
+
+.configurator-optiongroup-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-selector-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.configurator-categoryoption {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+}
+button {
+    border-radius: 5px;
+}
+.configurator-categoryoption.disabled {
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+    color: #ccc;
+}
+.configurator-categoryoption.selected {
+    border: 2px solid #007bff;
+}
+
+.form-selector-label {
+    cursor: pointer;
+}
+
+.option-price {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.configurator-submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.configurator-submit:hover {
+    background-color: #0056b3;
+}
+
+.total-price {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+/* Стили для input */
+input[type="number"] {
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Стили для фокуса */
+input[type="number"]:focus {
+    border-color: dodgerblue;
+}
