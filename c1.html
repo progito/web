@@ -391,12 +391,21 @@
             headerCell2.innerHTML = '<b>Ссылка на условие</b>';
         
             // Данные таблицы
-            for (let i = 1; i <= 1; i++) {
-                let row = table3.insertRow();
-                let cell1 = row.insertCell(0);
-                let cell2 = row.insertCell(1);
-                cell1.innerHTML = 'Проект ' + i;
-                cell2.innerHTML = `<a href="lections/py/T_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+            for (let i = 1; i <= 2; i++) {
+                if (i == 1) {
+                    let row = table3.insertRow();
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    cell1.innerHTML = 'Проект ' + i;
+                    cell2.innerHTML = `<a href="lections/py/T_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                }
+                else {
+                    let row = table3.insertRow();
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    cell1.innerHTML = 'Производственная практика.';
+                    cell2.innerHTML = `<a href="lections/py/PR.pdf" target="_blank">Ссылка ` + i + '</a>';
+                }
             }
 
             let table4 = document.createElement('table');
