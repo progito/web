@@ -15,6 +15,15 @@ const proc_js = localStorage.getItem("proc_js");
 const itog_py = localStorage.getItem("itog_py");
 const itog_c = localStorage.getItem("itog_c");
 const itog_js = localStorage.getItem("itog_js");
+
+const itog_ppy = localStorage.getItem("itog_ppy");
+const itog_pc = localStorage.getItem("itog_pc");
+const itog_pjs = localStorage.getItem("itog_pjs");
+
+const pract_py = localStorage.getItem("pract_py");
+const pract_c = localStorage.getItem("pract_c");
+const pract_js = localStorage.getItem("pract_js");
+
 const url = localStorage.getItem("avatar");
 
 const name_div = document.querySelector('.user-info');

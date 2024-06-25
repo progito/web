@@ -30,6 +30,15 @@ async function check(event) {
         localStorage.setItem("itog_py", user.itog_py);
         localStorage.setItem("itog_c", user.itog_c);
         localStorage.setItem("itog_js", user.itog_js);
+
+        localStorage.setItem("itog_ppy", user.itog_ppy);
+        localStorage.setItem("itog_pc", user.itog_pc);
+        localStorage.setItem("itog_pjs", user.itog_pjs);
+
+        localStorage.setItem("pract_py", JSON.stringify(user.pract_py));
+        localStorage.setItem("pract_c", JSON.stringify(user.pract_c));
+        localStorage.setItem("pract_js", JSON.stringify(user.pract_js));
+
     } else {
         // Show an alert if the user is not found
         alert('Неверный username или пароль!');
