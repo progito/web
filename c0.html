@@ -201,6 +201,7 @@ body {
         .progress {
             height: 100%;
             background-color: #4caf50; /* Цвет прогресса */
+            
             border-radius: 8px;
         }
 
@@ -252,6 +253,10 @@ body {
             
         </div>
 
+        <div id="work-panel" class="panel">
+            
+        </div>
+
         <div id="dostup-lect" class="panel">
             
         </div>
@@ -278,6 +283,14 @@ body {
             </div>
             <div class="label">Пройдено: ${localStorage.getItem("itog_c")}%</div>
         `
+        const study_prog4 = document.getElementById("work-panel")
+        study_prog4.innerHTML=`
+        <h2>Производственная практика</h2>
+            <div class="progress-bar">
+                <div class="progress" style="width: ${localStorage.getItem("itog_pc")}%;"></div>
+            </div>
+            <div class="label">Пройдено: ${localStorage.getItem("itog_pc")}%</div>
+        `
         const study_prog3 = document.getElementById("dostup-lect")
         study_prog3.innerHTML=`
         <h2>Доступный материал</h2>
@@ -286,6 +299,7 @@ body {
         function showpanels() {
             document.getElementById('intro-panel').style.display = 'block';
             document.getElementById('project-panel').style.display = 'block';
+            document.getElementById('work-panel').style.display = 'block';
             document.getElementById('dostup-lect').style.display = 'block';
             // document.getElementById('dop').style.display = 'block';
             const mainContent = document.querySelector('.t');
@@ -296,11 +310,93 @@ body {
         }
         // console.log(document.getElementsByClassName(".panel"))
         // Добавляем темы динамически при клике на "Обучение"
-        
+        document.getElementById('work-panel').onclick = () => {
+            document.querySelector('.back-button').style.display = 'block';  
+            document.getElementById('intro-panel').style.display = 'none';
+            document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('work-panel').style.display = 'none';
+            document.getElementById('dostup-lect').style.display = 'none';
+
+            // Создание ссылки на PDF
+            let pdfLink = document.createElement('a');
+            pdfLink.href = 'https://progito.github.io/web/lections/py/PRACT.pdf';
+            pdfLink.textContent = 'Справочник по практике';
+            pdfLink.style.display = 'block'; // Делаем ссылку блочным элементом, чтобы она шла перед таблицей
+            pdfLink.style.marginBottom = '10px'; // Пример отступа между ссылкой и таблицей
+
+            // Добавляем ссылку над таблицей
+            document.querySelector('.t').appendChild(pdfLink);
+
+            // Создание таблицы для производственной практики
+            let table = document.createElement('table');
+            table.setAttribute('border', '1');
+            
+            // Заголовок таблицы
+            let headerRow = table.insertRow();
+            let headerCell1 = headerRow.insertCell(0);
+            let headerCell2 = headerRow.insertCell(1);
+            let headerCell3 = headerRow.insertCell(2);
+            let headerCell4 = headerRow.insertCell(3);
+            headerCell1.innerHTML = '<b>Название</b>';
+            headerCell2.innerHTML = '<b>Описание</b>';
+            headerCell3.innerHTML = '<b>Статус</b>';
+            headerCell4.innerHTML = '<b>Оценка (баллы)</b>';
+            
+            // Данные таблицы
+            let localStorageData = JSON.parse(localStorage.getItem("pract_c"));
+
+            // Преобразование данных в нужный формат
+            let data = [];
+            for (let key in localStorageData) {
+                if (localStorageData.hasOwnProperty(key)) {
+                    let practice = localStorageData[key];
+                    data.push({
+                        name: key,
+                        description: practice[0],
+                        status: practice[1],
+                        grade: practice[2]
+                    });
+                }
+            }
+
+            data.forEach(item => {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                cell1.innerHTML = item.name;
+                cell2.innerHTML = item.description;
+                cell3.innerHTML = item.status;
+
+                // Условное форматирование ячеек
+                switch (item.grade) {
+                    case '5':
+                        cell4.innerHTML = `<mark style="background-color: #40dc67; color: black;">${item.grade}б</mark>`;
+                        break;
+                    case '4':
+                        cell4.innerHTML = `<mark style="background-color: #eb9f4e; color: black;">${item.grade}б</mark>`;
+                        break;
+                    case '3':
+                        cell4.innerHTML = `<mark style="background-color: #ebe84e; color: black;">${item.grade}б</mark>`;
+                        break;
+                    case '2':
+                        cell4.innerHTML = `<mark style="background-color: #eb4e4e; color: black;">${item.grade}б</mark>`;
+                        break;
+                    default:
+                        cell4.textContent = item.grade;
+                }
+            });
+
+            // Добавить таблицу в блок с классом "t"
+            document.querySelector('.t').appendChild(table);
+        };
+
         document.getElementById('dostup-lect').onclick = () => {
             document.querySelector('.back-button').style.display = 'block';  // Показать кнопку "Назад"
             document.getElementById('intro-panel').style.display = 'none';
             document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('work-panel').style.display = 'none';
             document.getElementById('dostup-lect').style.display = 'none';
             // document.getElementById('dop').style.display = 'none';
             // Создание таблицы
@@ -437,6 +533,7 @@ body {
             document.querySelector('.back-button').style.display = 'block';  // Показать кнопку "Назад"
             document.getElementById('intro-panel').style.display = 'none';
             document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('work-panel').style.display = 'none';
             document.getElementById('dostup-lect').style.display = 'none';
             const topics = [
                 'Структура программы/Компилятор',
