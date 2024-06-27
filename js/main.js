@@ -760,6 +760,24 @@ function windowExtension() {
     mainContent.appendChild(f);
 }
 
+function windowExam() {
+    const mainContent = document.querySelector('.main-content');
+
+    // Очищаем текущий контент
+    mainContent.innerHTML = '';
+
+    const f = document.createElement('iframe');
+    if (isMobileDevice()){
+        f.width = '350';
+        f.height = '900';
+    }
+    else{f.width = '100%'; f.height = '1200';} // Adjust the width as needed
+    // Adjust the height as needed
+    f.src = 'exam.html';
+
+    mainContent.appendChild(f);
+}
+
 
 // Добавляем функцию для отображения разделов
 function showSection(section) {
@@ -790,6 +808,9 @@ function showSection(section) {
             break;
         case 'extension':
             windowExtension();
+            break;
+        case 'exam':
+            windowExam();
             break;
         case 'super':
             super_();
