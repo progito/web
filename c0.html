@@ -416,13 +416,19 @@ body {
             cell3.innerHTML = '<a href="lections/py/L_git.pdf" target="_blank">Ссылка GIT</a>';
             // Данные таблицы
             let j = 1;
-            for (let i = 1; i <= 18; i++) {
+            for (let i = 1; i <= 19; i++) {
                 if (i == 10) {
                     let row = table.insertRow();
                     let cell1 = row.insertCell(0);
                     let cell2 = row.insertCell(1);
                     cell1.innerHTML = 'Лекция ' + i;
                     cell2.innerHTML = `<a href="lections/c/L_dop.pdf" target="_blank">Ссылка ` + i + '</a>';
+                } else if (i == 19) {
+                    let row = table.insertRow();
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    cell1.innerHTML = 'Лекция (перегрузка+исключения)' + i;
+                    cell2.innerHTML = `<a href="lections/c/L_18.pdf" target="_blank">Ссылка ` + i + '</a>';
                 } else {
                     let row = table.insertRow();
                     let cell1 = row.insertCell(0);
