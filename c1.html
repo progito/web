@@ -429,11 +429,19 @@
             cell3.innerHTML = '<a href="lections/py/L_git.pdf" target="_blank">Ссылка GIT</a>';
             // Данные таблицы
             for (let i = 1; i <= 21; i++) {
-                let row = table.insertRow();
-                let cell1 = row.insertCell(0);
-                let cell2 = row.insertCell(1);
-                cell1.innerHTML = 'Лекция ' + i;
-                cell2.innerHTML = `<a href="lections/py/L_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                if (i == 21) {
+                    let row = table.insertRow();
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    cell1.innerHTML = 'Дополнительные материалы (1)';
+                    cell2.innerHTML = `<a href="lections/py/L_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                } else {
+                    let row = table.insertRow();
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    cell1.innerHTML = 'Лекция ' + i;
+                    cell2.innerHTML = `<a href="lections/py/L_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                }
             }
 
             // Создание таблицы
