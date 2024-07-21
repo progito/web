@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontend</title>
+    <title>Python</title>
     <link rel="stylesheet" href="style-course.css">
     <style>
         body {
@@ -13,7 +14,44 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+        }
+        /* Стили для таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-left: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
+        /* Стили для ячеек заголовка */
+        th {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Стили для ячеек данных */
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        /* Стиль для ссылок в ячейках данных */
+        td a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hover-эффект при наведении на ссылки */
+        td a:hover {
+            color: #1e87d2;
         }
 
         .panel {
@@ -24,8 +62,9 @@
             margin: 10px;
             text-align: center;
             border-radius: 10px;
-        }
 
+        }
+        
         .progress-bar {
             width: 100%;
             height: 15px;
@@ -46,13 +85,43 @@
             font-size: 14px;
             color: #777;
         }
+
         .panel:hover{
             scale: 110%;
             transition: all .3s;
             cursor: pointer;
         }
-        /* dark mode */
-        body {
+
+        .back-button {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #007bff;
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        .panelplus{
+            color: #eee;
+            background: linear-gradient(119.94deg,#2196f3,#443fa2 86%);
+        }
+        .panelplus2{
+            color: #eee;
+            background: linear-gradient(121.87deg,#43a047 10.59%,#2196f3 96%);
+        }
+        .panelplus3{
+            color: #eee;
+            background: linear-gradient(121.87deg,#dac04b 10.59%,#ade742 96%);
+        }
+        .sub-topic-panel {
+            margin-top: 10px; /* Добавляем отступ между подтемами */
+            margin-left: 20px; /* Добавляем отступ слева для отображения иерархии */
+        }
+/* dark mode */
+body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
@@ -132,6 +201,7 @@
         .progress {
             height: 100%;
             background-color: #4caf50; /* Цвет прогресса */
+            
             border-radius: 8px;
         }
 
@@ -173,22 +243,529 @@
     </style>
 </head>
 <body>
+    <div id="backbtn" class="back-button" onclick="showpanels()"><< Назад</div>
+    <div class="course-container">
+        <div id="intro-panel" class="panel">
+            
+        </div>
 
-    <div class="panel">
+        <div id="project-panel" class="panel">
+            
+        </div>
+
+        <div id="work-panel" class="panel">
+            
+        </div>
+
+        <div id="dostup-lect" class="panel">
+            
+        </div>
+
+        <div class="t"></div>
+
+    </div>
+
+    <script>
+        let currentPanel = 'intro-panel';
+        const study_prog = document.getElementById("intro-panel")
+        study_prog.innerHTML=`
         <h2>Обучение</h2>
-        <div class="progress-bar">
-            <div class="progress" style="width: 0%;"></div>
-        </div>
-        <div class="label">Пройдено: 0%</div>
-    </div>
-
-    <div class="panel">
+            <div id="study-prog" class="progress-bar">
+                <div class="progress" style="width: ${localStorage.getItem("proc_js")}%;"></div>
+            </div>
+            <div class="label">Пройдено: ${localStorage.getItem("proc_js")}%</div>
+        `
+        const study_prog2 = document.getElementById("project-panel")
+        study_prog2.innerHTML=`
         <h2>Итоговый проект</h2>
-        <div class="progress-bar">
-            <div class="progress" style="width: 0%;"></div>
-        </div>
-        <div class="label">Пройдено: 0%</div>
-    </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: ${localStorage.getItem("itog_js")}%;"></div>
+            </div>
+            <div class="label">Пройдено: ${localStorage.getItem("itog_js")}%</div>
+        `
+        const study_prog4 = document.getElementById("work-panel")
+        study_prog4.innerHTML=`
+        <h2>Производственная практика</h2>
+            <div class="progress-bar">
+                <div class="progress" style="width: ${localStorage.getItem("itog_pjs")}%;"></div>
+            </div>
+            <div class="label">Пройдено: ${localStorage.getItem("itog_pjs")}%</div>
+        `
+        const study_prog3 = document.getElementById("dostup-lect")
+        study_prog3.innerHTML=`
+        <h2>Доступный материал</h2>
+        `
 
+        function showpanels() {
+            document.getElementById('intro-panel').style.display = 'block';
+            document.getElementById('project-panel').style.display = 'block';
+            document.getElementById('work-panel').style.display = 'block';
+            document.getElementById('dostup-lect').style.display = 'block';
+            // document.getElementById('dop').style.display = 'block';
+            const mainContent = document.querySelector('.t');
+
+            // Очищаем текущий контент
+            mainContent.innerHTML = '';
+            document.getElementById('backbtn').style.display = 'none';
+        }
+        // console.log(document.getElementsByClassName(".panel"))
+        // Добавляем темы динамически при клике на "Обучение"
+        document.getElementById('work-panel').onclick = () => {
+            document.querySelector('.back-button').style.display = 'block';  
+            document.getElementById('intro-panel').style.display = 'none';
+            document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('work-panel').style.display = 'none';
+            document.getElementById('dostup-lect').style.display = 'none';
+
+            // Создание ссылки на PDF
+            let pdfLink = document.createElement('a');
+            pdfLink.href = 'https://progito.github.io/web/lections/py/PRACT.pdf';
+            pdfLink.textContent = 'Справочник по практике';
+            pdfLink.style.display = 'block'; // Делаем ссылку блочным элементом, чтобы она шла перед таблицей
+            pdfLink.style.marginBottom = '10px'; // Пример отступа между ссылкой и таблицей
+
+            // Добавляем ссылку над таблицей
+            document.querySelector('.t').appendChild(pdfLink);
+
+            // Создание таблицы для производственной практики
+            let table = document.createElement('table');
+            table.setAttribute('border', '1');
+            
+            // Заголовок таблицы
+            let headerRow = table.insertRow();
+            let headerCell1 = headerRow.insertCell(0);
+            let headerCell2 = headerRow.insertCell(1);
+            let headerCell3 = headerRow.insertCell(2);
+            let headerCell4 = headerRow.insertCell(3);
+            headerCell1.innerHTML = '<b>Название</b>';
+            headerCell2.innerHTML = '<b>Описание</b>';
+            headerCell3.innerHTML = '<b>Статус</b>';
+            headerCell4.innerHTML = '<b>Оценка (баллы)</b>';
+            
+            // Данные таблицы
+            let localStorageData = JSON.parse(localStorage.getItem("pract_c"));
+
+            // Преобразование данных в нужный формат
+            let data = [];
+            for (let key in localStorageData) {
+                if (localStorageData.hasOwnProperty(key)) {
+                    let practice = localStorageData[key];
+                    data.push({
+                        name: key,
+                        description: practice[0],
+                        status: practice[1],
+                        grade: practice[2]
+                    });
+                }
+            }
+
+            data.forEach(item => {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                cell1.innerHTML = item.name;
+                cell2.innerHTML = item.description;
+                cell3.innerHTML = item.status;
+
+                // Условное форматирование ячеек
+                switch (item.grade) {
+                    case '5':
+                        cell4.innerHTML = `<mark style="background-color: #40dc67; color: black;">${item.grade}б</mark>`;
+                        break;
+                    case '4':
+                        cell4.innerHTML = `<mark style="background-color: #eb9f4e; color: black;">${item.grade}б</mark>`;
+                        break;
+                    case '3':
+                        cell4.innerHTML = `<mark style="background-color: #ebe84e; color: black;">${item.grade}б</mark>`;
+                        break;
+                    case '2':
+                        cell4.innerHTML = `<mark style="background-color: #eb4e4e; color: black;">${item.grade}б</mark>`;
+                        break;
+                    default:
+                        cell4.textContent = item.grade;
+                }
+            });
+
+            // Добавить таблицу в блок с классом "t"
+            document.querySelector('.t').appendChild(table);
+        };
+
+        document.getElementById('dostup-lect').onclick = () => {
+            document.querySelector('.back-button').style.display = 'block';  // Показать кнопку "Назад"
+            document.getElementById('intro-panel').style.display = 'none';
+            document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('work-panel').style.display = 'none';
+            document.getElementById('dostup-lect').style.display = 'none';
+            // document.getElementById('dop').style.display = 'none';
+            // Создание таблицы
+            let table = document.createElement('table');
+            table.setAttribute('border', '1');  // Добавить границу таблице
+        
+            // Заголовок таблицы
+            let headerRow = table.insertRow();
+            let headerCell1 = headerRow.insertCell(0);
+            let headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название лекции</b>';
+            headerCell2.innerHTML = '<b>Ссылка на лекцию</b>';
+            let row1 = table.insertRow();
+            let cell2 = row1.insertCell(0);
+            let cell3 = row1.insertCell(1);
+            cell2.innerHTML = 'Лекция GIT';
+            cell3.innerHTML = '<a href="lections/py/L_git.pdf" target="_blank">Ссылка GIT</a>';
+            // Данные таблицы
+            let j = 1;
+            for (let i = 1; i <= 4; i++) {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = 'Лекция ' + i;
+                cell2.innerHTML = `<a href="lections/js/L_${j - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                j++;
+                
+            }
+
+            // Создание таблицы
+            let table2 = document.createElement('table');
+            table2.setAttribute('border', '1');  // Добавить границу таблице
+        
+            // Заголовок таблицы
+            headerRow = table2.insertRow();
+            headerCell1 = headerRow.insertCell(0);
+            headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название Лабораторной</b>';
+            headerCell2.innerHTML = '<b>Ссылка на Лабораторную</b>';
+        
+            // Данные таблицы
+            for (let i = 1; i <= 1; i++) {
+                let row = table2.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = 'Лабораторная работа ' + i;
+                cell2.innerHTML = `<a href="lections/js/LB_${i}.pdf" target="_blank">Ссылка ` + i + '</a>';
+            }
+
+            // Создание таблицы
+            let table3 = document.createElement('table');
+            table3.setAttribute('border', '1');  // Добавить границу таблице
+        
+            // Заголовок таблицы
+            headerRow = table3.insertRow();
+            headerCell1 = headerRow.insertCell(0);
+            headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название Проекта</b>';
+            headerCell2.innerHTML = '<b>Ссылка на условие</b>';
+        
+            // Данные таблицы
+            for (let i = 1; i <= 4; i++) {
+                let row = table3.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                if (i == 2) {
+                    cell1.innerHTML = 'ОР №1';
+                    cell2.innerHTML = `<a href="lections/js/T_1.pdf" target="_blank">Ссылка ` + i + '</a>';
+                } else if (i == 4) {
+                    cell1.innerHTML = 'Производственная практика.';
+                    cell2.innerHTML = `<a href="lections/js/PR.pdf" target="_blank">Ссылка ` + i + '</a>';
+                }else if (i == 3) {
+                    cell1.innerHTML = 'ОР №2';
+                    cell2.innerHTML = `<a href="lections/js/T_2.pdf" target="_blank">Ссылка ` + i + '</a>';
+                } else {
+                    cell1.innerHTML = 'Проект ' + i;
+                    cell2.innerHTML = `<a href="lections/js/T_${i - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                }
+                
+            }
+
+            let table4 = document.createElement('table');
+            table4.setAttribute('border', '1');  
+        
+            // Заголовок таблицы
+            headerRow = table4.insertRow();
+            headerCell1 = headerRow.insertCell(0);
+            headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название</b>';
+            headerCell2.innerHTML = '<b>Ссылка на файл</b>';
+        
+           // Первая строка данных
+            let row1_t4 = table4.insertRow();
+            let cell11_t4 = row1_t4.insertCell(0);
+            let cell21_t4 = row1_t4.insertCell(1);
+            cell11_t4.innerHTML = 'Вопросы к экзамену ';
+            cell21_t4.innerHTML = `<a href="lections/js/EX.pdf" target="_blank">Ссылка</a><br>`;
+            
+            // Вторая строка данных
+            let row2_t4 = table4.insertRow();
+            let cell12_t4 = row2_t4.insertCell(0);
+            let cell22_t4 = row2_t4.insertCell(1);
+            cell12_t4.innerHTML = 'Требование Оформления Отчетной Работы. ';
+            cell22_t4.innerHTML = `<a href="lections/py/TW_.pdf" target="_blank">Ссылка</a><br>`;
+
+        
+            // Добавить таблицу в блок с классом "t"
+            document.querySelector('.t').appendChild(table);
+            document.querySelector('.t').appendChild(table2);
+            document.querySelector('.t').appendChild(table3);
+            document.querySelector('.t').appendChild(table4);
+        };
+        
+        document.getElementById('intro-panel').onclick = ()=>{
+            //showPanel('intro-panel');  // Скрыть панель "Обучение"
+            //alert(document.getElementsByClassName(".panel"))
+            document.querySelector('.back-button').style.display = 'block';  // Показать кнопку "Назад"
+            document.getElementById('intro-panel').style.display = 'none';
+            document.getElementById('project-panel').style.display = 'none';
+            document.getElementById('work-panel').style.display = 'none';
+            document.getElementById('dostup-lect').style.display = 'none';
+            const topics = [
+                'Введение в Frontend',
+                'Интернет (сеть, http/https,..)',
+                'WEB. Виды WEB.',
+                'Основы HTML',
+                'Теги и элементы HTML',
+                'Лабораторная номер 1',
+                'Семантика HTML5',
+                'Атрибуты тегов HTML',
+                'Валидация HTML',
+                'Emmet, и допы по HTML',
+                'Лабораторная номер 2',
+                'Тест 1',
+                'Основы CSS. Структура/Схема.',
+                'Позиционирование (position)',
+                'Лабораторная номер 3',
+                'Блочная модель. Отступы (margin/padding)',
+                'Псевдоклассы и псевдоэлементы',
+                'Container и Media запросы',
+                'Лабораторная номер 4',
+                'Анимации/Переходы',
+                'CSS-препроцессоры. SASS/SCSS',
+                'Методология BEM',
+                'Лабораторная номер 5',
+                'CSS3',
+                'Тест 2',
+                'CSS-emotion',
+                'CSS-jss',
+                'CSS-фреймворки. Bootstrap, Tailwind..',
+                'Лабораторная номер 6',
+                'Зачет 1',
+                'ECMAScript (ES). Введение в JavaScript (JS).',
+                'Engine V8. Панель разработчика. IDE.',
+                'Компиляция JS кода. Основы Node.js.',
+                'package.json. NPM, NPX, YARN..',
+                'use strict mode',
+                'Переменные. Типы данных и область видимости.',
+                'Преобразование типов. Понятие логирования.',
+                'alert/prompt/confirm',
+                'Лабораторная номер 7',
+                'JS операторы и операции',
+                'Условный оператор (if-else)',
+                'Тернарный условный оператор (?)',
+                'Лабораторная номер 8',
+                'Оператор typeof. Оператор void.',
+                'Приоритет операторов',
+                'Операторы break/continue/return',
+                'Циклы',
+                'Тест 3',
+                'Лабораторная номер 9',
+                'Конструкция swith/case',
+                'Функции. Виды функций.',
+                'Список полезный функций',
+                'Стек вызова (call stack)',
+                'Понятие рекурсии/замыкание/декоратор..',
+                'Лабораторная номер 10',
+                'Модуль MATH.',
+                'Строки. Методы строк.',
+                'Работа с Датой и временем',
+                'Работа с файлами.',
+                'Работа с DOM и BOM',
+                'Формат JSON. Формат XML.',    
+                'Лабораторная номер 11',
+                'Тест 4',
+                'ООП. Объекты. this.',
+                'ООП. Прототипы.',
+                'Лабораторная номер 12',
+                'ООП. (ES6+)',
+                'Тест 5 (ООП)',
+                'Лабораторная номер 13',
+                'Основы АИСД.',
+                'Алгоритмы поиска данных',
+                'Алгоритмы сортировки данных',
+                'Оценка сложности программного кода',
+                'Массивы. Методы массивов.',
+                'Лабораторная номер 14',
+                'Стек/Очередь/Дек',
+                'Map/Set',
+                'WeakMap/WeakSet',
+                'Отчетная работа №1',
+                'Лабораторная номер 15',
+                'Object.keys, values, entries. Transform Objects.',
+                'Тест 6',
+                'Синхронное/Асинхронное программирование',
+                'SessionStorage. LocalStorage. IndexedDB',
+                'Лабораторная номер 16',
+                'Security Basics. CORS.',
+                'Тест 7',
+                'Сетевые запросы. AJAX (fetch). API. REST API.',
+                'AXIOS',
+                'Лабораторная номер 17',
+                'Зачет 2', 
+                'UI, BLL, DAL',
+                'React-1. Основы работы.',
+                'React-2. HOC. Компоненты. VirtualDOM, и др',
+                'Лабораторная номер 18',
+                'React-3. HOOKS.',
+                'Тест 8',
+                'Лабораторная номер 19',
+                'Основы State Management.',
+                'Local State.',
+                'FLUX-круговорот.',
+                'Лабораторная номер 20',
+                'Redux-1. Основы работы.', 
+                'Лабораторная номер 21', 
+                'Redux-2.',
+                'Тест 9',
+                'Отчетная работа №2',
+                'Babel',
+                'Лабораторная номер 22', 
+                'TypeScript (TS). Основы работы (типы и тп).',
+                'TS-интерфейсы. Структура ООП в TS.',
+                'Лабораторная номер 23',
+                'TS-дженерики.',
+                'tsconfig. Модули TS.',
+                'Тест 10',
+                'TS with React',
+                'Лабораторная номер 24',
+                'Зачет 3',
+                'Телеграмм боты на JS.',
+                'Лабораторная номер 25',
+                'React Native',
+                'Ionic React',
+                'Основы работы с Angular.',
+                'UI Angular',
+                'Тест 11',
+                'Основы работы с Vue.js',
+                'Тестирование ПО (jest..)',
+                'Тест 12',
+                'OS, SHELL.',
+                'Итоговая Контролируемая работа (Экзамен)'
+            ];
+            
+            let tasks = [
+                [
+                    [
+                        "Запросить у пользователя число типа float и вывести на экран его тип данных.",
+                        '#include <iostream>\nusing namespace std;\n\nint main() {\n float a;\n cout << Введите число: ";\n cin >> a;\n cout << "Тип данных: " << typeid(a).name() << endl;\n return 0;\n}'
+                    ],
+                    [
+                        "Запросить у пользователя имя и вывести его на экран в формате: Привет, <имя>!",
+                        '#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n string name;\n cout << "Введите имя: ";\n getline(cin, name);\n cout << "Привет, " << name << "!" << endl;\n return 0;\n}'
+                    ]
+                ]
+                
+            ]
+            let indexElement = 0;
+            const mainContent = document.querySelector('.t');
+
+            console.log(js);
+            for (let i = 0; i < topics.length; i++) {
+                console.log(i)
+                const topicPanel = document.createElement('div');
+                topicPanel.classList.add('panel', 'topic-panel'); // Добавляем класс topic-panel
+                topicPanel.id = `topic${i + 1}-panel`;
+
+                const progressBar = document.createElement('div');
+                const label = document.createElement('div');
+                const label2 = document.createElement('div');
+
+               
+                if (topics[i].includes('Задачи для') == false){
+                    progressBar.classList.add('progress-bar');
+                    progressBar.innerHTML = `<div class="progress" style="width: ${js[i + 1][0]}%;"></div>`;
+                    label.classList.add('label');
+                    label.textContent = `Пройдено: ${js[i + 1][0]}%`;
+                }
+                
+
+                // Проверяем наличие "Тест" или "Лабораторная" в названии темы
+                if (Array.isArray(topics[i])) {
+                    const subTopics = topics[i]; // Если это массив, возьмем его элементы
+                    subTopics.forEach((subTopic, index) => {
+                        const subTopicPanel = document.createElement('div');
+                        subTopicPanel.classList.add('panel', 'topic-panel', 'sub-topic-panel'); // Добавляем класс sub-topic-panel
+                        subTopicPanel.id = `topic${i + 1}-${index + 1}-panel`;
+
+                        const subProgressBar = document.createElement('div');
+                        const subLabel = document.createElement('div');
+                        const subLabel2 = document.createElement('div');
+
+  
+                        // Проверяем наличие "Тест" или "Лабораторная" в названии подтемы
+                        if (subTopic.includes("Тест") || subTopic.includes("Лабораторная")) {
+                            subLabel2.classList.add('label2');
+     
+                            subLabel2.textContent = `Баллов: ${js[i + 1][1]}/${js[i + 1][2]}`;
+                            subTopicPanel.appendChild(subLabel2);
+                            subTopicPanel.classList.add('panelplus');
+                        } else if (subTopic.includes("Зачет") || subTopic.includes("Итоговая")) {
+                            subLabel2.classList.add('label2');
+                            subLabel2.textContent = `Баллов: ${js[i + 1][1]}/${js[i + 1][2]}`;
+                            subTopicPanel.appendChild(subLabel2);
+                            subTopicPanel.classList.add('panelplus2');
+                        } else if (subTopic.includes("Задачи для")) {
+                            subLabel2.classList.add('label2');
+                            subTopicPanel.appendChild(subLabel2);
+                            subTopicPanel.classList.add('panelplus3');
+
+                            subTopicPanel.addEventListener('click', function(currentIndex) {
+                                return function() {
+                                    var url = 'editor.html' + '?tasks=' + encodeURIComponent(JSON.stringify(tasks[currentIndex]));
+                                    // console.log(currentIndex);
+                                    window.location.href = url;
+                                };
+                            }(indexElement));
+
+                            indexElement++;
+                        }
+
+                        subTopicPanel.appendChild(document.createElement('h2')).textContent = subTopic;
+                        subTopicPanel.appendChild(subProgressBar);
+                        subTopicPanel.appendChild(subLabel);
+
+                        subTopicPanel.addEventListener('click', function () {
+                            updateProgress(`topic${i + 1}-${index + 1}-panel`, 25 * (i + 1)); // Пример обновления прогресса
+                        });
+
+                        topicPanel.appendChild(subTopicPanel);
+                    });
+                } else {
+                    if (topics[i].includes("Тест") || topics[i].includes("Лабораторная")) {
+                        label2.classList.add('label2');
+                        label2.textContent = `Баллов: ${js[i + 1][1]}/${js[i + 1][2]}`;
+                        topicPanel.appendChild(label2);
+                        topicPanel.classList.add('panelplus');
+                    } else if (topics[i].includes("Зачет") || topics[i].includes("Итоговая") || topics[i].includes("Отчетная")) {
+                        label2.classList.add('label2');
+                        label2.textContent = `Баллов: ${js[i + 1][1]}/${js[i + 1][2]}`;
+                        topicPanel.appendChild(label2);
+                        topicPanel.classList.add('panelplus2');
+                    }
+
+                    topicPanel.appendChild(document.createElement('h2')).textContent = topics[i];
+                    topicPanel.appendChild(progressBar);
+                    topicPanel.appendChild(label);
+                }
+
+                topicPanel.addEventListener('click', function () {
+                    updateProgress(`topic${i + 1}-panel`, 25 * (i + 1)); // Пример обновления прогресса
+                });
+
+                mainContent.appendChild(topicPanel);
+            }
+            
+        };
+
+    </script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
