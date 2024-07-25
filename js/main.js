@@ -4,6 +4,8 @@ const country = localStorage.getItem("country");
 
 const langs = localStorage.getItem("langs");
 
+document.title = "Личный кабинет";
+
 const py = JSON.parse(localStorage.getItem("py"));
 const c = JSON.parse(localStorage.getItem("c"));
 const js = JSON.parse(localStorage.getItem("js"));
@@ -869,6 +871,11 @@ function windowTasking() {
     // Adjust the height as needed
     f.src = 'live.html';
 
+    if (navigator.onLine) {
+        document.title = "🟢 Online";
+    } else {
+        document.title = "❌ Offline";
+    }
     mainContent.appendChild(f);
 }
 // Добавляем функцию для отображения разделов
@@ -881,7 +888,7 @@ function showSection(section) {
     // Создаем элементы для раздела
     const sectionElement = document.createElement('div');
     sectionElement.classList.add(section);
-
+    document.title = "Личный кабинет";
     switch (section) {
         case 'profile':
             showProfile()
