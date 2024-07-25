@@ -499,7 +499,8 @@ function showProfile() {
     const languageImages = {
         "Python": "https://upload.wikimedia.org/wikipedia/commons/3/31/Python-logo.png",
         "C/C++": "https://stage.digilabs.ai/wp-content/uploads/2023/10/C.png",
-        "JavaScript": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Front-end-logo-color%402x.png"
+        "JavaScript": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Front-end-logo-color%402x.png",
+        "ОГЭ-Информатика": "image.png"
     };
 
     // Проходим по массиву языков и создаем иконки для каждого языка
@@ -868,10 +869,10 @@ function windowTasking() {
 
     // Создаем карточки курсов
     const courses = [
-        { title: "🎙🧧0A - Защита ОР/ИР", imageUrl: "css/img/0a.png" },
-        { title: "🎙K1 - Python", imageUrl: "css/img/k1.png" },
-        { title: "🎙K2 - C/C++", imageUrl: "css/img/k2.png" },
-        { title: "🎙K3 - Frontend", imageUrl: "css/img/k3.png" }
+        { title: "🎙🧧0A - Защита ОР/ИР", imageUrl: "/css/img/0a.png" },
+        { title: "🎙K1 - Python", imageUrl: "/css/img/k1.png" },
+        { title: "🎙K2 - C/C++", imageUrl: "/css/img/k2.png" },
+        { title: "🎙K3 - Frontend", imageUrl: "/css/img/k3.png" }
     ];
 
     const urlsLesson = [
