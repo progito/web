@@ -9,10 +9,14 @@ document.title = "Личный кабинет";
 const py = JSON.parse(localStorage.getItem("py"));
 const c = JSON.parse(localStorage.getItem("c"));
 const js = JSON.parse(localStorage.getItem("js"));
+const oge = JSON.parse(localStorage.getItem("oge"));
+
 
 const proc_py = localStorage.getItem("proc_py");
 const proc_c = localStorage.getItem("proc_c");
 const proc_js = localStorage.getItem("proc_js");
+const proc_oge = localStorage.getItem("proc_oge");
+
 
 const itog_py = localStorage.getItem("itog_py");
 const itog_c = localStorage.getItem("itog_c");
@@ -864,10 +868,10 @@ function windowTasking() {
 
     // Создаем карточки курсов
     const courses = [
-        { title: "🎙🧧0A - Защита ОР/ИР", imageUrl: "css/img/0a.png" },
-        { title: "🎙K1 - Python", imageUrl: "css/img/k1.png" },
-        { title: "🎙K2 - C/C++", imageUrl: "css/img/k2.png" },
-        { title: "🎙K3 - Frontend", imageUrl: "css/img/k3.png" }
+        { title: "🎙🧧0A - Защита ОР/ИР", imageUrl: "/css/img/0a.png" },
+        { title: "🎙K1 - Python", imageUrl: "/css/img/k1.png" },
+        { title: "🎙K2 - C/C++", imageUrl: "/css/img/k2.png" },
+        { title: "🎙K3 - Frontend", imageUrl: "/css/img/k3.png" }
     ];
 
     const urlsLesson = [
@@ -969,7 +973,7 @@ function showSection(section) {
     mainContent.appendChild(sectionElement);
 }
 
-let courses_ = ['C/C++', 'Python', 'Frontend', 'GIT/GITHUB', 'Harvard University (course)']
+let courses_ = ['C/C++', 'Python', 'Frontend', 'GIT/GITHUB', 'Harvard University (course)', 'ОГЭ-Информатика']
 
 function showCourses() {
     const mainContent = document.querySelector('.main-content');
@@ -982,7 +986,7 @@ function showCourses() {
     coursesSection.classList.add('courses');
     
     // Добавляем три панели курса CSS
-    for (let i = 0; i <= 4; i++) {
+    for (let i = 0; i <= 5; i++) {
         const coursePanel = document.createElement('div');
         coursePanel.classList.add('course-panel');
 
@@ -995,6 +999,8 @@ function showCourses() {
         }
         else if (courses_[i] == 'Harvard University (course)'){
             courseContent.textContent = `Computer Science`;
+        }else if (courses_[i] == 'ОГЭ-Информатика'){
+            courseContent.textContent = `-`;
         }
         else{
             courseContent.textContent = `Junior/Middle Developer`;

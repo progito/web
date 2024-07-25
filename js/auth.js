@@ -22,10 +22,12 @@ async function check(event) {
         localStorage.setItem("py", JSON.stringify(user.py));
         localStorage.setItem("c", JSON.stringify(user.c));
         localStorage.setItem("js", JSON.stringify(user.js));
+        localStorage.setItem("oge", JSON.stringify(user.oge));
 
         localStorage.setItem("proc_py", user.proc_py);
         localStorage.setItem("proc_c", user.proc_c);
         localStorage.setItem("proc_js", user.proc_js);
+        localStorage.setItem("proc_oge", user.proc_oge);
 
         localStorage.setItem("itog_py", user.itog_py);
         localStorage.setItem("itog_c", user.itog_c);
