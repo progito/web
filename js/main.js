@@ -862,22 +862,66 @@ function windowTasking() {
     // Очищаем текущий контент
     mainContent.innerHTML = '';
 
-    const f = document.createElement('iframe');
-    if (isMobileDevice()){
-        f.width = '350';
-        f.height = '900';
-    }
-    else{f.width = '100%'; f.height = '1200';} // Adjust the width as needed
-    // Adjust the height as needed
-    f.src = 'live.html';
+    // Создаем карточки курсов
+    const courses = [
+        { title: "🎙🧧0A - Защита ОР/ИР", imageUrl: "/css/img/0a.png" },
+        { title: "🎙K1 - Python", imageUrl: "/css/img/k1.png" },
+        { title: "🎙K2 - C/C++", imageUrl: "/css/img/k2.png" },
+        { title: "🎙K3 - Frontend", imageUrl: "/css/img/k3.png" }
+    ];
 
-    if (navigator.onLine) {
-        document.title = "🟢 Online";
-    } else {
-        document.title = "❌ Offline";
-    }
-    mainContent.appendChild(f);
+    const urlsLesson = [
+        "https://meet.jit.si/programlessonorirzashita8yf728yf8728723684781791",
+        "https://meet.jit.si/programlessonpython3745871523466187",
+        "https://meet.jit.si/programlessonccplusplus832r7y287t673214",
+        "https://meet.jit.si/programlessonfrontenduwyf87268736r81763481",
+    ];
+
+    let j = 0;
+
+    courses.forEach((course, index) => {
+        // Создаем элементы для карточки курса
+        const courseCard = document.createElement('div');
+        courseCard.classList.add('course-card');
+        courseCard.style.cursor = 'pointer'; // Изменяем курсор при наведении
+
+        const backgroundDiv = document.createElement('div');
+        backgroundDiv.classList.add('background-image');
+        backgroundDiv.style.backgroundImage = `url(${course.imageUrl})`;
+
+        const textBlock = document.createElement('div');
+        textBlock.classList.add('text-block');
+        const courseTitle = document.createElement('h3');
+        courseTitle.textContent = course.title;
+        textBlock.appendChild(courseTitle);
+
+        // Добавляем обработчик клика для открытия соответствующего iframe
+        courseCard.addEventListener('click', function() {
+            mainContent.innerHTML = ''; // Очищаем текущее содержимое
+        
+            // Создаем iframe
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', urlsLesson[index]); // Устанавливаем URL из массива urlsLesson
+            iframe.setAttribute('width', isMobileDevice() ? '350' : '100%');
+            iframe.setAttribute('height', isMobileDevice() ? '600' : '720');
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('style', 'border: 0;');
+        
+            mainContent.appendChild(iframe); // Добавляем iframe в основное содержимое
+            mainContent.appendChild()
+        });
+        
+
+        // Добавляем элементы в карточку курса
+        backgroundDiv.appendChild(textBlock);
+        courseCard.appendChild(backgroundDiv);
+        mainContent.appendChild(courseCard); // Добавляем карточку курса в основное содержимое
+    });
+
+    // Обновляем заголовок в зависимости от онлайн-статуса
+    document.title = navigator.onLine ? "🟢 Online" : "❌ Offline";
 }
+
 // Добавляем функцию для отображения разделов
 function showSection(section) {
     const mainContent = document.querySelector('.main-content');
