@@ -492,7 +492,7 @@ function showProfile() {
 
     const languages = document.createElement('div');
     languages.classList.add('languages', 'panel');
-    languages.innerHTML = `<span>Изучаемые языки/технологии: </span>`;
+    languages.innerHTML = `<span>Изучаемые курсы: </span>`;
     
 
     // Маппинг для соответствия языков и их изображений
@@ -500,7 +500,7 @@ function showProfile() {
         "Python": "https://upload.wikimedia.org/wikipedia/commons/3/31/Python-logo.png",
         "C/C++": "https://stage.digilabs.ai/wp-content/uploads/2023/10/C.png",
         "JavaScript": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Front-end-logo-color%402x.png",
-        "ОГЭ-Информатика": "image.png"
+        "ОГЭ-Информатика": "https://github.com/progito/web/blob/main/js/image.png?raw=true"
     };
 
     // Проходим по массиву языков и создаем иконки для каждого языка
