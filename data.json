@@ -4,7 +4,9 @@
             "user": "gleb",
             "password": "Yyt2ft288",
             "country": "Russia",
-            "langs": "Python",
+            "langs": [
+                "Python"
+            ],
             "py": {
                 "1": [
                     "100"
@@ -1194,7 +1196,7 @@
             "user": "vladislav",
             "password": "iwhuwy72y780",
             "country": "Russia",
-            "langs": "Python",
+            "langs": ["C/C++"],
             "py": {
                 "1": [
                     "0"
@@ -2378,7 +2380,7 @@
             "user": "egor",
             "password": "shguy7y2878",
             "country": "Russia",
-            "langs": "Python",
+            "langs": ["Python"],
             "py": {
                 "1": [
                     "100"
@@ -3573,7 +3575,7 @@
             "user": "gleb2",
             "password": "ushg2374hjsd",
             "country": "Russia",
-            "langs": "Python",
+            "langs": ["Python"],
             "py": {
                 "1": [
                     "100"
