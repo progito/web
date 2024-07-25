@@ -492,7 +492,7 @@ function showProfile() {
 
     const languages = document.createElement('div');
     languages.classList.add('languages', 'panel');
-    languages.innerHTML = `<span>Изучаемые языки: </span>`;
+    languages.innerHTML = `<span>Изучаемые языки/технологии: </span>`;
     
 
     // Маппинг для соответствия языков и их изображений
