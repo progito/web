@@ -24,16 +24,7 @@
     margin-right: 10px;
 }
 
-.languages {
-    display: flex;
-    flex-wrap: wrap;
-}
 
-.languages img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
 
 /* dark mode */
 /* Избегаем конфликтов стилей, добавив уникальный класс для профильной информации */
@@ -64,14 +55,15 @@
     margin-right: 10px;
 }
 
-/* Стили для блока языков */
+
+
 .languages {
     display: flex;
-    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.languages img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+.language-icon {
+    padding: 15px 15px;
 }
+
+
