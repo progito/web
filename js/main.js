@@ -409,6 +409,54 @@ function saveSettings(){
     localStorage.setItem("avatar", avatarUrl);
 }
 
+// Создаем функцию для создания круглой иконки языка
+function createLanguageIcon(language, imageUrl) {
+    const icon = document.createElement('div');
+    icon.classList.add('language-icon');
+    icon.setAttribute('title', language); // Добавляем подсказку с именем языка
+
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.alt = language; // Устанавливаем атрибут alt для доступности
+
+    // Настраиваем стили для div и img
+    icon.style.width = '55px';
+    icon.style.height = '55px';
+    icon.style.borderRadius = '50%';
+    icon.style.overflow = 'hidden';
+    icon.style.border = '2px solid #333';
+    icon.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    icon.style.transition = 'transform 0.3s ease-in-out';
+    icon.style.cursor = 'pointer';
+    icon.style.display = 'flex';
+    icon.style.alignItems = 'center';
+    icon.style.justifyContent = 'center';
+
+    if (language === "C/C++") {
+        img.style.width = '70px';
+        img.style.height = '70px';
+    } else {
+        img.style.width = '50px';
+        img.style.height = '50px';
+    }
+    img.style.objectFit = 'cover'; // Изображение заполняет всю область img без искажений
+
+    // Добавляем img внутрь div
+    icon.appendChild(img);
+
+    // Добавляем обработчик событий для эффекта при наведении
+    icon.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.1)';
+    });
+
+    icon.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+
+    return icon;
+}
+
+
 // Добавляем функцию для отображения профильной информации
 function showProfile() {
     const mainContent = document.querySelector('.main-content');
@@ -434,9 +482,29 @@ function showProfile() {
     achievements.classList.add('achievements', 'panel');
     achievements.innerHTML = '<span>Достижения: - ';
 
+    const langsArray = JSON.parse(langs);
+
     const languages = document.createElement('div');
     languages.classList.add('languages', 'panel');
-    languages.innerHTML = `<span>Изучаемые языки: ${langs}`;
+    languages.innerHTML = `<span>Изучаемые языки: </span>`;
+    
+
+    // Маппинг для соответствия языков и их изображений
+    const languageImages = {
+        "Python": "https://upload.wikimedia.org/wikipedia/commons/3/31/Python-logo.png",
+        "C/C++": "https://stage.digilabs.ai/wp-content/uploads/2023/10/C.png",
+        "JavaScript": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Front-end-logo-color%402x.png"
+    };
+
+    // Проходим по массиву языков и создаем иконки для каждого языка
+    langsArray.forEach(language => {
+        const imageUrl = languageImages[language];
+        if (imageUrl) {
+            const icon = createLanguageIcon(language, imageUrl);
+            icon.onclick = () => { showCourses(1); }; // Pass index 1 to showCourses
+            languages.appendChild(icon);
+        }
+    });
 
     // Добавляем элементы к профильной информации
     profileInfo.appendChild(dateTimePanel);
@@ -533,7 +601,15 @@ function showNotifications() {
                                     'Смотреть',
                                     'https://www.youtube.com/embed/U1456ECaTNQ'
                                 );
+                                const notificationBlock7 = createNotificationBlock(
+                                    'Python #7 (Алгоритмы + введение в структуры данных (стек, очередь, дек))',
+                                    'Повторим базовый АИСД в Python',
+                                    'https://gbcdn.mrgcdn.ru/uploads/geekbrains/public/ckeditor_assets/pictures/10111/retina-af076cecf7261c7c53dc6c911b7226f6.png',
+                                    'Смотреть',
+                                    'https://www.youtube.com/embed/5m7L24qlwrk?si=zzkDXkk3W4r276i9'
+                                );
                                 notifications.appendChild(notificationBlock6);
+                                notifications.appendChild(notificationBlock7);
                             }
                             }
                         }
@@ -778,7 +854,23 @@ function windowExam() {
     mainContent.appendChild(f);
 }
 
+function windowTasking() {
+    const mainContent = document.querySelector('.main-content');
 
+    // Очищаем текущий контент
+    mainContent.innerHTML = '';
+
+    const f = document.createElement('iframe');
+    if (isMobileDevice()){
+        f.width = '350';
+        f.height = '900';
+    }
+    else{f.width = '100%'; f.height = '1200';} // Adjust the width as needed
+    // Adjust the height as needed
+    f.src = 'live.html';
+
+    mainContent.appendChild(f);
+}
 // Добавляем функцию для отображения разделов
 function showSection(section) {
     const mainContent = document.querySelector('.main-content');
@@ -812,6 +904,9 @@ function showSection(section) {
         case 'exam':
             windowExam();
             break;
+        case 'tasking':
+            windowTasking();
+            break;
         case 'super':
             super_();
             break;
@@ -827,14 +922,14 @@ let courses_ = ['C/C++', 'Python', 'Frontend', 'GIT/GITHUB', 'Harvard University
 
 function showCourses() {
     const mainContent = document.querySelector('.main-content');
-
+    
     // Очищаем текущий контент
     mainContent.innerHTML = '';
 
     // Создаем элементы для раздела "Учеба"
     const coursesSection = document.createElement('div');
     coursesSection.classList.add('courses');
-
+    
     // Добавляем три панели курса CSS
     for (let i = 0; i <= 4; i++) {
         const coursePanel = document.createElement('div');
