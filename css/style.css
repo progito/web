@@ -215,6 +215,23 @@ th {
     border-radius: 10px;
     box-shadow: 4px 4px 12px rgba(1, 1, 1, 0.25);
 }
+
+.course-panel#d5 {
+    width: 250px;
+    height: 150px;
+    max-width: 400px;
+    box-sizing: border-box;
+    padding: 10px;
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgb(63, 113, 251) 0%, rgb(122, 70, 252) 100%);
+    padding: 10px 10px;
+    margin: 4px 4px;
+    color: #eee;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(1, 1, 1, 0.25);
+}
+
 .course-panel#d0 {
     width: 250px;
     height: 130px;
