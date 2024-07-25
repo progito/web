@@ -864,10 +864,10 @@ function windowTasking() {
 
     // Создаем карточки курсов
     const courses = [
-        { title: "🎙🧧0A - Защита ОР/ИР", imageUrl: "web/css/img/0a.png" },
-        { title: "🎙K1 - Python", imageUrl: "web/css/img/k1.png" },
-        { title: "🎙K2 - C/C++", imageUrl: "web/css/img/k2.png" },
-        { title: "🎙K3 - Frontend", imageUrl: "web/css/img/k3.png" }
+        { title: "🎙🧧0A - Защита ОР/ИР", imageUrl: "css/img/0a.png" },
+        { title: "🎙K1 - Python", imageUrl: "css/img/k1.png" },
+        { title: "🎙K2 - C/C++", imageUrl: "css/img/k2.png" },
+        { title: "🎙K3 - Frontend", imageUrl: "css/img/k3.png" }
     ];
 
     const urlsLesson = [
