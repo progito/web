@@ -911,6 +911,7 @@ function windowTasking() {
             iframe.setAttribute('height', isMobileDevice() ? '600' : '720');
             iframe.setAttribute('frameborder', '0');
             iframe.setAttribute('style', 'border: 0;');
+            iframe.setAttribute('allow', 'microphone'); // Разрешаем доступ к микрофону
         
             mainContent.appendChild(iframe); // Добавляем iframe в основное содержимое
             mainContent.appendChild()
