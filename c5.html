@@ -300,27 +300,23 @@ body {
             table.setAttribute('border', '1');  // Добавить границу таблице
         
             // Заголовок таблицы
-            // let headerRow = table.insertRow();
-            // let headerCell1 = headerRow.insertCell(0);
-            // let headerCell2 = headerRow.insertCell(1);
-            // headerCell1.innerHTML = '<b>Название лекции</b>';
-            // headerCell2.innerHTML = '<b>Ссылка на лекцию</b>';
-            // let row1 = table.insertRow();
-            // let cell2 = row1.insertCell(0);
-            // let cell3 = row1.insertCell(1);
-            // cell2.innerHTML = 'Лекция GIT';
-            // cell3.innerHTML = '<a href="lections/py/L_git.pdf" target="_blank">Ссылка GIT</a>';
-            // // Данные таблицы
-            // let j = 1;
-            // for (let i = 1; i <= 4; i++) {
-            //     let row = table.insertRow();
-            //     let cell1 = row.insertCell(0);
-            //     let cell2 = row.insertCell(1);
-            //     cell1.innerHTML = 'Лекция ' + i;
-            //     cell2.innerHTML = `<a href="lections/js/L_${j - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
-            //     j++;
+            let headerRow = table.insertRow();
+            let headerCell1 = headerRow.insertCell(0);
+            let headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = '<b>Название лекции</b>';
+            headerCell2.innerHTML = '<b>Ссылка на лекцию</b>';
+
+            // Данные таблицы
+            let j = 1;
+            for (let i = 1; i <= 6; i++) {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = 'Лекция ' + i;
+                cell2.innerHTML = `<a href="lections/js/L_${j - 1}.pdf" target="_blank">Ссылка ` + i + '</a>';
+                j++;
                 
-            // }
+            }
 
             // // Создание таблицы
             // let table2 = document.createElement('table');
@@ -401,9 +397,9 @@ body {
         
             // Добавить таблицу в блок с классом "t"
             document.querySelector('.t').appendChild(table);
-            document.querySelector('.t').appendChild(table2);
-            document.querySelector('.t').appendChild(table3);
-            document.querySelector('.t').appendChild(table4);
+            // document.querySelector('.t').appendChild(table2);
+            // document.querySelector('.t').appendChild(table3);
+            // document.querySelector('.t').appendChild(table4);
         };
         
         document.getElementById('intro-panel').onclick = ()=>{
