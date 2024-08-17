@@ -126,8 +126,8 @@
             }
             if (selectedCourse) {
                 const pricePerHour = parseInt(selectedCourse.getAttribute('data-price-per-hour'), 10);
-                totalPrice += pricePerHour * hoursPerWeek * 4; // 4 weeks in a month
-                totalPrice2 += (pricePerHour - 50) * hoursPerWeek * 4
+                totalPrice += pricePerHour * hoursPerWeek; // 4 weeks in a month
+                totalPrice2 += (pricePerHour - 50) * hoursPerWeek
             }
 
             additionalOptions.forEach(option => {
