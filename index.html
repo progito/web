@@ -1,63 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЯП</title>
+    <title>Школа Зарубежного Фриланса</title>
     <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
+<body class="dark-mode">
     <header class="site-header">
-        <nav class="site-nav" style="margin: 0 auto;" >
-            <ul class="nav-items" >
-                <li><button type="button" class="nav-item" data-target="vehicles">Выбрать курс</button></li>
-                <li><button type="button" class="nav-item" data-target="energy">Помощь и поддержка</button></li>
+        <nav class="site-nav">
+            <ul class="nav-items">
+                <li><a href="#courses" class="nav-link">Курсы</a></li>
+                <li><a href="#achievements" class="nav-link">Достижения</a></li>
+                <li><a href="#testimonials" class="nav-link">Отзывы</a></li>
             </ul>
         </nav>
     </header>
-    <div class="mega-menu" id="mega-menu">
-        <div class="mega-menu-content" data-panel="vehicles">
-            <div class="images">
-                <div class="image-wrapper">
-                    <img onclick="location.href='constructor.html'" src="https://elpythonista.com/wp-content/uploads/2020/10/Que_Es_Python-2-1024x576.jpg" alt="Изображение 1">
-                    <p class="image-title">Python3</p>
-                </div>
-                <div class="image-wrapper">
-                    <img onclick="location.href='constructor.html'" src="https://eccommonstorage.blob.core.windows.net/codered/uploads/06ff5852-8877-4504-a8b2-a61f884ad8cd.webp" alt="Изображение 2">
-                    <p class="image-title">C++</p>
-                </div>
-                <div class="image-wrapper">
-                    <img onclick="location.href='constructor.html'" src="https://myresume.ru/wp-content/uploads/2022/09/Chto-vybrat-frontend-ili-backend_-min.png" alt="Изображение 2">
-                    <p class="image-title">Frontend</p>
-                </div>
-                <div class="image-wrapper">
-                    <img onclick="location.href='constructor.html'" src="https://facialix.com/wp-content/uploads/2023/05/curso-gratis-de-harvard-facialix.jpg" alt="Изображение 2">
-                    <p class="image-title">Harvard-Course</p>
-                </div>
-            </div>
-            
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">БЫСТРО. ДЕШЕВО. КАЧЕСТВЕННО.</h1>
+            <p class="fade-in">Научитесь программировать, брать зарубежные заказы и зарабатывать от $18/час. Английский не нужен.</p>
+            <button class="cta-button fade-in" onclick="scrollToSection('courses')">Начать сейчас</button>
         </div>
-        
-        <div class="mega-menu-content" data-panel="energy">
-            <div class="images">
-                <div class="image-wrapper">
-                    <img onclick="location.href='constructor2.html'" src="https://assets-global.website-files.com/60cf187a369bcb1839cfa014/6398383a3c019aee83f1a898_How-to-Choose-the-Best-Retail-Task-Management-Software_.webp" alt="Изображение 1">
-                    <p class="image-title">Решить задачу/ДЗ</p>
-                </div>
-                <div class="image-wrapper">
-                    <img onclick="location.href='constructor2.html'" src="https://sever-press.ru/images/insecure/rs:fill-down:1920:1080/aHR0cHM6Ly84NTQyMjAuc2VsY2RuLnJ1L3lhbWFsbmV3cy8yNjExMjAyMV_QvNCw0YLQtdC80LDRgtC40LrQsC53ZWJw.webp" alt="Изображение 1">
-                    <p class="image-title">Решить лабораторную</p>
-                </div>
-                <div class="image-wrapper">
-                    <img onclick="location.href='constructor2.html'" src="https://avatars.dzeninfra.ru/get-zen_doc/26916/pub_5bfdad9975a38d1592446a18_5bfebe401bae810ad58058ea/scale_1200" alt="Изображение 1">
-                    <p class="image-title">Решить тест/кр</p>
-                </div>
+    </section>
+    
+    <section class="courses section" id="courses">
+        <h2 class="section-title slide-in">Мои Курсы</h2>
+        <div class="course-list">
+            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
+                <img src="https://elpythonista.com/wp-content/uploads/2020/10/Que_Es_Python-2-1024x576.jpg" alt="Курс Python3">
+                <h3>Python3</h3>
+            </div>
+            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
+                <img src="https://eccommonstorage.blob.core.windows.net/codered/uploads/06ff5852-8877-4504-a8b2-a61f884ad8cd.webp" alt="Курс C++">
+                <h3>C/C++</h3>
+            </div>
+            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
+                <img src="https://wallpaperbat.com/img/873490-front-end-wallpaper.jpg" alt="Курс Frontend">
+                <h3>Frontend</h3>
+            </div>
+            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
+                <img src="https://facialix.com/wp-content/uploads/2023/05/curso-gratis-de-harvard-facialix.jpg" alt="Курс Гарвардский">
+                <h3>Гарвардский Курс</h3>
+            </div>
+            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
+                <img src="https://avatars.dzeninfra.ru/get-zen_doc/9428044/pub_6479d8ec9fe27d1e8c2acecd_6479da5f5f308435d3305440/scale_1200" alt="Курс ОГЭ Информатика">
+                <h3>ОГЭ Информатика</h3>
             </div>
         </div>
-    </div>
-    <div class="container-btn">
-        <button class='button-dark' onclick="location.href='sign.html'">Войти в личный кабинет</button>
-    </div>
-    <script src="./js/script.js"></script>
+        <div class="course-list">
+            <div class="course-item zoom-in" onclick="location.href='constructor2.html'">
+                <img src="https://sever-press.ru/images/insecure/rs:fill-down:1920:1440/aHR0cHM6Ly84NTQyMjAuc2VsY2RuLnJ1L3lhbWFsbmV3cy8yNjExMjAyMV_QvNCw0YLQtdC80LDRgtC40LrQsC53ZWJw.webp" alt="Курс Python3">
+                <h3>Решить Задачу/Задание/ДЗ/Лабу и тп</h3>
+            </div>
+        </div>
+    </section>
+    
+    <section class="achievements section" id="achievements">
+        <h2 class="section-title slide-in">Что Вы Достигнете</h2>
+        <ul class="achievement-list snake-text">
+            <li>Освоите востребованные языки программирования</li>
+            <li>Получите сертификаты за каждый пройденный курс и рабочий опыт</li>
+            <li>Увеличите свой почасовой заработок до $18 и выше</li>
+        </ul>
+    </section>
+    
+    <section class="testimonials section" id="testimonials">
+        <h2 class="section-title slide-in">Отзывы Моих Студентов</h2>
+        <div class="testimonial-list">
+            <div class="testimonial-item zoom-in">
+                <p>"Лучшее решение в моей жизни. Теперь я зарабатываю гораздо больше, чем на предыдущей работе!"</p>
+                <div class="rating">★★★★★</div>
+                <span>- Алексей К.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Поддержка всегда была на высоте. Очень рекомендую!"</p>
+                <div class="rating">★★★★★</div>
+                <span>- Дмитрий П.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Курсы помогли мне быстро найти работу на фрилансе. Теперь я зарабатываю удаленно!"</p>
+                <div class="rating">★★★★★</div>
+                <span>- Ольга М.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Все было очень понятно и доступно."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Владимир Л.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Теперь у меня есть отличная работа и стабильный доход, спасибо!"</p>
+                <div class="rating">★★★★★</div>
+                <span>- Светлана Н.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Курс был действительно полезным, и я научился многому!"</p>
+                <div class="rating">★★★★☆</div>
+                <span>- Ирина П.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Отличная организация и полезные советы. Спасибо!"</p>
+                <div class="rating">★★★★★</div>
+                <span>- Андрей Г.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Очень довольна курсами. Получила массу новых знаний."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Олеся К.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Четкие инструкции и полезные задания. Рекомендую!"</p>
+                <div class="rating">★★★★★</div>
+                <span>- Павел Т.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Великолепные курсы, которые я могу рекомендовать своим друзьям."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Вера М.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Курс помог мне открыть новые горизонты в карьере. Проходил около 8ми месяцев Python, основы языка идеальны, ООП, АИСД - также идеальны, но как по мне если брать больше часов - то можно пройти и за 5 месяцев."</p>
+                <div class="rating">★★★★☆</div>
+                <span>- Сергей Н.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Прекрасный контент и отличная поддержка. Очень рад, что записался!"</p>
+                <div class="rating">★★★★★</div>
+                <span>- Лидия С.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Курсы оправдали все ожидания. Спасибо за отличный материал."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Роман К.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Теперь я уверенно чувствую себя в своей новой профессии."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Игорь Л.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Полезный и практичный курс. Рекомендую всем!"</p>
+                <div class="rating">★★★★☆</div>
+                <span>- Евгения Р.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Курс открыл мне новые возможности и подходы."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Николай З.</span>
+            </div>
+
+            <div class="testimonial-item zoom-in">
+                <p>"Отличная структура курса и доступное объяснение материала."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Валерий В.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Обучение прошло на одном дыхании. Очень доволен результатом."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Вячеслав П.</span>
+            </div>
+            <div class="testimonial-item zoom-in">
+                <p>"Отличное качество материала и доступность информации."</p>
+                <div class="rating">★★★★★</div>
+                <span>- Алиса Г.</span>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2024 ANDREY-IT</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
