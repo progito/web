@@ -359,18 +359,54 @@
         footer a:hover {
             color: #e0e0e0;
         }
+        .cta-button {
+            background: linear-gradient(90deg, #ff4757, #1e90ff);
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+        }
+        header nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cta-button {
+    margin-left: auto;
+}
     </style>
 </head>
 <body>
 
     <!-- Шапка -->
     <header>
-        <nav>
-            <a href="#courses">Курсы</a>
-            <a href="#demo-video">Обзорное Видео</a>
-            <a href="#achievements">Достижения</a>
-            <a href="#reviews">Отзывы</a>
-        </nav>
+        <div class="nav-container">
+            <nav>
+                <a href="#courses">Курсы</a>
+                <a href="#demo-video">Обзорное Видео</a>
+                <a href="#achievements">Достижения</a>
+                <a href="#reviews">Отзывы</a>
+            </nav>
+            <button class="cta-button">Войти в Личный кабинет</button>
+        </div>
     </header>
 
     <!-- Секция Курсов -->
