@@ -12,7 +12,7 @@
     <div class="configurator-main">
         <div class="configurator-category">
             <h2 class="configurator-categorygroup">Базовый пакет опций</h2>
-            <p style="color:gray; font-size: 12px;">оплата 1 раз в месяц.</p>
+            <p style="color:gray; font-size: 12px;">оплата за 1 занятие.</p>
             <div class="configurator-categoryoption form-selector " data-price="0">
                 <label class="form-selector-label" for="student-name">Имя ученика: </label>
                 <input type="text" id="student-name" name="student-name" class="form-input" placeholder="Введите имя" />
@@ -55,11 +55,10 @@
                         </div>
                     </div>
                     <div class="configurator-optiongroup">
-                        <h3 class="configurator-optiongroup-header">Выберите количество часов в неделю</h3>
+                        <h3 class="configurator-optiongroup-header">Выберите количество часов</h3>
                         <ul style="color: gray">
-                            <li><p style="color:gray; font-size: 12px;">для Python/C/C++/Frontend курса ставьте от 2 до 10 часов.</p></li>
-                            <li><p style="color:gray; font-size: 12px;">для ОГЭ-Информатика курса ставьте от 2 до 6 часов.</p></li>
-                            <li><p style="color:gray; font-size: 12px;">для Harvard курса ставьте от 4 до 6 часов.</p></li>
+                            <li><p style="color:gray; font-size: 12px;">для Python/C/C++/Frontend курса ставьте от 2 до 6 часов.</p></li>
+                            <li><p style="color:gray; font-size: 12px;">для ОГЭ-Информатика курса ставьте от 2 до 4 часов.</p></li>
                         </ul>
                         <input type="number" id="hours-per-week" min="2" max="10" value="2" oninput="updateTotalPrice()">
                     </div>
