@@ -3,192 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Школа Зарубежного Фриланса</title>
-    <link rel="stylesheet" href="./css/style1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <title>ANDREY-IT | Главная</title>
+    <style>
+        /* Основной стиль страницы */
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Шапка */
+        header {
+            background: rgba(26, 26, 26, 0.9);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            transition: background 0.3s;
+        }
+
+        header:hover {
+            background: rgba(26, 26, 26, 1);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        header nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #4caf50;
+            transition: width 0.3s;
+        }
+
+        header nav a:hover {
+            color: #4caf50;
+            transform: scale(1.1);
+        }
+
+        header nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Контейнеры секций */
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5), transparent);
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #4caf50;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            z-index: 2;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Секция курсов */
+        #courses {
+            background-image: url('https://www.ski.ru/kohana/upload/ckfinder_images/u111030/images/photo-1491485326079-8713ae1e00a9.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #courses::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; /* Высота дымки */
+            background: rgba(0, 0, 0, 0.5); /* Цвет дымки */
+            opacity: var(--fade-opacity, 0);
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        #courses .courses-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        #courses .courses-list li {
+            background: linear-gradient(135deg, #2e2e2e, #3a3a3a);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #courses .courses-list li::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            transition: opacity 0.3s;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        #courses .courses-list li:hover::before {
+            opacity: 1;
+        }
+
+        #courses .courses-list li:hover {
+            background: linear-gradient(135deg, #3c3c3c, #4e4e4e);
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(48, 137, 42, 0.3);
+        }
+
+        /* Секция Демо Видео */
+        #demo-video {
+            background-image: url('demo-video-background.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 20px;
+            color: #e0e0e0;
+        }
+
+        #demo-video video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s;
+            z-index: 2;
+            position: relative;
+        }
+
+        #demo-video video:hover {
+            transform: scale(1.05);
+        }
+
+        /* Секция Достижений */
+        #achievements {
+            background: linear-gradient(135deg, #2c3e50, #33475d);
+            padding: 50px 20px;
+            color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #achievements .achievements-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        #achievements .achievement {
+            background: linear-gradient(135deg, #16a085, #1abc9c);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            font-size: 18px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background 0.3s;
+            position: relative;
+            text-align: center;
+            color: #fff;
+            animation: moveIn 2s ease-out forwards;
+        }
+
+        #achievements .achievement:nth-child(odd) {
+            animation-delay: 0.5s;
+        }
+
+        #achievements .achievement:nth-child(even) {
+            animation-delay: 1s;
+        }
+
+        @keyframes moveIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Отзывы */
+        #reviews {
+            background: linear-gradient(#314459, rgb(101, 101, 101));
+            background-size: cover;
+            background-position: center;
+            padding: 50px 20px;
+            color: #e0e0e0;
+        }
+
+        #reviews .reviews-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        #reviews .reviews-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        #reviews .review {
+            min-width: 100%;
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #reviews .review h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+            color: #e0e0e0;
+        }
+
+        #reviews .review p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        #reviews .reviews-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        #reviews .reviews-controls button {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        #reviews .reviews-controls button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Футер */
+        footer {
+            background: rgba(26, 26, 26, 0.9);
+            padding: 20px;
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+            z-index: 2;
+            position: relative;
+            box-shadow: 0px -6px 20px 0px #abababd1;
+        }
+
+        footer a {
+            color: #4caf50;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #e0e0e0;
+        }
+    </style>
 </head>
-<body class="dark-mode">
-    <header class="site-header">
-        <nav class="site-nav">
-            <ul class="nav-items">
-                <li><a href="#courses" class="nav-link">Курсы</a></li>
-                <li><a href="#achievements" class="nav-link">Достижения</a></li>
-                <li><a href="#testimonials" class="nav-link">Отзывы</a></li>
-                
-            </ul>
-            <button class="cta-button fade-in head-button" onclick="location.href='sign.html'">Войти в Личный кабинет</button>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <a href="#courses">Курсы</a>
+            <a href="#demo-video">Демо Видео</a>
+            <a href="#achievements">Достижения</a>
+            <a href="#reviews">Отзывы</a>
         </nav>
     </header>
-    
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">БЫСТРО. ДЕШЕВО. КАЧЕСТВЕННО.</h1>
-            <p class="fade-in">Научитесь программировать, брать зарубежные заказы и зарабатывать от $18/час. Английский не нужен.</p>
-            <button class="cta-button fade-in" onclick="scrollToSection('courses')">Начать сейчас</button>
-        </div>
-    </section>
-    
-    <section class="courses section" id="courses">
-        <h2 class="section-title slide-in">Мои Курсы</h2>
-        <div class="course-list">
-            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
-                <img src="https://elpythonista.com/wp-content/uploads/2020/10/Que_Es_Python-2-1024x576.jpg" alt="Курс Python3">
-                <h3>Python3</h3>
-            </div>
-            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
-                <img src="https://eccommonstorage.blob.core.windows.net/codered/uploads/06ff5852-8877-4504-a8b2-a61f884ad8cd.webp" alt="Курс C++">
-                <h3>C/C++</h3>
-            </div>
-            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
-                <img src="https://wallpaperbat.com/img/873490-front-end-wallpaper.jpg" alt="Курс Frontend">
-                <h3>Frontend</h3>
-            </div>
-            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
-                <img src="https://facialix.com/wp-content/uploads/2023/05/curso-gratis-de-harvard-facialix.jpg" alt="Курс Гарвардский">
-                <h3>Гарвардский Курс</h3>
-            </div>
-            <div class="course-item zoom-in" onclick="location.href='constructor.html'">
-                <img src="https://avatars.dzeninfra.ru/get-zen_doc/9428044/pub_6479d8ec9fe27d1e8c2acecd_6479da5f5f308435d3305440/scale_1200" alt="Курс ОГЭ Информатика">
-                <h3>ОГЭ Информатика</h3>
-            </div>
-        </div>
-        <div class="course-list">
-            <div class="course-item zoom-in" onclick="location.href='constructor2.html'">
-                <img src="https://sever-press.ru/images/insecure/rs:fill-down:1920:1440/aHR0cHM6Ly84NTQyMjAuc2VsY2RuLnJ1L3lhbWFsbmV3cy8yNjExMjAyMV_QvNCw0YLQtdC80LDRgtC40LrQsC53ZWJw.webp" alt="Курс Python3">
-                <h3>Решить Задачу/Задание/ДЗ/Лабу и тп</h3>
-            </div>
-        </div>
-    </section>
-    
-    <section class="achievements section" id="achievements">
-        <h2 class="section-title slide-in">Что Вы Достигнете</h2>
-        <ul class="achievement-list snake-text">
-            <li>Освоите востребованные языки программирования</li>
-            <li>Получите сертификаты за каждый пройденный курс и рабочий опыт</li>
-            <li>Увеличите свой почасовой заработок до $18 и выше</li>
-        </ul>
-    </section>
-    
-    <section class="testimonials section" id="testimonials">
-        <h2 class="section-title slide-in">Отзывы Моих Студентов</h2>
-        <div class="testimonial-list">
-            <div class="testimonial-item zoom-in">
-                <p>"Лучшее решение в моей жизни. Теперь я зарабатываю гораздо больше, чем на предыдущей работе!"</p>
-                <div class="rating">★★★★★</div>
-                <span>- Алексей К.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Поддержка всегда была на высоте. Очень рекомендую!"</p>
-                <div class="rating">★★★★★</div>
-                <span>- Дмитрий П.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Курсы помогли мне быстро найти работу на фрилансе. Теперь я зарабатываю удаленно!"</p>
-                <div class="rating">★★★★★</div>
-                <span>- Ольга М.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Все было очень понятно и доступно."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Владимир Л.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Теперь у меня есть отличная работа и стабильный доход, спасибо!"</p>
-                <div class="rating">★★★★★</div>
-                <span>- Светлана Н.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Курс был действительно полезным, и я научился многому!"</p>
-                <div class="rating">★★★★☆</div>
-                <span>- Ирина П.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Отличная организация и полезные советы. Спасибо!"</p>
-                <div class="rating">★★★★★</div>
-                <span>- Андрей Г.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Очень довольна курсами. Получила массу новых знаний."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Олеся К.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Четкие инструкции и полезные задания. Рекомендую!"</p>
-                <div class="rating">★★★★★</div>
-                <span>- Павел Т.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Великолепные курсы, которые я могу рекомендовать своим друзьям."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Вера М.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Курс помог мне открыть новые горизонты в карьере. Проходил около 8ми месяцев Python, основы языка идеальны, ООП, АИСД - также идеальны, но как по мне если брать больше часов - то можно пройти и за 5 месяцев."</p>
-                <div class="rating">★★★★☆</div>
-                <span>- Сергей Н.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Прекрасный контент и отличная поддержка. Очень рад, что записался!"</p>
-                <div class="rating">★★★★★</div>
-                <span>- Лидия С.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Курсы оправдали все ожидания. Спасибо за отличный материал."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Роман К.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Теперь я уверенно чувствую себя в своей новой профессии."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Игорь Л.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Полезный и практичный курс. Рекомендую всем!"</p>
-                <div class="rating">★★★★☆</div>
-                <span>- Евгения Р.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Курс открыл мне новые возможности и подходы."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Николай З.</span>
-            </div>
 
-            <div class="testimonial-item zoom-in">
-                <p>"Отличная структура курса и доступное объяснение материала."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Валерий В.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Обучение прошло на одном дыхании. Очень доволен результатом."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Вячеслав П.</span>
-            </div>
-            <div class="testimonial-item zoom-in">
-                <p>"Отличное качество материала и доступность информации."</p>
-                <div class="rating">★★★★★</div>
-                <span>- Алиса Г.</span>
+    <!-- Секция Курсов -->
+    <section id="courses">
+        <div class="section-title">Выбирай лучшее...</div>
+        <div class="courses-list">
+            <ul>
+                <li onclick="location.href='constructor.html'">Python3</li>
+                <li onclick="location.href='constructor.html'">C/C++</li>
+                <li onclick="location.href='constructor.html'">Frontend</li>
+                <li onclick="location.href='constructor.html'">Harvard курс</li>
+                <li onclick="location.href='constructor.html'">ОГЭ-Информатика</li>
+                <li onclick="location.href='constructor2.html'">Помощь в дз/лабах..</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Секция Демо Видео -->
+    <section id="demo-video">
+        <div class="section-title">Демо Видео</div>
+        <div class="demo-video">
+            <video controls>
+                <source src="demo-video.mp4" type="video/mp4">
+                Ваш браузер не поддерживает воспроизведение видео.
+            </video>
+        </div>
+    </section>
+
+    <!-- Секция Достижений -->
+    <section id="achievements">
+        <div class="section-title">Что вы достигнете?</div>
+        <div class="achievements-container">
+            <div class="achievement">Изучите популярные языки программирования</div>
+            <div class="achievement">Пройдете множество испытаний (лаб, тестов, заданий и тп)</div>
+            <div class="achievement">Получите сертификат об успешном окончании курса</div>
+            <div class="achievement">Получите практический опыт работы</div>
+            <div class="achievement">Освоите востребованную профессию</div>
+            <div class="achievement">Сдадите ОГЭ по информатике как минимум на 4</div>
+        </div>
+    </section>
+
+    <!-- Секция Отзывов -->
+    <section id="reviews">
+        <div class="section-title">Отзывы</div>
+        <div class="reviews-container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h3>Алексей. Н</h3>
+                        <p>Отличные курсы! Много полезной информации и профессиональный преподаватель.</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h3>Мария. Л</h3>
+                        <p>Курсы помогли мне успешно подготовиться к экзаменам (к огэ). <br/>Очень рекомендую!</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h3>Илья. П</h3>
+                        <p>Удобный формат обучения и отличное сообщество. <br/>Спасибо за поддержку!</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h3>Катя. Л</h3>
+                        <p>Всего за 1 месяц я уже изучила основы Python. Очень быстро <br/>и качественно!</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h3>Петр. В</h3>
+                        <p>Рекомендую всем брать месячную оплату - это примерно на <br/>800-1200 рублей выгоднее! Брал курс по C++, все понравилось, все было интересно и просто)</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
 
+    <!-- Футер -->
     <footer>
-        <p>&copy; 2024 ANDREY-IT</p>
+        <p>&copy; 2024 ANDREY-IT. Все права защищены.</p>
+        <p>
+            <a href="#courses">Курсы</a> |
+            <a href="#demo-video">Демо Видео</a> |
+            <a href="#achievements">Достижения</a> |
+            <a href="#reviews">Отзывы</a>
+        </p>
     </footer>
 
     <script>
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+        // Скрипт для плавного скролла
+        document.querySelectorAll('header nav a, footer a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                scrollToSection(targetId);
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        function scrollToSection(id) {
-            const section = document.getElementById(id);
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
+        // Инициализация Swiper
+        document.addEventListener('DOMContentLoaded', () => {
+            const swiper = new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 5000, // Интервал между слайдами
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                touchEventsTarget: 'container',
+            });
+        });
     </script>
 </body>
 </html>
