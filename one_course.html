@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конфигуратор</title>
+    <link rel="stylesheet" href="./css/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="configurator-main">
+        <div class="configurator-category">
+            <h2 class="configurator-categorygroup">Базовый пакет опций</h2>
+            <p style="color:gray; font-size: 12px;">оплата сразу за весь курс.</p>
+            <div class="configurator-categoryoption form-selector " data-price="0">
+                <label  class="form-selector-label" for="student-name">Имя ученика: </label>
+                <input type="text" id="student-name" name="student-name" class="form-input" placeholder="Введите имя" />
+            </div>
+            
+            <div class="configurator-optiongroup">
+                <div class="configurator-categoryoption form-selector disabled" data-price="0" onclick="selectOption(this, 'additional')">
+                    <label class="form-selector-label">Личный кабинет (к курсу)</label>
+                    <span class="option-price">бесплатно</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab-container">
+    
+
+        <div id="c">
+            <div class="item" id="one-lesson-courses">
+                <div class="configurator-category">
+                    <h2 class="configurator-categorygroup">Выберите нужный курс</h2>
+                    <div class="configurator-optiongroup">
+                        <h3 class="configurator-optiongroup-header">Курс</h3>
+                        <div class="form-selector-group" id="course-options">
+                            <div class="configurator-categoryoption form-selector" data-price-per-hour="48750" onclick="selectOption(this, 'course')">
+                                <label class="form-selector-label">Python</label>
+                                <span class="option-price">48750 ₽</span>
+                                <ul style="color: gray">
+                                    <li><p style="color:gray; font-size: 12px;">Основы языка</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">Далее идет ООП</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">Алгоритмы и Структуры Данных</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">Модули и библиотеки, доп темы</p></li>
+                                </ul>
+                                <span style="color: rgb(174, 174, 174); font-size: 13px;">Дополнительные плюсы:</span>
+                                <ul style="color: gray">
+                                    <li><p style="color:gray; font-size: 12px;">Ускоренное обучение (x2)</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">4-5 месяца (3 занятия по 2-2.5ч в неделю)</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">как минимум 5 итоговых проектов в портфолио</p></li>
+                                </ul>
+                            </div>
+                            <div class="configurator-categoryoption form-selector" data-price-per-hour="53990" onclick="selectOption(this, 'course')">
+                                <label class="form-selector-label">C++</label>
+                                <span class="option-price">53990 ₽</span>
+                                <ul style="color: gray">
+                                    <li><p style="color:gray; font-size: 12px;">Основы языка (1-1.5 месяца)</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">Далее идет ООП (1-1.5 месяца)</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">Алгоритмы и Структуры Данных (1.5 месяца)</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">WINAPI, доп темы (1-2 месяца)</p></li>
+                                </ul>
+                                <span style="color: rgb(174, 174, 174); font-size: 13px;">Дополнительные плюсы:</span>
+                                <ul style="color: gray">
+                                    <li><p style="color:gray; font-size: 12px;">Ускоренное обучение</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">4-5 месяцев</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">как минимум 5 итоговых проектов в портфолио</p></li>
+                                </ul>
+                            </div>
+                            <div class="configurator-categoryoption form-selector" data-price-per-hour="57500" onclick="selectOption(this, 'course')">
+                                <label class="form-selector-label">Frontend</label>
+                                <span class="option-price">57500 ₽</span>
+                                <ul style="color: gray">
+                                    <li><p style="color:gray; font-size: 12px;">HTML & CSS + верстка</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">Основы JavaScript + ООП и др </p></li>
+                                    <li><p style="color:gray; font-size: 12px;">DOM, VirtualDOM, Package Manager (npm, yarn)</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">React</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">Redux</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">TypeScript</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">доп темы</p></li>
+                                </ul>
+                                <span style="color: rgb(174, 174, 174); font-size: 13px;">Дополнительные плюсы:</span>
+                                <ul style="color: gray; ">
+                                    <li><p style="color:gray; font-size: 12px;">Ускоренное обучение</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">4-5 месяцев</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">как минимум 5 итоговых проектов в портфолио</p></li>
+                                </ul>
+                            </div>
+                            <div class="configurator-categoryoption form-selector" data-price-per-hour="10000" onclick="selectOption(this, 'course')">
+                                <label class="form-selector-label">Harvard</label>
+                                <span class="option-price">10000 ₽</span>
+                                <span style="color: rgb(174, 174, 174); font-size: 13px;">Дополнительные плюсы:</span>
+                                <ul style="color: gray">
+                                    <li><p style="color:gray; font-size: 12px;">Ускоренное обучение</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">1-2 месяца</p></li>
+                                </ul>
+                            </div>
+                            <div class="configurator-categoryoption form-selector" data-price-per-hour="15990" onclick="selectOption(this, 'course')">
+                                <label class="form-selector-label">ОГЭ-Информатика</label>
+                                <span class="option-price">15990 ₽</span>
+                               
+                                <ul style="color: gray">
+                                    <li><p style="color:gray; font-size: 12px;">разбор 1 части (с 1 по 12 задание) (около 0.75 месяца)</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">разбор 2 части (с 13 по 15 задание) (около 0.25-0.5 месяца)</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">написание полноценного пробника с проверкой полученных знаний</p></li>
+                                </ul>
+                                <span style="color: rgb(174, 174, 174); font-size: 13px;">Дополнительные плюсы:</span>
+                                <ul style="color: gray">
+                                    <li><p style="color:gray; font-size: 12px;">Ускоренное обучение</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">примерно 1 месяц</p></li>
+                                    <li><p style="color:gray; font-size: 12px;">как минимум 3 полноценных итоговых пробника</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="configurator-optiongroup">
+                        <h3 class="configurator-optiongroup-header">Дополнительные опции (только при выборе за весь курс сразу)</h3>
+                        <div class="form-selector-group" id="additional-options">
+                            <div class="configurator-categoryoption form-selector" data-price="1600" onclick="selectOption(this, 'additional')">
+                                <label class="form-selector-label">Обучение чистому коду за 0.5 месяца</label>
+                                <span class="option-price">1600 ₽</span>
+                            </div>
+                            <div class="configurator-categoryoption form-selector" data-price="2100" onclick="selectOption(this, 'additional')">
+                                <label class="form-selector-label">GIT/GITHUB за 0.5 месяца</label>
+                                <span class="option-price">2100 ₽</span>
+                            </div>
+        
+                            <div class="configurator-categoryoption form-selector" data-price="8500" onclick="selectOption(this, 'additional')">
+                                <label class="form-selector-label">Марафон программиста (решим более 100 крутых задач)</label>
+                                <span class="option-price">8500 ₽</span>
+                            </div>
+                            <div id="basic" class="configurator-categoryoption form-selector selected disabled" data-price="0" onclick="selectOption(this, 'additional')">
+                                <label class="form-selector-label">Включение Тестов, ДЗ, лабораторных работ, зачетов/экзаменов, пробники к огэ и другое</label>
+                                <span class="option-price">включено в стоимость всего курса</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total-price">
+                        Общая стоимость: <span id="total-price">0</span> ₽/за весь курс
+                        <p style="color: rgba(237, 52, 52, 0.832); font-weight: bold;">Приведи друга на любой курс и получи 30% скидку!</p>
+                        <span id="total-price-discont" style="color:gray;"></span>
+                    </div>
+                    <button type="button" class="configurator-submit" onclick="submitConfiguration()">Скачать документ</button>
+                    <p style="color:gray; font-size: 9px;"><i>*после скачивания pdf файла, отправьте его преподавателю.</i></p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        let selectedCourse = null;
+        let additionalOptions = [];
+        let hoursPerWeek = 1;
+        let textTasks = "";
+
+        function selectOption(element, group) {
+            if (element.classList.contains('disabled')) {
+                return; // Игнорировать клики по неактивным элементам
+            }
+            if (group === 'course') {
+                if (selectedCourse) {
+                    selectedCourse.classList.remove('selected');
+                }
+                selectedCourse = element;
+                selectedCourse.classList.add('selected');
+            } else if (group === 'additional') {
+                const index = additionalOptions.indexOf(element);
+                if (index > -1) {
+                    additionalOptions.splice(index, 1);
+                    element.classList.remove('selected');
+                } else {
+                    additionalOptions.push(element);
+                    element.classList.add('selected');
+                }
+            }
+            updateTotalPrice();
+        }
+        
+
+        function updateTotalPrice() {
+            let totalPrice = 0;
+            
+            if (selectedCourse) {
+                const pricePerHour = parseInt(selectedCourse.getAttribute('data-price-per-hour'), 10);
+                totalPrice += pricePerHour ; // 4 weeks in a month
+            }
+
+            additionalOptions.forEach(option => {
+                totalPrice += parseInt(option.getAttribute('data-price'), 10);
+            });
+
+            document.getElementById('total-price').innerText = totalPrice;
+            document.getElementById('total-price-discont').innerText = "со скидкой будет " + totalPrice * 0.7 + " ₽";
+        }
+
+        async function submitConfiguration() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+
+            // Добавьте шрифт, если он еще не добавлен
+            pdf.addFont('Roboto-Regular.ttf', 'Roboto', 'normal');
+            pdf.setFont('Roboto');
+
+            const selectedCourseName = selectedCourse ? selectedCourse.textContent.trim() : 'None';
+            const additionalOptionsNames = additionalOptions.map(option => option.textContent.trim());
+            const totalPrice = document.getElementById('total-price').innerText;
+
+            const content = [
+                ['Имя ученика:', document.getElementById("student-name").value],
+                ['Выбранный курс:', selectedCourseName],
+                ['Дополнительные опции:', additionalOptionsNames.join(', ')],
+                ['Общая Стоимость за весь курс:', `${totalPrice} ₽`]
+            ];
+
+            pdf.autoTable({
+                head: [['Параметр', 'Значение']],
+                body: content,
+                styles: { font: 'Roboto' }
+            });
+
+            pdf.save('configuration.pdf'); // Сохранение PDF
+        }
+
+        selectOption(document.getElementById("basic"), 'additional');
+    </script>
+</body>
+</html>

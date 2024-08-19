@@ -17,7 +17,8 @@
         }
         .button-container {
             display: flex;
-            gap: 20px; /* Расстояние между кнопками */
+            flex-direction: column;
+            gap: 15px; /* Расстояние между кнопками */
         }
         .button {
             position: relative;
@@ -50,15 +51,36 @@
             font-size: 12px;
             font-weight: bold;
         }
+        .tag-green {
+            background-color: #32a852; /* Зеленый цвет для текста "Мега выгодно" */
+            color: #ffffff; /* Цвет текста на бирке */
+        }
+        .c {
+            display: flex;
+            flex-direction: row;
+            
+        }
+        .c a {
+            margin: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="button-container">
-        <a href="one_lesson.html" class="button">за 1 занятие</a>
-        <a href="one_month.html" class="button">
-            за 1 месяц
-            <span class="tag">Выгодно</span>
-        </a>
+        <div class="c">
+            <a href="one_lesson.html" class="button">за 1 занятие</a>
+            <a href="one_month.html" class="button">
+                за 1 месяц
+                <span class="tag">Выгодно</span>
+            </a>
+        </div>
+        <div class="c">
+            <a href="one_course.html" class="button">
+                за весь курс
+                <br/>
+                <span class="tag tag-green">Мега выгодно</span>
+            </a>
+        </div>
     </div>
 </body>
 </html>
