@@ -1,562 +1,84 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <title>ANDREY-IT | Главная</title>
+    <title>...</title>
     <style>
-        /* Основной стиль страницы */
         body {
-            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
-            color: #e0e0e0;
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth;
-        }
-
-        /* Шапка */
-        header {
-            background: rgba(26, 26, 26, 0.9);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-            transition: background 0.3s;
-        }
-
-        header:hover {
-            background: rgba(26, 26, 26, 1);
-        }
-
-        header nav {
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-        }
-
-        header nav a {
-            color: #b0b0b0;
-            text-decoration: none;
-            font-size: 18px;
-            position: relative;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        header nav a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background: #4caf50;
-            transition: width 0.3s;
-        }
-
-        header nav a:hover {
-            color: #4caf50;
-            transform: scale(1.1);
-        }
-
-        header nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Контейнеры секций */
-        .section {
-            padding: 100px 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
             overflow: hidden;
         }
 
-       .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5), transparent);
-            z-index: 1;
-        }
-        .section2 {
-            padding: 100px 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .loader {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            width: 80%;
+            max-width: 400px;
         }
 
-
-        .section-title {
-            font-size: 36px;
+        .progress-bar {
+            position: relative;
+            height: 8px;
+            background-color: #333;
+            border-radius: 4px;
+            overflow: hidden;
             margin-bottom: 20px;
-            color: #4caf50;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            z-index: 2;
-            position: relative;
-            animation: fadeInUp 1s ease-out;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        .progress-bar-inner {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #8e44ad);
+            border-radius: 4px;
+            animation: load 3s linear forwards;
+        }
+
+        @keyframes load {
+            0% {
+                width: 0;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            100% {
+                width: 100%;
             }
         }
 
-        /* Секция курсов */
-        #courses {
-            background-image: url('https://www.ski.ru/kohana/upload/ckfinder_images/u111030/images/photo-1491485326079-8713ae1e00a9.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #e0e0e0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #courses::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px; /* Высота дымки */
-            background: rgba(0, 0, 0, 0.5); /* Цвет дымки */
-            opacity: var(--fade-opacity, 0);
-            transition: opacity 0.3s ease;
-            z-index: 1;
-        }
-
-        #courses .courses-list ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            z-index: 2;
-            position: relative;
-        }
-
-        #courses .courses-list li {
-            background: linear-gradient(135deg, #2e2e2e, #3a3a3a);
-            padding: 20px;
-            border-radius: 15px;
+        p {
             font-size: 18px;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        #courses .courses-list li::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
-            transition: opacity 0.3s;
+            margin: 0;
             opacity: 0;
-            transform: translate(-50%, -50%);
-            z-index: 0;
+            animation: fadeIn 1.5s forwards 2.5s;
         }
 
-        #courses .courses-list li:hover::before {
-            opacity: 1;
-        }
-
-        #courses .courses-list li:hover {
-            background: linear-gradient(135deg, #3c3c3c, #4e4e4e);
-            transform: translateY(-10px);
-            box-shadow: 0 6px 15px rgba(48, 137, 42, 0.3);
-        }
-
-        /* Секция Демо Видео */
-        #demo-video {
-            background-image: url('demo-video-background.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 50px 20px;
-            color: #e0e0e0;
-        }
-
-        #demo-video video {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s;
-            z-index: 2;
-            position: relative;
-        }
-
-        #demo-video video:hover {
-            transform: scale(1.05);
-        }
-
-        /* Секция Достижений */
-        #achievements {
-            background: linear-gradient(135deg, #2c3e50, #33475d);
-            padding: 50px 20px;
-            color: #e0e0e0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #achievements .achievements-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            z-index: 2;
-            position: relative;
-        }
-
-        #achievements .achievement {
-            background: linear-gradient(135deg, #16a085, #1abc9c);
-            padding: 20px;
-            border-radius: 15px;
-            width: 300px;
-            font-size: 18px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, background 0.3s;
-            position: relative;
-            text-align: center;
-            color: #fff;
-            animation: moveIn 2s ease-out forwards;
-        }
-
-        #achievements .achievement:nth-child(odd) {
-            animation-delay: 0.5s;
-        }
-
-        #achievements .achievement:nth-child(even) {
-            animation-delay: 1s;
-        }
-
-        @keyframes moveIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
+        @keyframes fadeIn {
             to {
                 opacity: 1;
-                transform: translateX(0);
             }
         }
-
-        /* Отзывы */
-        #reviews {
-            background: linear-gradient(#314459, rgb(101, 101, 101));
-            background-size: cover;
-            background-position: center;
-            padding: 50px 20px;
-            color: #e0e0e0;
-        }
-
-        #reviews .reviews-container {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        #reviews .reviews-slider {
-            display: flex;
-            transition: transform 0.5s ease;
-            will-change: transform;
-        }
-
-        #reviews .review {
-            min-width: 100%;
-            padding: 20px;
-            margin: 0 10px;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        #reviews .review h3 {
-            margin: 0 0 10px 0;
-            font-size: 22px;
-            color: #e0e0e0;
-        }
-
-        #reviews .review p {
-            margin: 0;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #e0e0e0;
-        }
-
-        #reviews .reviews-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            z-index: 2;
-        }
-
-        #reviews .reviews-controls button {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            color: #fff;
-            font-size: 18px;
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-
-        #reviews .reviews-controls button:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Футер */
-        footer {
-            background: rgba(26, 26, 26, 0.9);
-            padding: 20px;
-            text-align: center;
-            color: #aaa;
-            font-size: 14px;
-            z-index: 2;
-            position: relative;
-            box-shadow: 0px -6px 20px 0px #abababd1;
-        }
-
-        footer a {
-            color: #4caf50;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #e0e0e0;
-        }
-        .cta-button {
-            background: linear-gradient(90deg, #ff4757, #1e90ff);
-            border: none;
-            padding: 10px 25px;
-            font-size: 16px;
-            color: #fff;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-        }
-
-        .cta-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
-        }
-        header nav {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.cta-button {
-    margin-left: auto;
-}
-#demo-video .demo-video {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#demo-video .demo-video iframe {
-    width: 100%;
-    height: 400px;
-    border-radius: inherit;
-}
-
-#demo-video .demo-video:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
-}
-
     </style>
 </head>
 <body>
-
-    <!-- Шапка -->
-    <header>
-        <div class="nav-container">
-            <nav>
-                <a href="#courses">Курсы</a>
-                <a href="#demo-video">Обзорное Видео</a>
-                <a href="#achievements">Достижения</a>
-                <a href="#reviews">Отзывы</a>
-            </nav>
-            <button class="cta-button" onclick="location.href='sign.html'">Войти в Личный кабинет</button>
+    <div class="loader">
+        <div class="progress-bar">
+            <div class="progress-bar-inner"></div>
         </div>
-    </header>
-
-    <!-- Секция Курсов -->
-    <section id="courses" class="section">
-        <div class="section-title">Выбирай лучшее...</div>
-        <div class="courses-list">
-            <ul>
-                <li onclick="location.href='constructor.html'">Python3</li>
-                <li onclick="location.href='constructor.html'">C/C++</li>
-                <li onclick="location.href='constructor.html'">Frontend</li>
-                <li onclick="location.href='constructor.html'">Harvard курс</li>
-                <li onclick="location.href='constructor.html'">ОГЭ-Информатика</li>
-                <li onclick="location.href='constructor2.html'">Помощь в дз/лабах..</li>
-            </ul>
-        </div>
-    </section>
-    
-    <!-- Секция Демо Видео -->
-    <section id="demo-video" class="section2">
-        <div class="section-title">Обзорное Видео</div>
-        <div class="demo-video">
-            <iframe 
-                width="150%" 
-                height="400px" 
-                src="https://www.youtube.com/embed/CAOkZVmDABg?autoplay=1&si=M4m-5Odq2dJGGwEg" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    </section>
-    
-    
-    <!-- Секция Достижений -->
-    <section id="achievements" class="section">
-        <div class="section-title">Что вы достигнете?</div>
-        <div class="achievements-container">
-            <div class="achievement">Изучите популярные языки программирования</div>
-            <div class="achievement">Пройдете множество испытаний (лаб, тестов, заданий и тп)</div>
-            <div class="achievement">Получите сертификат об успешном окончании курса</div>
-            <div class="achievement">Получите практический опыт работы</div>
-            <div class="achievement">Освоите востребованную профессию</div>
-            <div class="achievement">Сдадите ОГЭ по информатике как минимум на 4</div>
-        </div>
-    </section>
-
-    <!-- Секция Отзывов -->
-    <section id="reviews" class="section">
-        <div class="section-title">Отзывы</div>
-        <div class="reviews-container">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <h3>Алексей. Н</h3>
-                        <p>Отличные курсы! Много полезной информации и профессиональный преподаватель.</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <h3>Мария. Л</h3>
-                        <p>Курсы помогли мне успешно подготовиться к экзаменам (к огэ). <br/>Очень рекомендую!</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <h3>Илья. П</h3>
-                        <p>Удобный формат обучения и отличное сообщество. <br/>Спасибо за поддержку!</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <h3>Катя. Л</h3>
-                        <p>Всего за 1 месяц я уже изучила основы Python. Очень быстро <br/>и качественно!</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <h3>Петр. В</h3>
-                        <p>Рекомендую всем брать месячную оплату - это примерно на <br/>800-1200 рублей выгоднее! Брал курс по C++, все понравилось, все было интересно и просто)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer>
-        <p>&copy; 2024 ANDREY-IT. Все права защищены.</p>
-        <p>
-            <a href="#courses">Курсы</a> |
-            <a href="#demo-video">Демо Видео</a> |
-            <a href="#achievements">Достижения</a> |
-            <a href="#reviews">Отзывы</a>
-        </p>
-    </footer>
+        <p>Loading...</p>
+    </div>
 
     <script>
-        // Скрипт для плавного скролла
-        document.querySelectorAll('header nav a, footer a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Инициализация Swiper
-        document.addEventListener('DOMContentLoaded', () => {
-            const swiper = new Swiper('.swiper-container', {
-                loop: true,
-                autoplay: {
-                    delay: 5000, // Интервал между слайдами
-                    disableOnInteraction: false
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                touchEventsTarget: 'container',
-            });
+        document.addEventListener("DOMContentLoaded", function() {
+            // Задержка для симуляции загрузки
+            setTimeout(function() {
+                // Перенаправление на сайт
+                window.location.href = "https://genial-professionals-537433.framer.app/";
+            }, 3000); // 3 секунды ожидания
         });
     </script>
 </body>
