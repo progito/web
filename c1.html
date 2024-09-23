@@ -537,11 +537,12 @@
             cell21_t4.innerHTML = `<a href="lections/py/EX.pdf" target="_blank">Ссылка</a><br>`;
             
             // Вторая строка данных
+          
             let row2_t4 = table4.insertRow();
             let cell12_t4 = row2_t4.insertCell(0);
             let cell22_t4 = row2_t4.insertCell(1);
             cell12_t4.innerHTML = 'Требование Оформления Отчетной Работы. ';
-            cell22_t4.innerHTML = `<a href="lections/py/TW_.docx" target="_blank">Ссылка</a><br>`;
+            cell22_t4.innerHTML = `<a href="lections/py/TW_.docx" target="_blank" onclick="event.preventDefault(); window.open('lections/py/TW_.docx', '_blank'); return false;">Ссылка</a><br>`;
 
             // Добавить таблицу в блок с классом "t"
             document.querySelector('.t').appendChild(table);
